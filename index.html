@@ -3,410 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>NutriPlan — Plan Alimentar Personalizat</title>
+<title>NutriPlan România — 30 Zile</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-:root{
-  --sage:#3D7A57;--sage-dk:#1E4D35;--sage-lt:#EBF5EE;--sage-md:#2D6347;
-  --rose:#C0604A;--rose-lt:#FBF0ED;
-  --amber:#A06B10;--amber-lt:#FBF3E2;
-  --plum:#6B4C8A;--plum-lt:#F3EEF9;
-  --gold:#B8860B;
-  --bg:#F9F6F1;--card:#FFFFFF;
-  --txt:#1A1916;--muted:#7A7570;--faint:#EDE9E3;--border:#E4DDD5;
-  --r:14px;--r-sm:8px
-}
+:root{--sage:#3D7A57;--sage-dk:#1E4D35;--sage-lt:#EBF5EE;--rose:#C0604A;--rose-lt:#FBF0ED;--amber:#A06B10;--amber-lt:#FBF3E2;--plum:#6B4C8A;--plum-lt:#F3EEF9;--bg:#F9F6F1;--card:#FFFFFF;--txt:#1A1916;--muted:#7A7570;--faint:#EDE9E3;--border:#E4DDD5;--r:14px}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
- 
-/* ══════════════════════════════════════
-   ONBOARDING SCREEN
-══════════════════════════════════════ */
-#onboarding{
-  min-height:100vh;
-  background:linear-gradient(160deg,var(--sage-dk) 0%,#2a5c40 50%,#1a3d2a 100%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:40px 20px calc(40px + env(safe-area-inset-bottom,0));
-  position:relative;overflow:hidden
-}
-#onboarding::before{
-  content:'';position:absolute;width:400px;height:400px;
-  border-radius:50%;background:rgba(255,255,255,.03);
-  top:-100px;right:-100px
-}
-#onboarding::after{
-  content:'';position:absolute;width:250px;height:250px;
-  border-radius:50%;background:rgba(255,255,255,.03);
-  bottom:-80px;left:-60px
-}
- 
-.ob-logo{
-  font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:400;
-  letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5);
-  margin-bottom:32px
-}
-.ob-title{
-  font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;
-  color:#fff;text-align:center;line-height:1.15;margin-bottom:8px
-}
+#onboarding{min-height:100vh;background:linear-gradient(160deg,var(--sage-dk) 0%,#2a5c40 50%,#1a3d2a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px calc(40px + env(safe-area-inset-bottom,0));position:relative;overflow:hidden}
+#onboarding::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,.03);top:-100px;right:-100px}
+.ob-logo{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:24px}
+.ob-title{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:#fff;text-align:center;line-height:1.15;margin-bottom:6px}
 .ob-title em{font-style:italic;font-weight:400;color:#9FE1CB}
-.ob-sub{
-  font-size:13px;color:rgba(255,255,255,.55);text-align:center;
-  line-height:1.7;margin-bottom:36px;max-width:300px
-}
- 
-.ob-card{
-  background:rgba(255,255,255,.07);backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.12);border-radius:20px;
-  padding:28px 24px;width:100%;max-width:400px
-}
- 
-.ob-step{display:none}
-.ob-step.on{display:block;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
- 
-.ob-step-label{
-  font-size:9px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
-  color:rgba(255,255,255,.4);margin-bottom:6px
-}
-.ob-step-title{
-  font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;
-  color:#fff;margin-bottom:20px;line-height:1.3
-}
- 
-/* Form elements */
-.ob-row{display:flex;gap:10px;margin-bottom:14px}
-.ob-field{flex:1;display:flex;flex-direction:column;gap:5px}
-.ob-field label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}
-.ob-field input,.ob-field select{
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
-  border-radius:10px;padding:12px 14px;font-size:15px;font-family:'Outfit',sans-serif;
-  color:#fff;outline:none;transition:border .2s;width:100%
-}
+.ob-sub{font-size:12px;color:rgba(255,255,255,.5);text-align:center;line-height:1.7;margin-bottom:28px;max-width:300px}
+.ob-card{background:rgba(255,255,255,.07);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:22px 20px;width:100%;max-width:400px}
+.ob-step{display:none}.ob-step.on{display:block;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.ob-step-label{font-size:9px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px}
+.ob-step-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#fff;margin-bottom:16px;line-height:1.3}
+.ob-row{display:flex;gap:10px;margin-bottom:11px}
+.ob-field{flex:1;display:flex;flex-direction:column;gap:4px}
+.ob-field label{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.ob-field input{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:11px 12px;font-size:15px;font-family:'Outfit',sans-serif;color:#fff;outline:none;transition:border .2s;width:100%}
 .ob-field input::placeholder{color:rgba(255,255,255,.3)}
-.ob-field input:focus,.ob-field select:focus{border-color:rgba(255,255,255,.4)}
-.ob-field select option{background:#1E4D35;color:#fff}
- 
-/* Gender toggle */
-.gender-toggle{display:flex;gap:8px;margin-bottom:14px}
-.gender-btn{
-  flex:1;padding:12px;border-radius:10px;border:1.5px solid rgba(255,255,255,.15);
-  background:transparent;color:rgba(255,255,255,.6);font-family:'Outfit',sans-serif;
-  font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;text-align:center
-}
+.ob-field input:focus{border-color:rgba(255,255,255,.4)}
+.gender-toggle{display:flex;gap:8px;margin-bottom:11px}
+.gender-btn{flex:1;padding:11px;border-radius:10px;border:1.5px solid rgba(255,255,255,.15);background:transparent;color:rgba(255,255,255,.6);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s}
 .gender-btn.on{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.4);color:#fff}
- 
-/* Activity & goal options */
-.ob-options{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
-.ob-opt{
-  padding:12px 14px;border-radius:10px;border:1.5px solid rgba(255,255,255,.12);
-  background:transparent;color:rgba(255,255,255,.6);font-family:'Outfit',sans-serif;
-  font-size:13px;cursor:pointer;transition:all .2s;text-align:left;
-  display:flex;align-items:center;gap:10px
-}
-.ob-opt .ob-opt-icon{font-size:18px;width:28px;text-align:center}
+.ob-options{display:flex;flex-direction:column;gap:7px;margin-bottom:11px}
+.ob-opt{padding:11px 12px;border-radius:10px;border:1.5px solid rgba(255,255,255,.12);background:transparent;color:rgba(255,255,255,.6);font-family:'Outfit',sans-serif;font-size:13px;cursor:pointer;transition:all .2s;text-align:left;display:flex;align-items:center;gap:10px}
+.ob-opt-icon{font-size:16px;width:24px;text-align:center}
 .ob-opt.on{background:rgba(159,225,203,.15);border-color:#9FE1CB;color:#fff}
-.ob-opt .ob-opt-sub{font-size:10px;color:rgba(255,255,255,.4);margin-top:2px}
- 
-/* Post preference */
-.post-info{
-  background:rgba(159,225,203,.1);border:1px solid rgba(159,225,203,.2);
-  border-radius:10px;padding:12px 14px;margin-bottom:14px;
-  font-size:12px;color:rgba(255,255,255,.7);line-height:1.5
-}
- 
-/* Progress bar */
-.ob-progress{display:flex;gap:5px;margin-bottom:24px}
+.ob-opt-sub{font-size:10px;color:rgba(255,255,255,.4);margin-top:1px}
+.ob-progress{display:flex;gap:5px;margin-bottom:18px}
 .ob-prog-dot{height:3px;flex:1;border-radius:2px;background:rgba(255,255,255,.15);transition:background .3s}
 .ob-prog-dot.on{background:#9FE1CB}
- 
-/* Buttons */
-.ob-btn{
-  width:100%;padding:15px;border-radius:12px;border:none;
-  background:#9FE1CB;color:var(--sage-dk);font-family:'Outfit',sans-serif;
-  font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;margin-top:8px
-}
-.ob-btn:hover{background:#7ED4B8;transform:translateY(-1px)}
-.ob-btn-sec{
-  width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.2);
-  background:transparent;color:rgba(255,255,255,.6);font-family:'Outfit',sans-serif;
-  font-size:13px;cursor:pointer;margin-top:8px
-}
- 
-/* Results card */
-.ob-results{text-align:center;padding:8px 0}
-.ob-results .big-num{
-  font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:700;
-  color:#9FE1CB;line-height:1
-}
-.ob-results .big-unit{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:16px}
-.ob-results-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0}
-.ob-res-chip{
-  background:rgba(255,255,255,.08);border-radius:10px;padding:12px 8px;
-  text-align:center
-}
-.ob-res-chip .v{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#fff}
-.ob-res-chip .l{font-size:9px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
-.ob-timeline{
-  background:rgba(255,255,255,.06);border-radius:10px;padding:14px;
-  font-size:12px;color:rgba(255,255,255,.7);line-height:1.6;margin-top:8px;text-align:left
-}
- 
-/* ══════════════════════════════════════
-   MAIN APP
-══════════════════════════════════════ */
+.ob-btn{width:100%;padding:13px;border-radius:12px;border:none;background:#9FE1CB;color:var(--sage-dk);font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;margin-top:6px}
+.ob-btn:hover{background:#7ED4B8}
+.ob-btn-sec{width:100%;padding:11px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.6);font-family:'Outfit',sans-serif;font-size:13px;cursor:pointer;margin-top:5px}
+.ob-results{text-align:center}
+.big-num{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:700;color:#9FE1CB;line-height:1}
+.big-unit{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:12px}
+.ob-results-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:12px 0}
+.ob-res-chip{background:rgba(255,255,255,.08);border-radius:10px;padding:10px 7px;text-align:center}
+.ob-res-chip .v{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff}
+.ob-res-chip .l{font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em;margin-top:1px}
+.ob-timeline{background:rgba(255,255,255,.06);border-radius:10px;padding:11px;font-size:11px;color:rgba(255,255,255,.7);line-height:1.6;margin-top:6px;text-align:left}
+.post-info-box{background:rgba(159,225,203,.1);border:1px solid rgba(159,225,203,.2);border-radius:10px;padding:10px 12px;margin-top:6px;font-size:11px;color:rgba(255,255,255,.7);line-height:1.5}
 #app{display:none}
- 
-.app-hdr{
-  background:var(--sage-dk);
-  padding:calc(44px + env(safe-area-inset-top,0)) 20px 18px;
-  position:relative;overflow:hidden
-}
+.app-hdr{background:var(--sage-dk);padding:calc(44px + env(safe-area-inset-top,0)) 20px 16px;position:relative;overflow:hidden}
 .app-hdr::before{content:'';position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.04);right:-40px;top:-50px}
-.hdr-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px}
-.hdr-greeting{font-size:11px;color:rgba(255,255,255,.5);margin-bottom:3px}
-.hdr-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#fff;line-height:1.2}
-.hdr-reset{
-  padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);
-  background:transparent;color:rgba(255,255,255,.6);font-size:10px;font-weight:500;
-  font-family:'Outfit',sans-serif;cursor:pointer;white-space:nowrap
-}
-.hdr-stats{display:flex;gap:10px}
-.hdr-stat{
-  flex:1;background:rgba(255,255,255,.08);border-radius:10px;padding:10px 8px;text-align:center
-}
-.hdr-stat .sv{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff}
-.hdr-stat .sl{font-size:9px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.05em;margin-top:1px}
- 
-/* Week tabs */
-.week-wrap{background:var(--sage-dk);padding:10px 16px 0;display:flex;gap:5px;overflow-x:auto;scrollbar-width:none}
+.hdr-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.hdr-greeting{font-size:10px;color:rgba(255,255,255,.5);margin-bottom:2px}
+.hdr-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:#fff;line-height:1.2}
+.hdr-reset{padding:5px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.6);font-size:10px;font-family:'Outfit',sans-serif;cursor:pointer}
+.hdr-stats{display:flex;gap:7px}
+.hdr-stat{flex:1;background:rgba(255,255,255,.08);border-radius:10px;padding:8px 6px;text-align:center}
+.hdr-stat .sv{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:#fff}
+.hdr-stat .sl{font-size:8px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.04em;margin-top:1px}
+.week-wrap{background:var(--sage-dk);padding:9px 14px 0;display:flex;gap:5px;overflow-x:auto;scrollbar-width:none}
 .week-wrap::-webkit-scrollbar{display:none}
-.wtab{
-  flex-shrink:0;padding:8px 16px 12px;border-radius:9px 9px 0 0;border:none;
-  background:transparent;font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;
-  color:rgba(255,255,255,.4);cursor:pointer;transition:all .2s;white-space:nowrap
-}
+.wtab{flex-shrink:0;padding:7px 14px 11px;border-radius:9px 9px 0 0;border:none;background:transparent;font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.4);cursor:pointer;transition:all .2s;white-space:nowrap}
 .wtab.on{background:var(--bg);color:var(--txt)}
- 
-/* Week/Day views */
 .wview{display:none}.wview.on{display:block}
-.day-nav{
-  background:var(--bg);padding:12px 16px 8px;border-bottom:1px solid var(--border);
-  display:flex;gap:5px;overflow-x:auto;scrollbar-width:none
-}
+.day-nav{background:var(--bg);padding:11px 14px 7px;border-bottom:1px solid var(--border);display:flex;gap:5px;overflow-x:auto;scrollbar-width:none}
 .day-nav::-webkit-scrollbar{display:none}
-.dpill{
-  flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:1px;
-  padding:7px 11px 9px;border-radius:9px;border:1.5px solid transparent;
-  background:transparent;cursor:pointer;transition:all .2s
-}
+.dpill{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 10px 8px;border-radius:9px;border:1.5px solid transparent;background:transparent;cursor:pointer;transition:all .2s}
 .dpill.on{background:var(--card);border-color:var(--border)}
 .dpill .da{font-size:8px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 .dpill.on .da{color:var(--txt)}
-.dpill .dn{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--muted)}
+.dpill .dn{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--muted)}
 .dpill.on .dn{color:var(--txt)}
 .dpill .dt{width:5px;height:5px;border-radius:50%;margin-top:2px}
 .dpill .dt.p{background:#7EC8A0}.dpill .dt.n{background:#E8A87C}
- 
-/* Day content */
-.content{padding:14px 16px 80px}
+.content{padding:13px 15px 80px}
 .dview2{display:none;animation:fi .2s ease}.dview2.on{display:block}
 @keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
- 
-.day-top{margin-bottom:14px}
-.dtype{
-  display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;padding:4px 11px;border-radius:20px;margin-bottom:8px
-}
+.day-top{margin-bottom:13px}
+.dtype{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:7px}
 .dtype.post{background:var(--sage-lt);color:var(--sage-dk)}
 .dtype.norm{background:#FFF3EC;color:#8B3A20}
 .dtype::before{content:'';width:5px;height:5px;border-radius:50%}
 .dtype.post::before{background:var(--sage)}.dtype.norm::before{background:var(--rose)}
- 
-.kcal-day{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;line-height:1}
-.kcal-budget{
-  display:flex;align-items:center;gap:8px;margin:4px 0 10px;
-  font-size:11px;color:var(--muted)
-}
+.kcal-day{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:700;line-height:1}
+.kcal-budget{display:flex;align-items:center;gap:8px;margin:3px 0 9px;font-size:10px;color:var(--muted)}
 .budget-bar{flex:1;height:4px;background:var(--faint);border-radius:2px;overflow:hidden}
 .budget-fill{height:100%;background:var(--sage);border-radius:2px;transition:width .5s}
- 
-.post-note{
-  background:var(--sage-lt);border:1px solid #A8D5BB;border-radius:10px;
-  padding:10px 12px;font-size:11px;color:var(--sage-dk);line-height:1.5;margin-bottom:12px
-}
- 
-.sec-hdr{
-  display:flex;align-items:center;gap:8px;margin:14px 0 8px;
-  font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)
-}
+.post-note{background:var(--sage-lt);border:1px solid #A8D5BB;border-radius:10px;padding:9px 11px;font-size:11px;color:var(--sage-dk);line-height:1.5;margin-bottom:11px}
+.sec-hdr{display:flex;align-items:center;gap:8px;margin:13px 0 7px;font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
 .sec-hdr::after{content:'';flex:1;height:1px;background:var(--border)}
- 
-/* Meal cards */
-.mc{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin-bottom:8px;overflow:hidden}
+.mc{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin-bottom:7px;overflow:hidden}
 .mc.dessert{border-color:#E8C9BE}
-.mc-hdr{display:flex;align-items:flex-start;justify-content:space-between;padding:13px 15px;cursor:pointer;user-select:none}
+.mc-hdr{display:flex;align-items:flex-start;justify-content:space-between;padding:12px 14px;cursor:pointer;user-select:none}
 .mc-left{flex:1;min-width:0}
-.mc-type{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.mc-type{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
 .mc-type.d{color:var(--rose)}
 .mc-name{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;font-style:italic;line-height:1.3}
-.mc-info{font-size:10px;color:var(--muted);margin-top:4px;display:flex;flex-wrap:wrap;gap:8px}
-.mc-tags{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px}
-.tag{font-size:8px;font-weight:600;padding:2px 7px;border-radius:6px;background:var(--sage-lt);color:var(--sage-dk)}
+.mc-info{font-size:10px;color:var(--muted);margin-top:3px;display:flex;flex-wrap:wrap;gap:7px}
+.mc-tags{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+.tag{font-size:8px;font-weight:600;padding:2px 6px;border-radius:6px;background:var(--sage-lt);color:var(--sage-dk)}
 .tag.h{background:var(--plum-lt);color:var(--plum)}
+.tag.ro{background:#FFF0E0;color:#7A3500}
+.vbadge{font-size:8px;font-weight:700;padding:2px 6px;border-radius:6px;background:#E8F5E9;color:#2E7D32}
 .chev{width:26px;height:26px;flex-shrink:0;background:var(--faint);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-left:8px;transition:all .2s}
 .chev svg{transition:transform .25s}
 .mc.open .chev{background:var(--sage-lt)}.mc.open .chev svg{transform:rotate(180deg)}
 .mc-body{display:none;border-top:1px solid var(--border)}.mc.open .mc-body{display:block}
 .tabs{display:flex;background:var(--faint)}
-.tab{flex:1;padding:9px 4px;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:center;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
+.tab{flex:1;padding:8px 3px;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:center;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
 .tab.on{color:var(--sage-dk);border-bottom-color:var(--sage)}
-.panel{display:none;padding:13px 15px 16px}.panel.on{display:block}
+.panel{display:none;padding:12px 14px 16px}.panel.on{display:block}
 .ings{list-style:none}
 .ing{display:flex;align-items:flex-start;gap:7px;padding:5px 0;border-bottom:1px solid var(--faint);font-size:12px;line-height:1.4}
 .ing:last-child{border:none}
-.ing-ic{width:18px;height:18px;background:var(--sage-lt);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ing-ic svg{width:8px;height:8px;fill:var(--sage)}
-.ing-q{font-weight:600;font-size:11px;color:var(--sage-dk);min-width:62px;flex-shrink:0}
+.ing-ic{width:17px;height:17px;background:var(--sage-lt);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ing-ic svg{width:7px;height:7px;fill:var(--sage)}
+.ing-q{font-weight:600;font-size:11px;color:var(--sage-dk);min-width:58px;flex-shrink:0}
 .steps-ol{list-style:none}
 .step{display:flex;gap:9px;padding:7px 0;border-bottom:1px solid var(--faint);font-size:12px;line-height:1.55}
 .step:last-child{border:none}
-.sn{min-width:20px;height:20px;background:var(--sage-dk);color:#fff;border-radius:50%;font-size:9px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sn{min-width:19px;height:19px;background:var(--sage-dk);color:#fff;border-radius:50%;font-size:9px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .macros{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:8px}
 .mac{background:var(--faint);border-radius:8px;padding:8px 3px;text-align:center}
-.mac .mv{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600}
-.mac .ml{font-size:7px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:1px}
-.tip-box{background:var(--amber-lt);border-left:3px solid var(--amber);border-radius:0 7px 7px 0;padding:9px 11px;font-size:11px;color:#5a3a00;line-height:1.55;margin-top:8px}
-.horm-box{background:var(--plum-lt);border-left:3px solid var(--plum);border-radius:0 7px 7px 0;padding:9px 11px;font-size:11px;color:#4a2d6a;line-height:1.55;margin-top:6px}
-.adj-note{background:#EDF7F0;border-radius:7px;padding:7px 10px;font-size:10px;color:var(--sage-dk);margin-top:6px;font-weight:500}
+.mac .mv{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600}
+.mac .ml{font-size:7px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:1px}
+.tip-box{background:var(--amber-lt);border-left:3px solid var(--amber);border-radius:0 7px 7px 0;padding:8px 10px;font-size:11px;color:#5a3a00;line-height:1.55;margin-top:7px}
+.horm-box{background:var(--plum-lt);border-left:3px solid var(--plum);border-radius:0 7px 7px 0;padding:8px 10px;font-size:11px;color:#4a2d6a;line-height:1.55;margin-top:5px}
+.local-box{background:#FFF8F0;border-left:3px solid #E8851A;border-radius:0 7px 7px 0;padding:8px 10px;font-size:11px;color:#7A3500;line-height:1.55;margin-top:5px}
 </style>
 </head>
 <body>
- 
-<!-- ═══════════════════════════════════════════════════
-     ONBOARDING
-═══════════════════════════════════════════════════ -->
 <div id="onboarding">
-  <div class="ob-logo">NutriPlan</div>
-  <div class="ob-title">Plan alimentar<br><em>personalizat</em></div>
-  <div class="ob-sub">Calculăm caloriile și rețetele potrivite exact pentru tine, pe o lună întreagă</div>
- 
+  <div class="ob-logo">NutriPlan România</div>
+  <div class="ob-title">30 de zile cu<br><em>ingrediente locale</em></div>
+  <div class="ob-sub">Fructe și legume românești · Zero repetiții · Echilibru hormonal natural · Rețete tradiționale adaptate</div>
   <div class="ob-card">
     <div class="ob-progress" id="obProg">
-      <div class="ob-prog-dot on"></div>
-      <div class="ob-prog-dot"></div>
-      <div class="ob-prog-dot"></div>
-      <div class="ob-prog-dot"></div>
+      <div class="ob-prog-dot on"></div><div class="ob-prog-dot"></div>
+      <div class="ob-prog-dot"></div><div class="ob-prog-dot"></div>
     </div>
- 
-    <!-- Step 1: Date personale -->
     <div class="ob-step on" id="obS1">
       <div class="ob-step-label">Pasul 1 din 4</div>
       <div class="ob-step-title">Date personale</div>
       <div class="gender-toggle">
-        <button class="gender-btn on" id="gF" onclick="setGender('F')">Femeie</button>
-        <button class="gender-btn" id="gM" onclick="setGender('M')">Bărbat</button>
+        <button type="button" class="gender-btn on" id="gF" onclick="setGender('F')">Femeie</button>
+        <button type="button" class="gender-btn" id="gM" onclick="setGender('M')">Bărbat</button>
       </div>
       <div class="ob-row">
-        <div class="ob-field">
-          <label>Vârsta (ani)</label>
-          <input type="number" id="inAge" placeholder="Ex: 35" min="16" max="80">
-        </div>
-        <div class="ob-field">
-          <label>Înălțime (cm)</label>
-          <input type="number" id="inH" placeholder="Ex: 165" min="140" max="220">
-        </div>
+        <div class="ob-field"><label>Vârsta (ani)</label><input type="number" id="inAge" placeholder="Ex: 35" min="16" max="80"></div>
+        <div class="ob-field"><label>Înălțime (cm)</label><input type="number" id="inH" placeholder="Ex: 165" min="140" max="220"></div>
       </div>
       <div class="ob-row">
-        <div class="ob-field">
-          <label>Greutate actuală (kg)</label>
-          <input type="number" id="inW" placeholder="Ex: 72" min="40" max="200">
-        </div>
-        <div class="ob-field">
-          <label>Greutate dorită (kg)</label>
-          <input type="number" id="inTW" placeholder="Ex: 60" min="40" max="200">
-        </div>
+        <div class="ob-field"><label>Greutate actuală (kg)</label><input type="number" id="inW" placeholder="Ex: 72" min="40" max="200"></div>
+        <div class="ob-field"><label>Greutate dorită (kg)</label><input type="number" id="inTW" placeholder="Ex: 60" min="40" max="200"></div>
       </div>
-      <button class="ob-btn" onclick="goStep(2)">Continuă →</button>
+      <button type="button" class="ob-btn" onclick="goStep(2)">Continuă →</button>
     </div>
- 
-    <!-- Step 2: Activitate -->
     <div class="ob-step" id="obS2">
       <div class="ob-step-label">Pasul 2 din 4</div>
-      <div class="ob-step-title">Nivel de activitate fizică</div>
+      <div class="ob-step-title">Nivel de activitate</div>
       <div class="ob-options">
-        <button class="ob-opt" data-act="1.2" onclick="setOpt(this,'act')">
-          <span class="ob-opt-icon">🪑</span>
-          <div><div>Sedentar</div><div class="ob-opt-sub">Birou, puțin mers pe jos</div></div>
-        </button>
-        <button class="ob-opt" data-act="1.375" onclick="setOpt(this,'act')">
-          <span class="ob-opt-icon">🚶</span>
-          <div><div>Moderat activ</div><div class="ob-opt-sub">Mers zilnic, urc scări</div></div>
-        </button>
-        <button class="ob-opt" data-act="1.55" onclick="setOpt(this,'act')">
-          <span class="ob-opt-icon">🏃</span>
-          <div><div>Activ</div><div class="ob-opt-sub">Sport de 2-3 ori/săptămână</div></div>
-        </button>
-        <button class="ob-opt" data-act="1.725" onclick="setOpt(this,'act')">
-          <span class="ob-opt-icon">🏋️</span>
-          <div><div>Foarte activ</div><div class="ob-opt-sub">Sport zilnic sau muncă fizică</div></div>
-        </button>
+        <button type="button" class="ob-opt" data-act="1.2" onclick="setOpt(this,'act')"><span class="ob-opt-icon">🪑</span><div><div>Sedentar</div><div class="ob-opt-sub">Birou, puțin mers</div></div></button>
+        <button type="button" class="ob-opt" data-act="1.375" onclick="setOpt(this,'act')"><span class="ob-opt-icon">🚶</span><div><div>Moderat activ</div><div class="ob-opt-sub">Mers zilnic, urc scări</div></div></button>
+        <button type="button" class="ob-opt" data-act="1.55" onclick="setOpt(this,'act')"><span class="ob-opt-icon">🏃</span><div><div>Activ</div><div class="ob-opt-sub">Sport 2-3×/săptămână</div></div></button>
+        <button type="button" class="ob-opt" data-act="1.725" onclick="setOpt(this,'act')"><span class="ob-opt-icon">🏋️</span><div><div>Foarte activ</div><div class="ob-opt-sub">Sport zilnic sau muncă fizică</div></div></button>
       </div>
-      <button class="ob-btn" onclick="goStep(3)">Continuă →</button>
-      <button class="ob-btn-sec" onclick="goStep(1)">← Înapoi</button>
+      <button type="button" class="ob-btn" onclick="goStep(3)">Continuă →</button>
+      <button type="button" class="ob-btn-sec" onclick="goStep(1)">← Înapoi</button>
     </div>
- 
-    <!-- Step 3: Obiectiv -->
     <div class="ob-step" id="obS3">
       <div class="ob-step-label">Pasul 3 din 4</div>
       <div class="ob-step-title">Obiectivul tău</div>
       <div class="ob-options">
-        <button class="ob-opt" data-def="-250" onclick="setOpt(this,'goal')">
-          <span class="ob-opt-icon">🌱</span>
-          <div><div>Slăbire ușoară</div><div class="ob-opt-sub">~0.5 kg/săptămână · deficit 250 kcal</div></div>
-        </button>
-        <button class="ob-opt" data-def="-500" onclick="setOpt(this,'goal')">
-          <span class="ob-opt-icon">⚡</span>
-          <div><div>Slăbire moderată</div><div class="ob-opt-sub">~1 kg/săptămână · deficit 500 kcal</div></div>
-        </button>
-        <button class="ob-opt" data-def="-750" onclick="setOpt(this,'goal')">
-          <span class="ob-opt-icon">🔥</span>
-          <div><div>Slăbire accelerată</div><div class="ob-opt-sub">~1.5 kg/săptămână · deficit 750 kcal</div></div>
-        </button>
-        <button class="ob-opt" data-def="0" onclick="setOpt(this,'goal')">
-          <span class="ob-opt-icon">⚖️</span>
-          <div><div>Menținere</div><div class="ob-opt-sub">Mănânci la calorii de menținere</div></div>
-        </button>
+        <button type="button" class="ob-opt" data-def="-250" onclick="setOpt(this,'goal')"><span class="ob-opt-icon">🌱</span><div><div>Slăbire ușoară</div><div class="ob-opt-sub">~0.5 kg/săptămână · -250 kcal</div></div></button>
+        <button type="button" class="ob-opt" data-def="-500" onclick="setOpt(this,'goal')"><span class="ob-opt-icon">⚡</span><div><div>Slăbire moderată</div><div class="ob-opt-sub">~1 kg/săptămână · -500 kcal</div></div></button>
+        <button type="button" class="ob-opt" data-def="-750" onclick="setOpt(this,'goal')"><span class="ob-opt-icon">🔥</span><div><div>Slăbire accelerată</div><div class="ob-opt-sub">~1.5 kg/săptămână · -750 kcal</div></div></button>
+        <button type="button" class="ob-opt" data-def="0" onclick="setOpt(this,'goal')"><span class="ob-opt-icon">⚖️</span><div><div>Menținere</div><div class="ob-opt-sub">Calorii de menținere</div></div></button>
       </div>
-      <div class="post-info" style="background:rgba(159,225,203,.1);border:1px solid rgba(159,225,203,.2);border-radius:10px;padding:11px 13px;font-size:11px;color:rgba(255,255,255,.7);line-height:1.5;margin-top:4px">
-        <strong style="color:#9FE1CB">Zile de post:</strong> Luni, Miercuri, Vineri — fără carne, ouă, lactate. Mierea este permisă. În zilele de post caloriile sunt reduse cu ~35%.
-      </div>
-      <button class="ob-btn" onclick="goStep(4)">Calculează →</button>
-      <button class="ob-btn-sec" onclick="goStep(2)">← Înapoi</button>
+      <div class="post-info-box"><strong style="color:#9FE1CB">Post vegan:</strong> Luni, Miercuri, Vineri — fără carne, ouă, lactate. Mierea este permisă. Calorii reduse ~35%.</div>
+      <button type="button" class="ob-btn" onclick="goStep(4)">Calculează →</button>
+      <button type="button" class="ob-btn-sec" onclick="goStep(2)">← Înapoi</button>
     </div>
- 
-    <!-- Step 4: Rezultate -->
     <div class="ob-step" id="obS4">
-      <div class="ob-step-label">Rezultatele tale</div>
-      <div class="ob-step-title">Planul tău caloric</div>
+      <div class="ob-step-label">Planul tău</div>
+      <div class="ob-step-title">Rezultate personalizate</div>
       <div class="ob-results" id="obResults"></div>
-      <button class="ob-btn" onclick="startApp()">Deschide planul meu →</button>
-      <button class="ob-btn-sec" onclick="goStep(3)">← Modifică</button>
+      <button type="button" class="ob-btn" onclick="startApp()">Deschide cele 30 de zile →</button>
+      <button type="button" class="ob-btn-sec" onclick="goStep(3)">← Modifică</button>
     </div>
   </div>
 </div>
  
-<!-- ═══════════════════════════════════════════════════
-     MAIN APP
-═══════════════════════════════════════════════════ -->
 <div id="app">
   <div class="app-hdr">
     <div class="hdr-top">
-      <div>
-        <div class="hdr-greeting">Bun venit,</div>
-        <div class="hdr-name" id="appName">—</div>
-      </div>
-      <button class="hdr-reset" onclick="resetApp()">Schimbă profilul</button>
+      <div><div class="hdr-greeting">Plan alimentar românesc</div><div class="hdr-name" id="appName">—</div></div>
+      <button type="button" class="hdr-reset" onclick="resetApp()">Schimbă profilul</button>
     </div>
     <div class="hdr-stats" id="appStats"></div>
   </div>
@@ -415,354 +206,324 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--txt);min-h
 </div>
  
 <script>
-// ═══════════════════════════════════════════════════
-// USER STATE
-// ═══════════════════════════════════════════════════
-let U = {
-  gender:'F', age:0, height:0, weight:0, targetWeight:0,
-  actMult:1.375, deficit:-500,
-  bmr:0, tdee:0, target:0, postTarget:0,
-  name:'', weeks:0
-};
- 
-let selAct=null, selGoal=null;
- 
-function setGender(g){
-  U.gender=g;
-  document.getElementById('gF').classList.toggle('on',g==='F');
-  document.getElementById('gM').classList.toggle('on',g==='M');
-}
-function setOpt(btn,type){
-  const parent=btn.closest('.ob-options');
-  parent.querySelectorAll('.ob-opt').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
-  if(type==='act') U.actMult=parseFloat(btn.dataset.act);
-  if(type==='goal') U.deficit=parseInt(btn.dataset.def);
-}
+let U={gender:'F',age:0,height:0,weight:0,targetWeight:0,actMult:1.375,deficit:-500,bmr:0,tdee:0,target:0,postTarget:0,weeks:0};
+function setGender(g){U.gender=g;document.getElementById('gF').classList.toggle('on',g==='F');document.getElementById('gM').classList.toggle('on',g==='M');}
+function setOpt(btn,type){btn.closest('.ob-options').querySelectorAll('.ob-opt').forEach(b=>b.classList.remove('on'));btn.classList.add('on');if(type==='act')U.actMult=parseFloat(btn.dataset.act);if(type==='goal')U.deficit=parseInt(btn.dataset.def);}
 function goStep(n){
   if(n===2){
     U.age=parseInt(document.getElementById('inAge').value)||0;
     U.height=parseInt(document.getElementById('inH').value)||0;
     U.weight=parseFloat(document.getElementById('inW').value)||0;
     U.targetWeight=parseFloat(document.getElementById('inTW').value)||0;
-    if(!U.age||!U.height||!U.weight||!U.targetWeight){
-      alert('Te rog completează toate câmpurile!');return;
-    }
-    if(U.targetWeight>=U.weight&&U.deficit<0){U.deficit=0;}
+    if(!U.age||!U.height||!U.weight||!U.targetWeight){alert('Te rog completează toate câmpurile!');return;}
   }
-  if(n===4) calcAndShow();
+  if(n===3&&!document.querySelector('#obS2 .ob-opt.on')){alert('Selectează nivelul de activitate!');return;}
+  if(n===4){if(!document.querySelector('#obS3 .ob-opt.on')){alert('Selectează obiectivul!');return;}calcAndShow();}
   document.querySelectorAll('.ob-step').forEach((s,i)=>s.classList.toggle('on',i===n-1));
   document.querySelectorAll('.ob-prog-dot').forEach((d,i)=>d.classList.toggle('on',i<n));
 }
- 
 function calcAndShow(){
-  // Mifflin-St Jeor
-  if(U.gender==='F'){
-    U.bmr = 10*U.weight + 6.25*U.height - 5*U.age - 161;
-  } else {
-    U.bmr = 10*U.weight + 6.25*U.height - 5*U.age + 5;
-  }
-  U.tdee = Math.round(U.bmr * U.actMult);
-  U.target = Math.max(1200, U.tdee + U.deficit);
-  U.postTarget = Math.round(U.target * 0.65);
- 
-  const diff = Math.abs(U.weight - U.targetWeight);
-  const weeklyLoss = U.deficit===0 ? 0 : Math.abs(U.deficit)/500*0.5;
-  U.weeks = weeklyLoss>0 ? Math.ceil(diff/weeklyLoss) : 0;
- 
-  const goalText = {'-250':'Slăbire ușoară','-500':'Slăbire moderată','-750':'Slăbire accelerată','0':'Menținere'}[String(U.deficit)]||'Menținere';
-  const bmiVal = (U.weight/(U.height/100)**2).toFixed(1);
-  const bmiLabel = bmiVal<18.5?'Subponderal':bmiVal<25?'Normal':bmiVal<30?'Supraponderal':'Obezitate';
- 
-  document.getElementById('obResults').innerHTML=`
-    <div class="big-num">${U.target}</div>
-    <div class="big-unit">kcal/zi în zilele normale</div>
-    <div class="ob-results-grid">
-      <div class="ob-res-chip"><div class="v">${U.bmr}</div><div class="l">BMR (metabol. bază)</div></div>
-      <div class="ob-res-chip"><div class="v">${U.tdee}</div><div class="l">Menținere</div></div>
-      <div class="ob-res-chip"><div class="v">${U.postTarget}</div><div class="l">Kcal zile post</div></div>
-      <div class="ob-res-chip"><div class="v">${bmiVal}</div><div class="l">IMC · ${bmiLabel}</div></div>
-    </div>
-    <div class="ob-timeline">
-      <strong style="color:#9FE1CB">Obiectiv:</strong> ${goalText}<br>
-      ${U.deficit!==0?`De la <strong>${U.weight}kg</strong> la <strong>${U.targetWeight}kg</strong> = <strong>${diff}kg</strong> de slăbit<br>
-      Timp estimat: <strong>~${U.weeks} săptămâni</strong> (${Math.round(U.weeks/4.3)} luni)<br>`:
-      `Menținere la <strong>${U.weight}kg</strong><br>`}
-      Zile de post: <strong>${U.postTarget} kcal</strong> (Luni, Miercuri, Vineri)
-    </div>`;
+  U.bmr=U.gender==='F'?10*U.weight+6.25*U.height-5*U.age-161:10*U.weight+6.25*U.height-5*U.age+5;
+  U.tdee=Math.round(U.bmr*U.actMult);
+  U.target=Math.max(1200,U.tdee+U.deficit);
+  U.postTarget=Math.round(U.target*0.65);
+  const diff=Math.abs(U.weight-U.targetWeight);
+  const wl=U.deficit===0?0:Math.abs(U.deficit)/500*0.5;
+  U.weeks=wl>0?Math.ceil(diff/wl):0;
+  const gt={'-250':'Slăbire ușoară','-500':'Slăbire moderată','-750':'Slăbire accelerată','0':'Menținere'}[String(U.deficit)]||'Menținere';
+  const bmi=(U.weight/(U.height/100)**2).toFixed(1);
+  const bmiL=bmi<18.5?'Subponderal':bmi<25?'Normal':bmi<30?'Supraponderal':'Obezitate';
+  document.getElementById('obResults').innerHTML=`<div class="big-num">${U.target}</div><div class="big-unit">kcal/zi în zilele normale</div><div class="ob-results-grid"><div class="ob-res-chip"><div class="v">${U.bmr}</div><div class="l">BMR</div></div><div class="ob-res-chip"><div class="v">${U.tdee}</div><div class="l">Menținere</div></div><div class="ob-res-chip"><div class="v">${U.postTarget}</div><div class="l">Kcal post</div></div><div class="ob-res-chip"><div class="v">${bmi} <span style="font-size:10px">${bmiL}</span></div><div class="l">IMC</div></div></div><div class="ob-timeline"><strong style="color:#9FE1CB">Obiectiv:</strong> ${gt}<br>${U.deficit!==0?`De la <strong>${U.weight}kg</strong> la <strong>${U.targetWeight}kg</strong> = <strong>${diff}kg</strong><br>Timp estimat: <strong>~${U.weeks} săptămâni</strong><br>`:`Menținere la <strong>${U.weight}kg</strong><br>`}Post vegan (L/M/V): <strong>${U.postTarget} kcal/zi</strong></div>`;
 }
+function startApp(){document.getElementById('onboarding').style.display='none';document.getElementById('app').style.display='block';buildApp();}
+function resetApp(){document.getElementById('onboarding').style.display='flex';document.getElementById('app').style.display='none';document.getElementById('wTabs').innerHTML='';document.getElementById('wViews').innerHTML='';}
  
-function startApp(){
-  document.getElementById('onboarding').style.display='none';
-  document.getElementById('app').style.display='block';
-  buildApp();
-}
-function resetApp(){
-  document.getElementById('onboarding').style.display='flex';
-  document.getElementById('app').style.display='none';
-  document.getElementById('wTabs').innerHTML='';
-  document.getElementById('wViews').innerHTML='';
-}
+// REȚETE — 128 UNICE, 100% INGREDIENTE LOCALE ROMÂNEȘTI
+// Hormonal: lignanele din semințe de in → echilibru estrogen
+//           Magneziu (nuci, seminte) → progesteron
+//           Vitamina D (ouă, pește) → hormoni tiroidieni
+//           Sulforafan (varză, conopidă) → detox hepatic estrogen
+//           Betaină (sfeclă) → detox ficat
+//           Zinc (carne, nuci) → progesteron + testosteron
+//           Fibre (legume, cereale integrale) → eliminare estrogen în exces
+// Post: V=1 = vegan (fara carne/oua/lactate, miere OK)
+const R={
+// ── MIC DEJUN ZILE NORMALE (bfN1-16) ────────────────────────────────────────
+bfN1:{s:"Dimineață",n:"Iaurt cu Fulgi de Ovăz, Nuci și Miere",k:320,p:20,f:10,c:40,t:["probiotice","beta-glucan"],ro:1,h:"Iaurtul românesc furnizează probiotice care reglează microbiomul intestinal — esențial pentru metabolizarea și eliminarea estrogenului în exces.",i:[["250g","iaurt grecesc 2% (Olympus, Zuzu sau Pilos)"],["40g","fulgi de ovăz"],["20g","nuci românești tocate grosier"],["15g","semințe de in măcinate"],["1 ling.","miere de salcâm românească"],["½ ling.","scorțișoară"]],st:["Pune iaurtul în bol.","Adaugă fulgii de ovăz și semințele de in.","Adaugă nucile tocate și scorțișoara.","Stropește cu miere de salcâm."],tip:"Semințele de in trebuie obligatoriu măcinate — întregi nu eliberează lignanii. Macină în blender sau cumpără gata macinate.",local:"Nuci din Oltenia și Moldova · Miere de salcâm din Câmpia Română · Ovăz românesc"},
+bfN2:{s:"Dimineață",n:"Pancakes cu Iaurt și Zmeură Proaspătă",k:360,p:22,f:12,c:40,t:["beta-glucan","antioxidanți"],ro:1,h:"Zmeura conține acid ellagic care reglează activitatea estrogenului și previne proliferarea celulară hormon-dependentă.",i:[["2 buc","ouă"],["50g","iaurt grecesc 2%"],["40g","făină de ovăz românesc"],["½ ling.","praf de copt"],["1 ling.","miere"],["100g","zmeură proaspătă sau congelată"],["½ ling.","scorțișoară"]],st:["Amestecă ouăle cu iaurtul și mierea.","Adaugă treptat făina de ovăz și praful de copt.","Coace în tigaie antiaderentă la foc mic, 2-3 min per parte.","Servește cu zmeura proaspătă deasupra."],tip:"Foc mic = pancakes perfecte. Întoarce doar când apar bule la suprafață.",local:"Zmeură din Apuseni și Carpați · Miere românească"},
+bfN3:{s:"Dimineață",n:"Omletă cu Spanac, Telemea și Roșii",k:340,p:26,f:18,c:16,t:["colină","calciu"],ro:1,h:"Ouăle românești conțin colesterol de calitate — precursorul direct al tuturor hormonilor steroizi (estrogen, progesteron, cortisol).",i:[["3 buc","ouă românești"],["40g","telemea de vacă (Dorna, Napolact)"],["50g","spanac proaspăt"],["4-5 buc","roșii cherry sau ½ roșie"],["1 ling.","ulei de floarea soarelui sau măsline"],["1 felie","pâine de secară prăjită"]],st:["Bate ouăle cu sare și piper.","Sotează spanacul și roșiile în ulei 1 minut.","Toarnă ouăle. La foc mic, gătește 2-3 min fără să amesteci.","Sfărâmă telemeaua deasupra. Îndoaie omleta. Servește cu pâine prăjită."],tip:"Telemeaua românească e mai sărată — nu mai adăuga sare separată.",local:"Telemea Dorna sau Prodlacta · Ouă de la găini crescute în curte"},
+bfN4:{s:"Dimineață",n:"French Toast cu Pere Caramelizate și Scorțișoară",k:360,p:18,f:12,c:46,t:["serotonină","fibre"],ro:1,h:"Perele conțin pectină și sorbitol cu efect prebiotic — hrănesc bacteriile care produc neurotransmițători precursori ai serotoninei.",i:[["2 felii","pâine integrală românească (Vel Pitar sau Boromir)"],["2 buc","ouă"],["50ml","lapte 1.5% (Zuzu, Albalact)"],["1 ling.","miere"],["½ ling.","scorțișoară"],["2 buc","pere românești coapte, feliate"],["5g","unt românesc"]],st:["Bate ouăle cu laptele, mierea și scorțișoara.","Înmoaie feliile de pâine 30 sec per parte.","Gătește în tigaie cu unt la foc mediu, 2-3 min per parte.","Caramelizează perele cu 1 ling. miere în aceeași tigaie 2 min. Servește deasupra."],tip:"",local:"Pere Bergamotte sau Triumf din podgoriile românești · Unt de Dorna"},
+bfN5:{s:"Dimineață",n:"Terci de Ovăz cu Prune și Nucșoară",k:370,p:14,f:10,c:54,t:["fier","energie"],ro:1,h:"Prunele românești uscate conțin sorbitol, potasiu și magneziu — trio esențial pentru reglarea cortisol și reducerea retenției de apă.",i:[["50g","fulgi de ovăz"],["250ml","lapte 1.5% (local)"],["4 buc","prune uscate românești, tocate"],["10g","nuci românești măcinate"],["1 ling.","miere de salcâm"],["½ ling.","scorțișoară"],["Un praf","nucșoară"]],st:["Fierbe ovăzul cu laptele la foc mediu 5-7 min, amestecând.","Adaugă prunele tocate și scorțișoara în ultimele 2 minute.","Toarnă în bol, adaugă nucile măcinate.","Stropește cu miere și presară nucșoară."],tip:"",local:"Prune din Argeș, Maramureș sau Vrancea · Ovăz românesc"},
+bfN6:{s:"Dimineață",n:"Toast cu Brânza de Vaci, Roșii și Marar",k:280,p:18,f:10,c:28,t:["calciu","vitamina B"],ro:1,h:"Brânza de vaci conține triptofan și cazeină cu eliberare lentă — mențin sațietatea și susțin producția de serotonină toată dimineața.",i:[["2 felii","pâine integrală prăjită"],["100g","brânza de vaci 0-2% (Napolact, Zuzu)"],["2 roșii","medii, feliate"],["1 legătură","mărar proaspăt, tocat"],["1 ling.","ulei de măsline extra virgin"],["Sare","piper după gust"]],st:["Prăjește pâinea.","Amestecă brânza de vaci cu mărarul tocat, sare și piper.","Întinde generos pe pâine.","Adaugă feliile de roșii și stropește cu ulei de măsline."],tip:"",local:"Brânza de vaci Napolact · Roșii de câmp românești · Mărar românesc"},
+bfN7:{s:"Dimineață",n:"Sandviș Cald cu Ou, Caș și Ardei Kapia",k:290,p:20,f:16,c:18,t:["proteine","vitamina C"],ro:1,h:"Ardeiul kapia conține vitamina C în concentrație maximă — facilitează absorbția fierului și protejează suprarenalele.",i:[["2 felii","pâine de secară sau graham"],["2 buc","ouă"],["25g","caș românesc (sau cașcaval light)"],["½ ardei","kapia roșu, fâșii"],["1 ling.","ulei de floarea soarelui"],["Sare","piper, boia"]],st:["Gătește ouăle bătute cu ardeiul în ulei, ca omletă condimentată.","Rumenește ușor feliile de pâine.","Asamblează: pâine + ouă cu ardei + caș ras sau feliat.","Reîncălzește 1 min să se topească brânza."],tip:"",local:"Caș din Apuseni sau Mărginimea Sibiului · Ardei kapia din Teleorman și Dolj"},
+bfN8:{s:"Dimineață",n:"Clătite cu Brânza de Vaci și Afine de Pădure",k:330,p:22,f:10,c:40,t:["calciu","antioxidanți"],ro:1,h:"Afinele de pădure românești conțin de 3-5x mai mulți antioxidanți decât afinele cultivate — reduc inflamația hormonală și protejează receptorii de estrogen.",i:[["2 buc","ouă"],["100g","brânza de vaci 0%"],["30g","făină de grâu integrală"],["½ ling.","praf de copt"],["100g","afine de pădure sau cultivate"],["1 ling.","miere"]],st:["Amestecă ouăle cu brânza de vaci, făina și praful de copt.","Gătește clătite mici în tigaie antiaderentă la foc mic.","Servește cu afinele stropite cu miere."],tip:"",local:"Afine din Apuseni, Harghita sau Suceava · Brânza de vaci Napolact"},
+bfN9:{s:"Dimineată",n:"Muesli de Casă cu Iaurt și Piersici",k:340,p:18,f:10,c:44,t:["fibre","vitamina A"],ro:1,h:"Piersicile românești conțin beta-caroten precursor al vitaminei A — esențial pentru producerea hormonilor sexuali în glanda suprarenală.",i:[["200g","iaurt grecesc 2%"],["30g","fulgi de ovăz"],["15g","seminte de in macinate"],["10g","nuci tocate"],["1 buc","piersică coapta românească, cuburi"],["1 ling.","miere"],["½ ling.","scorțișoară"]],st:["Amestecă fulgii de ovăz cu semințele de in, nucile și scorțișoara.","Pune iaurtul în bol.","Adaugă muesli-ul și piersicile cuburi.","Stropește cu miere."],tip:"Poate fi preparat seara — ovăzul absoarbe iaurtul și devine cremos.",local:"Piersici din Ilfov, Dolj sau Prahova · Nuci românești"},
+bfN10:{s:"Dimineață",n:"Ouă Baked cu Roșii și Busuioc",k:300,p:22,f:18,c:12,t:["vitamina D","licopen"],ro:1,h:"Licopenul din roșiile coapte este un antioxidant puternic care protejează receptorii hormonali și reduce riscul afecțiunilor hormono-dependente.",i:[["3 buc","ouă"],["200g","roșii decojite cuburi sau cherry"],["1 cățel","usturoi"],["1 ling.","ulei de măsline"],["Busuioc","proaspăt sau uscat"],["Sare","piper, oregano"],["1 felie","pâine integrală"]],st:["Încălzește uleiul în tigaie rezistentă la cuptor. Adaugă roșiile și usturoiul, 3 min.","Fă 3 adâncituri în sos, sparge câte un ou în fiecare.","Condimentează. Cuptor 180°C 8-10 min.","Servește cu pâine prăjită."],tip:"Verifică ouăle la 7 minute — gălbenușul trebuie să rămână puțin moale.",local:"Roșii de câmp din Dâmbovița sau Buzău · Ouă românești de curte"},
+bfN11:{s:"Dimineață",n:"Wrap cu Ouă, Spanac și Telemea",k:320,p:20,f:14,c:28,t:["colină","calciu"],ro:1,h:"",i:[["2 buc","ouă + 1 albuș"],["30g","spanac proaspăt"],["25g","telemea sfărâmată"],["1 buc","lipie integrală sau mălai"],["1 ling.","ulei"],["Sare","piper, paprika"]],st:["Bate ouăle cu paprika, sare și piper.","Sotează spanacul 1 minut. Adaugă ouăle și gătește scrambled la foc mic.","Încălzește lipia. Umple cu ouăle și telemeaua sfărâmată.","Rulează."],tip:"",local:"Telemea de oaie sau vacă din Teleorman ori Brașov"},
+bfN12:{s:"Dimineață",n:"Budincă Rece de Ovăz cu Coacăze Negre",k:310,p:14,f:8,c:46,t:["vitamina C","antioxidanți"],ro:1,h:"Coacăzele negre românești conțin de 4x mai multă vitamina C decât lămâia — esențial pentru sinteza cortisol și protecția suprarenalelor.",i:[["50g","fulgi de ovăz"],["200ml","lapte 1.5% (Zuzu sau Albalact)"],["15g","seminte de in macinate"],["80g","coacăze negre sau fructe de pădure"],["1 ling.","miere"],["½ ling.","vanilie"],["5g","nuci tocate"]],st:["Amestecă ovăzul cu laptele, semințele de in, mierea și vanilia.","Pune în borcan. Frigider overnight sau minimum 4 ore.","Dimineața adaugă coacăzele deasupra.","Adaugă nucile tocate și servește."],tip:"Overnight oats = micul dejun gata în 2 minute dimineața.",local:"Coacăze negre din Bistrița sau grădinile românești"},
+bfN13:{s:"Dimineată",n:"Muffin de Ovăz cu Cireșe în Cană",k:280,p:14,f:8,c:38,t:["rapid","melatonină"],ro:1,h:"Cireșele conțin melatonină naturală și antociane care reduc inflamația și îmbunătățesc calitatea somnului — somnul bun = cortisol reglat = slăbire mai ușoară.",i:[["40g","fulgi de ovăz"],["1 buc","ou"],["50ml","lapte"],["1 ling.","miere"],["½ ling.","praf de copt"],["60g","cireșe fără sâmburi (proaspete sau congelate)"],["½ ling.","scorțișoară"]],st:["Amestecă totul într-o cană mare pentru microunde.","Adaugă cireșele și amestecă ușor.","Microunde 90 secunde. Verifică — dacă e lichid, mai 30 secunde.","Servește cu câteva cireșe proaspete deasupra."],tip:"5 minute total — cel mai rapid mic dejun cald.",local:"Cireșe din Bistrița-Năsăud sau Argeș"},
+bfN14:{s:"Dimineață",n:"Toast cu Păstrăv Afumat, Brânza și Mărar",k:310,p:24,f:14,c:22,t:["omega-3","seleniu"],ro:1,h:"Păstrăvul românesc crescut în apele de munte conține omega-3 DHA+EPA esențiali pentru reglarea prostaglandinelor care controlează ciclul hormonal.",i:[["2 felii","pâine de secară sau integrală"],["70g","păstrăv afumat românesc"],["40g","cremă de brânza light sau brânza de vaci"],["1 ling.","muștar"],["Mărar","proaspăt sau uscat"],["Zeamă","de la ¼ lămâie"],["Sare","piper"]],st:["Prăjește pâinea.","Amestecă brânza de vaci cu mărarul și zeama de lămâie.","Întinde brânza pe pâine.","Adaugă păstrăvul afumat și un strop de muștar."],tip:"",local:"Păstrăv afumat din Apuseni (Bihor, Cluj) sau Carpați — disponibil la Lidl"},
+bfN15:{s:"Dimineață",n:"Terci de Hrișcă cu Mere și Scorțișoară",k:340,p:10,f:8,c:56,t:["magneziu","rutine"],ro:1,h:"Hrișca românească conține rutine — flavonoid care îmbunătățește sensibilitatea la insulină și reduce inflamația sistemică. Efectul direct: pierdere în greutate mai eficientă.",i:[["50g","hrișcă românească (din Apuseni)"],["250ml","lapte 1.5%"],["1 buc","măr românesc, cuburi"],["1 ling.","unt românesc (Dorna)"],["1 ling.","miere"],["½ ling.","scorțișoară"],["10g","nuci tocate"]],st:["Fierbe hrișca în lapte la foc mic 15 min, amestecând.","Adaugă cuburile de măr în ultimele 3 minute.","Adaugă untul și scorțișoara. Amestecă.","Toarnă în bol, adaugă nucile și stropește cu miere."],tip:"Hrișca se găsește la Lidl sau magazine bio. Cultivată în Apuseni.",local:"Hrișcă românească · Mere din Vrancea, Argeș sau Maramureș"},
+bfN16:{s:"Dimineată",n:"Shakshuka Românească cu Ardei și Bulion",k:290,p:20,f:14,c:22,t:["licopen","vitamina D"],ro:1,h:"Bulionul românesc concentrat conține licopen în forma biodisponibilă — mult mai bine absorbit de organism decât roșiile crude.",i:[["3 buc","ouă"],["2 ling.","bulion românesc sau pastă de roșii"],["1 ardei","gras roșu, cuburi"],["1 ceapă","mică, tocată"],["2 căței","usturoi"],["150ml","apă"],["1 ling.","ulei de floarea soarelui"],["Boia","dulce afumată, cimbru, sare, piper"],["Pătrunjel","proaspăt"]],st:["Călește ceapa și ardeiul în ulei 4 min. Adaugă usturoiul și boiaua 1 min.","Adaugă bulionul diluat cu apă. Fierbe 8-10 min.","Fă adâncituri și sparge ouăle. Acoperă, foc mic 6-8 min.","Presară pătrunjel. Servește direct din tigaie."],tip:"Clasică în bucătăria românească — shakshuka e la fel cu ouă în bulion.",local:"Bulion românesc (Topoloveni sau Univer) · Ardei de Teleorman"},
  
-// ═══════════════════════════════════════════════════
-// RECIPE DATABASE
-// ═══════════════════════════════════════════════════
-// Base kcal at standard portions — scaled per user
-const RECIPES = {
-bfN1:{slot:"Dimineață",name:"Smoothie Bowl cu Iaurt Grecesc și Afine",bKcal:310,p:24,f:8,c:36,tags:["probiotice","antioxidanți"],horm:"Iaurtul grecesc furnizează probiotice care reglează axa intestin-hormoni. Afinele reduc stresul oxidativ și sprijină echilibrul estrogenului.",ing:[["300g","iaurt grecesc 2%"],["100g","afine (proaspete sau congelate)"],["15g","semințe de in măcinate"],["1 ling.","miere"],["20g","fulgi de ovăz"],["10g","nuci tocate"],["½ ling.","scorțișoară"]],steps:["Pune iaurtul în bowl și amestecă ușor cu o furculiță.","Adaugă afinele întregi sau ușor pasate.","Presară semințele de in, fulgii de ovăz, nucile și scorțișoara.","Stropește cu miere și servește imediat."],tip:"Semințele de in trebuie să fie măcinate — întregi trec nedigerate și nu eliberează lignanii benefici."},
+// ── MIC DEJUN ZILE DE POST — VEGAN (bfP1-12) ────────────────────────────────
+bfP1:{s:"Dimineață",n:"Budincă de Ovăz cu Prune și Nuci",k:380,p:10,f:12,c:56,v:1,t:["fier","magneziu"],ro:1,h:"Prunele românești uscate conțin sorbitol și magneziu natural. Nucile adaugă acizi grași omega-3 ALA care reduc inflamația hormonală.",i:[["50g","fulgi de ovăz românesc"],["200ml","lapte de soia neîndulcit (Lidl)"],["4 buc","prune uscate românești, tocate"],["10g","nuci românești tocate"],["15g","seminte de in macinate"],["1 ling.","miere"],["½ ling.","scorțișoară"],["Un praf","nucșoară"]],st:["Fierbe ovăzul cu laptele de soia 5-7 min, amestecând.","Adaugă prunele tocate și scorțișoara în ultimele 2 min.","Toarnă în bol, adaugă nucile și semințele de in.","Stropește cu miere și nucșoară."],tip:"Laptop de soia = proteina vegetală completă. Alternativă: laptele de ovăz local (Heritage).",local:"Prune uscate românești · Nuci oltenești · Ovăz românesc"},
+bfP2:{s:"Dimineață",n:"Ovăz Cald cu Mere Caramelizate și Scorțișoară",k:320,p:8,f:8,c:54,v:1,t:["beta-glucan","reglare glicemie"],ro:1,h:"Beta-glucanul din ovăz reduce glicemia postprandială și reglează cortisolul. Merele adaugă quercetină cu efect anti-estrogenic protectiv.",i:[["60g","fulgi de ovăz"],["250ml","lapte de soia sau apă"],["1 buc","măr românesc, cuburi"],["1 ling.","ulei de floarea soarelui"],["1 ling.","miere"],["1 ling.","scorțișoară"],["10g","nuci tocate"]],st:["Călește cuburile de măr în ulei cu ½ ling. scorțișoară, 2-3 min.","Fierbe ovăzul cu laptele de soia 5-7 min.","Transferă în bol, pune merele caramelizate deasupra.","Adaugă nucile și stropește cu miere."],tip:"",local:"Mere Ionatan, Florina sau Golden din podgoriile românești"},
+bfP3:{s:"Dimineață",n:"Budincă de Semințe de In cu Afine și Miere",k:290,p:8,f:14,c:34,v:1,t:["fitoestrogeni","omega-3 ALA"],ro:1,h:"Semințele de in sunt cea mai bogată sursă vegetală de lignani — fitoestrogeni care modulează receptorii de estrogen și reduc riscul dezechilibrului hormonal.",i:[["40g","seminte de in macinate"],["200ml","lapte de soia"],["100g","afine sau fructe de pădure"],["1 ling.","miere"],["½ ling.","vanilie"],["10g","nuci tocate"],["½ ling.","scorțișoară"]],st:["Amestecă semințele de in cu laptele de soia, mierea și vanilia. Amestecă 1 minut.","Lasă 5 min, amestecă din nou — se gelifiează.","Frigider minim 1 oră sau overnight.","Adaugă afinele, nucile și scorțișoara la servire."],tip:"Semințele de in măcinate + lichid = gel natural cu efect prebiotic puternic.",local:"Semințe de in românești (cultivate în Bărăgan) · Afine de pădure din Carpați"},
+bfP4:{s:"Dimineată",n:"Smoothie Verde cu Spanac, Mere și Ghimbir",k:260,p:6,f:6,c:42,v:1,t:["detox estrogen","clorofilă"],ro:1,h:"Spanacul conține indol-3-carbinol care activează genele de detoxifiere ale ficatului — organul responsabil cu metabolizarea estrogenului. Clorofila din spanac leagă și elimină toxinele.",i:[["60g","spanac proaspăt românesc"],["1 buc","măr românesc"],["200ml","apă sau lapte de soia"],["10g","seminte de in macinate"],["1 ling.","miere"],["½ ling.","ghimbir proaspăt ras"],["Zeamă","de la ½ lămâie"]],st:["Pune spanacul cu lichidul în blender. Mixează 30 secunde.","Adaugă mărul tăiat, semințele de in, mierea, ghimbirul și lămâia.","Mixează 45-60 secunde până e complet omogen.","Servește imediat — clorofila se oxidează."],tip:"",local:"Spanac românesc din grădini locale · Mere din podgoriile românești"},
+bfP5:{s:"Dimineată",n:"Terci de Hrișcă cu Fructe de Pădure",k:360,p:10,f:8,c:58,v:1,t:["rutine","antioxidanți"],ro:1,h:"Hrișca conține rutine — flavonoid rar care îmbunătățește sensibilitatea la insulină. Fructele de pădure românești adaugă antociane anti-inflamatoare.",i:[["50g","hrișcă românească"],["250ml","lapte de soia"],["80g","mix fructe de pădure (afine, mure, zmeură)"],["10g","nuci tocate"],["1 ling.","miere"],["½ ling.","scorțișoară"]],st:["Fierbe hrișca cu laptele de soia la foc mic 15 min, amestecând.","Toarnă în bol.","Adaugă fructele de pădure și nucile.","Stropește cu miere și scorțișoară."],tip:"",local:"Hrișcă din Apuseni · Fructe de pădure din Carpații românești"},
+bfP6:{s:"Dimineată",n:"Terci de Ovăz cu Dovleac Copt și Semințe",k:380,p:10,f:12,c:56,v:1,t:["beta-caroten","zinc"],ro:1,h:"Dovleacul românesc conține beta-caroten precursor al vitaminei A — esențial pentru producerea hormonilor sexuali. Semințele de dovleac sunt bogate în zinc pentru sinteza progesteronului.",i:[["50g","fulgi de ovăz"],["200ml","lapte de soia"],["100g","dovleac românesc copt (butternut sau plăcintar)"],["20g","seminte de dovleac decojite"],["1 ling.","miere"],["½ ling.","scorțișoară"],["Un praf","nucșoară și ghimbir pudră"]],st:["Coace dovleacul la 200°C 25-30 min. Pisează cu furculița.","Fierbe ovăzul cu laptele de soia 5-7 min.","Adaugă piureul de dovleac și condimentele. Amestecă.","Toarnă în bol, presară semințele de dovleac și stropește cu miere."],tip:"Dovleacul se poate coace duminica pentru toată săptămâna.",local:"Dovleac plăcintar sau butternut din piețele românești · Semințe de dovleac"},
+bfP7:{s:"Dimineată",n:"Smoothie cu Sfeclă Roșie, Mure și Semințe de In",k:260,p:7,f:8,c:38,v:1,t:["betaină","detox hepatic"],ro:1,h:"Sfecla roșie conține betaină care activează metionina din ficat — esențial pentru detoxifierea estrogenului. Murele adaugă resveratrol anti-inflamator.",i:[["80g","sfeclă roșie fiartă"],["80g","mure sau afine"],["200ml","lapte de soia sau apă"],["10g","seminte de in macinate"],["1 ling.","miere"],["Zeamă","de la ½ lămâie"]],st:["Pune toate ingredientele în blender.","Mixează 60 secunde până e complet omogen.","Gustă și ajustează cu miere sau lămâie.","Servește imediat — culoarea violet intens e semn de betanine active."],tip:"Culoarea violet intens = betanine care iti lucrează ficatul!",local:"Sfeclă roșie din piețele românești · Mure din Carpați și livezi locale"},
+bfP8:{s:"Dimineată",n:"Ovăz Overnight cu Prune și Cacao",k:380,p:10,f:10,c:60,v:1,t:["magneziu","triptofan"],ro:1,h:"Cacaoa neagră conține magneziu esențial pentru producerea progesteronului. Prunele adaugă triptofan — precursorul serotoninei, hormonul bunei stări.",i:[["50g","fulgi de ovăz"],["200ml","lapte de soia"],["10g","cacao pudră neagră"],["4 buc","prune uscate, tocate"],["10g","nuci macinate"],["1 ling.","miere"]],st:["Amestecă ovăzul cu laptele de soia, cacaoa și mierea într-un borcan.","Adaugă prunele și nucile. Amestecă.","Frigider overnight.","Dimineața servește rece sau încălzit 2 min la microunde."],tip:"Overnight oats = micul dejun gata în 2 minute dimineața.",local:"Prune uscate românești · Cacao pudra Nestlé sau echivalent"},
+bfP9:{s:"Dimineată",n:"Smoothie cu Morcov, Mere și Ghimbir",k:230,p:5,f:4,c:44,v:1,t:["beta-caroten","digestie"],ro:1,h:"Morcovii conțin beta-caroten și falcarinol cu efect anti-inflamator. Ghimbirul stimulează producția de enzime digestive și îmbunătățește absorbția nutrienților.",i:[["150g","morcovi fierți sau cruzi"],["1 buc","măr românesc"],["200ml","apă sau lapte de soia"],["½ ling.","ghimbir proaspăt ras"],["½ ling.","scorțișoară"],["1 ling.","miere"],["Zeamă","de la ½ lămâie"]],st:["Pune morcovii, mărul, ghimbirul, scorțișoara, mierea și lămâia în blender.","Adaugă lichidul și mixează 60 secunde.","Gustă — ajustează ghimbirul după preferință.","Servește imediat."],tip:"",local:"Morcovi românești din Ilfov sau Bărăgan · Mere românești"},
+bfP10:{s:"Dimineată",n:"Toast cu Pasta de Seminte de Floarea Soarelui și Pere",k:300,p:10,f:14,c:36,v:1,t:["vitamina E","magneziu"],ro:1,h:"Semințele de floarea soarelui românești sunt bogate în vitamina E și magneziu — susțin funcția tiroidiană și producția de progesteron.",i:[["2 felii","pâine integrală prăjită"],["40g","pastă de seminte de floarea soarelui (sunflower butter)"],["1 buc","pară românească coaptă, feliată"],["1 ling.","miere"],["½ ling.","scorțișoară"],["5g","seminte de in macinate"]],st:["Prăjește pâinea.","Întinde pasta de seminte de floarea soarelui generos.","Adaugă feliile de pară.","Stropește cu miere și presară scorțișoară și semințe de in."],tip:"Pasta de seminte de floarea soarelui = substitut local perfect pentru tahini sau unt de arahide.",local:"Seminte de floarea soarelui românești (cel mai cultivat fruct uleifera din Romania)"},
+bfP11:{s:"Dimineată",n:"Bol de Hrișcă cu Fructe Uscate și Nuci",k:350,p:10,f:10,c:54,v:1,t:["proteine complete","energie"],ro:1,h:"Hrișca conține toți cei 8 aminoacizi esențiali — unică în cereale. Susține sinteza hormonilor și construcția țesuturilor.",i:[["60g","hrișcă fiartă (40g crudă)"],["2 ling.","lapte de soia pentru cremozitate"],["4 buc","prune uscate românești"],["15g","nuci românești tocate"],["10g","seminte de in macinate"],["1 ling.","miere"],["½ ling.","scorțișoară"],["Câteva","afine sau mure proaspete"]],st:["Fierbe hrișca 12-15 min. Scurge și lasă să se răcorească ușor.","Adaugă laptele de soia, mierea și scorțișoara. Amestecă.","Adaugă prunele, nucile și semințele de in.","Garnisează cu fructele de pădure proaspete."],tip:"",local:"Hrișcă din Apuseni · Prune uscate Curtea de Argeș"},
+bfP12:{s:"Dimineată",n:"Smoothie cu Dovleac, Scorțișoară și Lapte de Soia",k:260,p:9,f:6,c:40,v:1,t:["beta-caroten","vitamina A"],ro:1,h:"Dovleacul + scorțișoară = beta-caroten + reglare glicemie. Lactele de soia adaugă fitoestrogeni blânzi din soia (izoflavone).",i:[["150g","dovleac copt sau în conservă"],["200ml","lapte de soia neîndulcit"],["½ ling.","scorțișoară"],["Un praf","ghimbir pudră și nucșoară"],["1 ling.","miere"],["Câteva","prune uscate (2-3 buc) pentru dulceață"]],st:["Pune toate ingredientele în blender.","Mixează 45-60 secunde.","Gustă și ajustează mierea.","Servește rece — adaugă cuburi de gheată dacă dorești."],tip:"",local:"Dovleac românesc din piețe · Lapte de soia Alpro (produs în Europa)"},
  
-bfN2:{slot:"Dimineață",name:"Pancakes Proteice cu Iaurt, Afine și Miere",bKcal:360,p:22,f:12,c:40,tags:["glicemie stabilă","beta-glucan"],horm:"Făina de ovăz conține avenantramide cu efect estrogenic blând și beta-glucan care stabilizează glicemia.",ing:[["2 buc","ouă întregi"],["50g","iaurt grecesc 2%"],["40g","făină de ovăz"],["½ ling.","praf de copt"],["1 ling.","miere"],["1 ling.","extract de vanilie"],["Un praf","sare"],["60g","afine pentru topping"],["1 ling.","miere pentru topping"]],steps:["Amestecă ouăle cu iaurtul, mierea și vanilia.","Adaugă treptat făina de ovăz, praful de copt și sarea. Nu bate excesiv.","Coace în tigaie antiaderentă la foc mic, 2-3 minute per parte. Întoarce când apar bule la suprafață.","Servește cu afine și miere."],tip:"Pancakes perfecte = foc mic și răbdare. La foc mare se ard pe exterior și rămân crude înăuntru."},
+// ── PRÂNZ ZILE NORMALE (luN1-16) ────────────────────────────────────────────
+luN1:{s:"Prânz",n:"Orez cu Pui la Cuptor și Legume Românești",k:450,p:36,f:10,c:50,t:["proteine","fibre"],ro:1,h:"",i:[["150g","piept de pui"],["80g","orez romanesc (integral sau basmati)"],["1 ardei","gras roșu"],["1 morcov","rondele"],["½ ceapă","roșie"],["1 ling.","ulei de floarea soarelui"],["Condimente","boia, cimbru, sare, piper, usturoi pudra"],["Zeamă","de la ½ lămâie"]],st:["Fierbe orezul 15-18 min.","Condimentează puiul cu boia, cimbru, sare, piper. Rumenește în ulei 5-6 min.","Sotează ceapa, morcovul și ardeiul 4-5 min.","Amestecă totul și servește cu zeamă de lămâie."],tip:"",local:"Pui românesc crescut liber · Ardei și morcov din piețele locale"},
+luN2:{s:"Prânz",n:"Ciorbă de Pui cu Zarzavat și Tăiței de Casă",k:350,p:32,f:8,c:36,t:["colagen","glucosamina"],ro:1,h:"Ciorba de pui cu os furnizează colagen și glucozamină care susțin articulațiile și reduc inflamația sistemică ce perturbă hormonii.",i:[["200g","carne de pui (pulpe sau aripioare cu os)"],["1 morcov","+ ½ țelină + 1 ceapă + ½ ardei"],["50g","tăiței de casă sau paste integrale"],["1 ling.","oțet de mere"],["Leuștean","proaspăt sau uscat"],["Sare","piper, cimbru"],["1 ling.","smântână light la servire"]],st:["Fierbe carnea de pui cu zarzavatul în 1,5L apă, 40-45 min.","Scoate carnea, dezosează și rupe în bucăți.","Adaugă tăițeii și fierbe 10 min.","Acrește cu oțet de mere. Finalizează cu leuștean proaspăt."],tip:"Ciorba de pui e una din cele mai complete mese românești — colagen + proteine + legume.",local:"Pui de la fermele românești · Leuștean românesc proaspăt"},
+luN3:{s:"Prânz",n:"Mâncare de Fasole cu Carne Afumată",k:380,p:28,f:12,c:42,t:["fibre","fier hemic"],ro:1,h:"Fasolea furnizează fibre solubile care leagă excesul de estrogen în intestin și îl elimină. Carnea afumată adaugă fier hemic cu absorbție de 30%.",i:[["150g","fasole boabe fiartă (sau conservă, clătită)"],["80g","costiță afumată slabă sau cârnați afumați"],["1 ceapă","+ 2 căței usturoi"],["2 ling.","pastă de roșii sau bulion"],["1 ling.","ulei de floarea soarelui"],["Cimbru","foi de dafin, boia, sare, piper"]],st:["Călește ceapa în ulei 4 min. Adaugă usturoiul și boiaua.","Adaugă fasolea, carnea afumată și bulionul.","Fierbe 20 min la foc mic cu cimbru și foi de dafin.","Servește cu mămăligă mică sau pâine de secară."],tip:"",local:"Fasole româneasca (Borlotti sau albă locală) · Costiță afumată de casă"},
+luN4:{s:"Prânz",n:"Păstrăv la Tigaie cu Mujdei și Salată",k:380,p:36,f:18,c:10,t:["omega-3","seleniu"],ro:1,h:"Păstrăvul de apă limpede din Carpați conține cel mai pur omega-3 DHA+EPA — esențial pentru producerea prostaglandinelor care reglează ciclul menstrual.",i:[["200g","file de păstrăv"],["3 căței","usturoi"],["2 ling.","ulei de floarea soarelui"],["Zeamă","de la 1 lămâie"],["100g","salată verde sau lobodă"],["50g","roșii cherry"],["Sare","piper, boia, mărar proaspăt"]],st:["Pat uscat fileul de păstrăv cu prosop.","Condimentează cu sare, piper și boia.","Prăjește în ulei la foc mediu-mare, 3-4 min per parte.","Prepară mujdeiul: usturoi zdrobit + ulei + sare + lămâie. Servește cu salata verde."],tip:"Păstrăvul e gata când se desprinde ușor cu spatula.",local:"Păstrăv din Apuseni (Bihor, Cluj, Hunedoara) sau Carpații Orientali"},
+luN5:{s:"Prânz",n:"Sarmale cu Carne de Porc Slab în Varza Acra",k:380,p:30,f:14,c:34,t:["probiotice","vitamina C"],ro:1,h:"Varza murată conține vitamina C natural conservată și bacterii lactice vii care reglează microbiomul — esențial pentru metabolizarea estrogenului.",i:[["130g","carne tocată de porc slabă"],["40g","orez fiert"],["50g","ceapă călită"],["3-4 foi","varza murată (clătite dacă sunt prea sărate)"],["100ml","suc de roșii sau bulion diluat"],["Condimente","cimbru, piper, boia, foi de dafin"]],st:["Amestecă carnea cu orezul, ceapa și condimentele.","Taie nervurile groase, pune umplutură și rulează.","Fierbe la foc mic 90-120 min cu apă + suc roșii + dafin.","Servește cu smântână light."],tip:"Varza murată = probiotice naturale. Nu o clăti prea mult!",local:"Varza murată româneasca de casă · Carne de porc local"},
+luN6:{s:"Prânz",n:"Ciorbă de Burta sau Zeamă de Vacă",k:320,p:28,f:12,c:22,t:["colagen","zinc"],ro:1,h:"Zeama de oase conține colagen, glicină și zinc — susțin sănătatea intestinală și producția de hormoni sexuali.",i:[["200g","carne de vită cu os (sau coastă)"],["1 morcov","+ ½ păstârnac + ½ ceapă + telina"],["1 buc","ardei gras"],["50ml","oțet de mere"],["Leuștean","proaspăt, sare, piper"],["Smântână","light pentru servire, hrean"]],st:["Fierbe oasele cu carne în 1,5L apă 60 min, degresând spuma.","Adaugă zarzavatul și fierbe 30 min.","Scoate carnea, dezosează, rupe în bucăți mici.","Acrește cu oțet de mere, adaugă leuștean. Servește cu smântână și hrean."],tip:"",local:"Carne de vită româneasca · Hrean din piețele locale"},
+luN7:{s:"Prânz",n:"Mâncare de Pui cu Morcovi și Sos de Smântână",k:400,p:36,f:16,c:26,t:["retinol","vitamina A"],ro:1,h:"Morcovii conțin beta-caroten și retinol după gătire — esențial pentru producerea hormonilor sexuali în glanda suprarenală.",i:[["180g","piept de pui"],["150g","morcovi rondele"],["1 ceapă","+ 2 căței usturoi"],["100ml","smântână light 10%"],["1 ling.","ulei de floarea soarelui"],["Cimbru","frunze de dafin, sare, piper"],["Mărar","proaspăt"]],st:["Rumenește puiul în ulei 4-5 min. Scoate deoparte.","Călește ceapa + usturoiul + morcovii 5 min.","Adaugă puiul și 150ml apă. Fierbe 20 min cu dafin și cimbru.","Adaugă smântâna la final. Fierbere 2 min. Presară mărar."],tip:"",local:"Smântână româneasca Zuzu sau Milli · Morcovi din Ilfov"},
+luN8:{s:"Prânz",n:"Crap la Cuptor cu Usturoi și Rozmarin",k:360,p:38,f:14,c:12,t:["omega-3","iod"],ro:1,h:"Crapul crescut în Delta Dunarii conține omega-3 și iod esențial pentru funcția tiroidei — glanda care controlează metabolismul și greutatea corporală.",i:[["200g","crap filetat sau înttreg (gust de Dunăre)"],["4 căței","usturoi"],["Rozmarin","proaspăt sau uscat"],["1 ling.","ulei de floarea soarelui"],["Zeamă","de la 1 lămâie"],["Sare","piper, boia"],["100g","cartofi fierți pentru garnitură"]],st:["Condimentează crapul cu sare, piper, boia și usturoi zdrobit.","Stropește cu ulei și zeamă de lămâie. Adaugă rozmarin.","Coace la 200°C 20-25 min.","Servește cu cartofii fierți și mujdei."],tip:"",local:"Crap din Delta Dunarii sau crescătorii românești · Cartofi românești"},
+luN9:{s:"Prânz",n:"Tocăniță de Pui cu Mazăre și Ardei",k:340,p:34,f:9,c:28,t:["vitamina C","proteine"],ro:1,h:"",i:[["150g","piept de pui, cuburi"],["100g","mazăre verde (proaspătă sau congelată)"],["1 ardei","gras roșu sau galben"],["1 ceapă","+ 2 căței usturoi"],["150ml","suc de roșii sau bulion diluat"],["1 ling.","ulei de floarea soarelui"],["Sare","piper, cimbru, boia afumată, pătrunjel"]],st:["Călești ceapa în ulei + apă 5 min.","Adaugă usturoiul și puiul. Rumenești 3-4 min.","Toarnă sucul de roșii, adaugă mazărea, ardeiul și condimentele.","Fierbi 15-20 min. Presari pătrunjel."],tip:"",local:"Mazăre verde locală · Ardei românești din Teleorman"},
+luN10:{s:"Prânz",n:"Salată de Fasole cu Ceapă Roșie și Oțet de Mere",k:300,p:14,f:8,c:42,t:["fibre","probiotice"],ro:1,h:"Oțetul de mere românesc conține acid acetic care îmbunătățește sensibilitatea la insulină și reglează glicemia.",i:[["200g","fasole albă sau pestriță, fiartă"],["1 ceapă","roșie, feliată subțire"],["2 ling.","oțet de mere românesc"],["2 ling.","ulei de floarea soarelui"],["1 ling.","miere"],["Sare","piper, cimbru, mărar"],["Pâine","integrală pentru servire"]],st:["Amestecă fasolea cu ceapa în bol mare.","Prepară dressingul: oțet + ulei + miere + sare + cimbru.","Toarnă dressingul, amestecă bine.","Adaugă mărar proaspăt. Lasă 10 min să se infuzeze."],tip:"",local:"Fasole româneasca · Oțet de mere din podgoriile românești"},
+luN11:{s:"Prânz",n:"Piept de Pui cu Miere și Muștar pe Pat de Varza Calita",k:380,p:38,f:10,c:30,t:["sulforafan","proteine"],ro:1,h:"Varza conține sulforafan care activează genele de detoxifiere hepatică ale estrogenului — un pahar de varza calita pe zi poate reduce semnificativ nivelul de estrogen excesiv.",i:[["180g","piept de pui"],["1 ling.","miere + 1 ling. muștar"],["½ varza","medie, feliată subțire"],["1 ceapă","+ 3 căței usturoi"],["1 ling.","ulei de floarea soarelui"],["Sare","piper, chimion, boia afumată"]],st:["Glazurează puiul cu miere + muștar + sare + piper.","Coace la 200°C 22-25 min.","Călește varza cu ceapa, usturoiul și condimentele 10-12 min.","Servește puiul tăiat deasupra varza calite."],tip:"Varza la călit = sulforafan activ pentru 30 min după gătire. Mănâncă imediat.",local:"Varza româneasca · Muștar Sinapis de Orțișoara"},
+luN12:{s:"Prânz",n:"Orez cu Lapte și Gutui Caramelizate",k:360,p:14,f:8,c:58,t:["calciu","vitamina C"],ro:1,h:"Gutuile românești conțin vitamina C, pectină și tanini cu efect anti-inflamator. Pectina legă și elimină excesul de estrogen din intestin.",i:[["70g","orez românesc"],["300ml","lapte 1.5%"],["1 ling.","zahăr brun sau miere"],["½ ling.","vanilie"],["1 buc","gutuie sau pere românești, caramelizate"],["5g","unt"],["Scorțișoară","nucșoară"]],st:["Fierbe orezul cu laptele și zahărul la foc mic 20-25 min, amestecând des.","Taie gutuia cuburi, călește în unt cu miere și scorțișoară 5 min.","Toarnă orezul cu lapte în bol.","Adaugă gutuile caramelizate deasupra."],tip:"Gutuile = fructe de toamnă românești de neuitat. Alternativă: pere mari.",local:"Gutui românești de toamnă · Orez Dacia Plant sau Orizont"},
+luN13:{s:"Prânz",n:"Salată de Vinete cu Carne Tocată și Roșii",k:340,p:26,f:16,c:22,t:["nasunin","fier hemic"],ro:1,h:"Nasunin din vinete este un antioxidant care protejează membranele celulare și receptorii hormonali de deteriorare oxidativă.",i:[["2 buc","vinete mari românești"],["100g","carne tocată de vită sau porc slab"],["200g","roșii coapte, tocate"],["1 ceapă","+ 3 căței usturoi"],["1 ling.","ulei de floarea soarelui"],["Sare","piper, boia, oregano, pătrunjel"]],st:["Rumenește carnea cu ceapa și usturoiul în ulei 5-6 min.","Adaugă roșiile, condimentele. Fierbe 15 min.","Coace vinetele feliate la 200°C 20 min.","Montează: vinete → sos de carne → vinete → sos. Coace 20 min la 180°C."],tip:"",local:"Vinete românesti · Carne tocată de la fermele locale"},
+luN14:{s:"Prânz",n:"Ciorbă de Perisoare cu Orez și Leuștean",k:320,p:24,f:10,c:32,t:["colagen","zinc"],ro:1,h:"Perișoarele de porc conțin zinc și colagen din carne — esențiali pentru producerea de progesteron și menținerea sănătății intestinale.",i:[["120g","carne tocată amestec porc+vită"],["20g","orez pentru perisoare"],["1 morcov","+ ½ ceapă + ½ ardei + pătrunjel"],["1 buc","ou pentru liant"],["100ml","suc de roșii"],["Leuștean","proaspăt, oțet de mere, sare, piper"]],st:["Amestecă carnea cu orezul crud, oul, pătrunjelul tocat, sare și piper. Formează perișoare mici.","Fierbe morcovul, ceapa, ardeiul în 1,2L apă 15 min.","Adaugă perișoarele. Fierbe 20 min.","Adaugă sucul de roșii, oțetul de mere și leușteanul."],tip:"",local:"Tradiție româneasca pură — rețeta bunicii adaptată pentru slăbit"},
+luN15:{s:"Prânz",n:"Pui cu Miere și Cimbru cu Cartofi Țărănești",k:420,p:38,f:12,c:38,t:["proteine","potasiu"],ro:1,h:"Cimbrul românesc (Thymus vulgaris) conține timol cu puternic efect anti-inflamator și antiseptic intestinal — susține microbiomul sănătos.",i:[["180g","piept de pui"],["1 ling.","miere de salcâm"],["Cimbru","proaspăt sau uscat"],["1 ling.","ulei de floarea soarelui"],["200g","cartofi românești, cuburi"],["1 ceapă","+ 2 căței usturoi"],["Sare","piper, paprika"]],st:["Marinează puiul cu miere, cimbru, sare, piper și usturoi. 10 min.","Amestecă cartofii cu ulei, ceapă, paprika, sare.","Coace totul la 200°C 25-28 min.","Servește cu salată verde sau murături."],tip:"Mierea caramelizată pe pui = crustă aurie spectaculoasă.",local:"Cimbru românesc din Dobrogea · Cartofi din Bistrița sau Miercurea Ciuc"},
+luN16:{s:"Prânz",n:"Rasol de Pui cu Sfeclă Roșie și Hrean",k:350,p:34,f:8,c:30,t:["betaină","colagen"],ro:1,h:"Sfecla roșie + hrean = betaină + izotiocianați. Combinație puternică pentru detox hepatic și activarea metabolismului.",i:[["200g","piept sau pulpe de pui"],["150g","sfeclă roșie, cuburi"],["2 morcovi","rondele"],["1 ceapă","+ ½ telina"],["20g","hrean ras proaspăt sau din borcan"],["2 ling.","oțet de mere"],["Sare","piper, dafin, leuștean"]],st:["Fierbe puiul cu legumele în 1L apă cu sare 30-35 min.","Scoate puiul și legumele. Scurge zeama.","Serveste puiul cu sfecla, morcovii si hreanul.","Dressing: oțet de mere + sare + puțin din zeama de rasol."],tip:"",local:"Hrean din Ialomița sau Buzău · Sfeclă din piețele românești"},
  
-bfN3:{slot:"Dimineață",name:"Omletă cu Legume, Feta și Pâine Integrală",bKcal:340,p:26,f:18,c:20,tags:["colină","precursori hormonali"],horm:"Ouăle conțin colesterol bun și colină — material de bază pentru toți hormonii steroizi (estrogen, progesteron, testosteron).",ing:[["3 buc","ouă"],["30g","feta sau brânza de capră"],["50g","spanac proaspăt"],["5 buc","roșii cherry, înjumătățite"],["1 ling.","ulei de măsline"],["Sare","piper, oregano"],["1 felie","pâine integrală, prăjită"]],steps:["Bate ouăle cu sare, piper și oregano.","Încălzește uleiul, sotează spanacul și roșiile 1 minut.","Toarnă ouăle și gătește la foc mic 2-3 minute fără să amesteci.","Presară feta sfărâmată, îndoaie omleta. Servește cu pâine prăjită."],tip:"Secretul omletei pufoase: foc mic și răbdare. Dacă amesteci, iese scrambled eggs."},
+// ── PRÂNZ ZILE DE POST — VEGAN (luP1-14) ────────────────────────────────────
+luP1:{s:"Prânz",n:"Bol cu Fasole Roșie, Ardei Copți și Ulei de Măsline",k:370,p:16,f:10,c:52,v:1,t:["fitoestrogeni","fibre"],ro:1,h:"Fasolea roșie conține fitoestrogeni blânzi și fibre solubile care reglează metabolismul hormonal prin microbiom.",i:[["200g","fasole rosie fiartă (conservă)"],["2 buc","ardei kapia copți, curățați"],["1 ceapă","roșie, feliată subțire"],["2 ling.","ulei de măsline extra virgin"],["Zeamă","de la 1 lămâie"],["Sare","piper, cimbru, mărar"],["Pâine","integrală"],["Boia","afumată pentru decor"]],st:["Coace ardeii kapia la 200°C 20 min. Curăță coaja, taie fâșii.","Amestecă fasolea cu ardeii și ceapa roșie.","Prepară dressingul: ulei + lămâie + sare + piper + cimbru.","Toarnă dressingul, presară boia afumată."],tip:"",local:"Ardei kapia din Teleorman sau Dolj · Fasole româneasca"},
+luP2:{s:"Prânz",n:"Zacuscă Homemade cu Pâine Integrală",k:280,p:8,f:8,c:42,v:1,t:["licopen","fibre"],ro:1,h:"Zacusca tradițională românească conține licopen termic activ din ardei și vinete — antioxidant care protejează receptorii hormonali.",i:[["2 vinete","mari"],["3 ardei","grași sau kapia"],["2 cepe","medii"],["2 ling.","ulei de floarea soarelui"],["2 ling.","bulion românesc"],["Sare","piper, foi de dafin, boabe de piper"],["3-4 felii","pâine integrală prăjită"]],st:["Coace vinetele și ardeii direct pe flacără sau la 220°C 20 min. Curăță coajele.","Toacă mărunt sau blendează ușor — nu prea fin.","Călește ceapa în ulei 10 min. Adaugă legumele, bulionul, condimentele.","Fierbe la foc mic 30-40 min, amestecând. Servește pe pâine."],tip:"Zacusca se face acasă duminica și ține o săptămână la frigider.",local:"Rețetă 100% româneasca tradițională"},
+luP3:{s:"Prânz",n:"Fasole Bătută cu Usturoi și Ceapă Călită",k:320,p:14,f:9,c:44,v:1,t:["fitoestrogeni","zinc"],ro:1,h:"Rețetă tradițională româneasca — fasolea bătută a hrănit generații întregi. Fasolea albă conține fitoestrogeni blânzi și zinc pentru producerea hormonilor sexuali.",i:[["200g","fasole albă fiartă"],["3 căței","usturoi"],["1 ceapă","mare, feliată și călită bine"],["2 ling.","ulei de floarea soarelui"],["Zeamă","de la ½ lămâie"],["2 felii","pâine integrală prăjită"],["Boia","afumată, cimbru, sare, piper"]],st:["Pasează fasolea cu usturoiul, sarea, lămâia și 1 ling. ulei.","Adaugă apă caldă dacă vrei textură mai fluidă.","Călete ceapa în uleiul rămas 10-12 min până devine aurie.","Servește fasolea pe pâine cu ceapa călită și boia afumată deasupra."],tip:"Fasolea bătută e mai bună a doua zi — aromele se intensifică.",local:"Rețetă româneasca tradițională · Fasole albă din podgoriile locale"},
+luP4:{s:"Prânz",n:"Supă Cremă de Morcovi cu Ghimbir și Cimbru",k:220,p:5,f:6,c:34,v:1,t:["beta-caroten","anti-inflamator"],ro:1,h:"Morcovii fierți eliberează beta-caroten în formă mai biodisponibilă. Ghimbirul stimulează digestia și reduce inflamația ce perturbă hormonii.",i:[["400g","morcovi, cuburi"],["1 ceapă","+ 2 căței usturoi"],["1 ling.","ghimbir proaspăt ras"],["200ml","lapte de soia pentru cremozitate"],["1 ling.","ulei de floarea soarelui"],["Cimbru","sare, piper, nucșoară"],["Seminte de dovleac","pentru topping"]],st:["Călește ceapa + usturoiul + ghimbirul în ulei 3-4 min.","Adaugă morcovii și 500ml apă. Fierbe 20 min.","Adaugă laptele de soia. Mixează cremos cu blenderul.","Ajustează sarea și nucșoara. Presară seminte de dovleac deasupra."],tip:"",local:"Morcovi din Ilfov sau Bărăgan · Ghimbir proaspăt de la Lidl"},
+luP5:{s:"Prânz",n:"Salata de Varza Rosie cu Mere și Nuci",k:280,p:7,f:14,c:32,v:1,t:["sulforafan","vitamina C"],ro:1,h:"Varza roșie conține de 10x mai mulți antioxidanți decât varza albă și sulforafan activ. Vitamina C din mere potențează absorbția fierului.",i:[["200g","varza roșie, feliată subțire"],["1 buc","măr românesc, julien"],["15g","nuci românești tocate"],["2 ling.","oțet de mere"],["1 ling.","ulei de floarea soarelui"],["1 ling.","miere"],["½ ling.","chimion"],["Sare","piper"]],st:["Toacă varza roșie julien subțire.","Adaugă mărul julien și nucile.","Prepară dressingul: oțet + ulei + miere + chimion + sare + piper.","Amestecă bine. Lasă 15 min să se frăgezească."],tip:"Cu cât lasă mai mult, cu atât varza devine mai moale și mai gustoasă.",local:"Varza rosie româneasca · Mere din Vrancea"},
+luP6:{s:"Prânz",n:"Supă de Legume cu Linte Roșie",k:280,p:14,f:6,c:40,v:1,t:["fier","folat"],ro:1,h:"Lintea roșie conține fier non-hem + folat — esențiale pentru sinteza serotoninei și dopaminei, neurotransmițătorii stării de bine.",i:[["80g","linte rosie uscată"],["1 morcov","+ ½ telina + 1 ceapă"],["2 roșii","sau 100g roșii cuburi din conservă"],["2 căței","usturoi"],["1 ling.","ulei de floarea soarelui"],["1L","apă"],["Leuștean","pătrunjel, cimbru, sare, piper"]],st:["Călește ceapa, morcovul, telina în ulei 5 min.","Adaugă usturoiul, lintea clătită și apa.","Fierbe 25 min. Adaugă roșiile în ultimele 10 min.","Finalizează cu ierburi proaspete și oțet de mere."],tip:"",local:"Linte roșie de la Lidl · Leuștean românesc proaspăt"},
+luP7:{s:"Prânz",n:"Musaca de Vinete cu Linte și Sos de Roșii",k:310,p:14,f:9,c:42,v:1,t:["nasunin","fier"],ro:1,h:"Vinetele conțin nasunin care protejează membranele celulare și receptorii hormonali. Lintea adaugă fier non-hem.",i:[["2 vinete","mari, feliate rondele"],["120g","linte verde fiartă"],["250g","roșii cuburi + 1 ling. bulion"],["1 ceapă","+ 3 căței usturoi"],["1 ling.","ulei de floarea soarelui"],["Boia","oregano, scorțișoară, sare, piper"]],st:["Coace feliile de vinete cu ulei la 200°C 20 min.","Călește ceapa + usturoiul. Adaugă roșiile și lintea. Fierbe 15 min.","Montează: vinete → sos → vinete → sos.","Coace 20 min la 180°C."],tip:"",local:"Vinete românesti · Linte de la Lidl"},
+luP8:{s:"Prânz",n:"Mâncare de Năut cu Spanac și Bulion",k:320,p:15,f:7,c:48,v:1,t:["fier","clorofilă"],ro:1,h:"Spanacul + năut + bulion = clorofilă + fier + licopen termic activ. Trioul perfect pentru detox hormonal și energie celulară.",i:[["200g","năut fiert (conservă)"],["100g","spanac proaspăt"],["200g","roșii cuburi sau 2 ling. bulion + 150ml apă"],["1 ceapă","+ 3 căței usturoi"],["1 ling.","ulei de floarea soarelui"],["Boia","chimion, sare, piper, coriandru"]],st:["Căleste ceapa în ulei 4 min. Adaugă usturoiul și condimentele 1 min.","Adaugă bulionul diluat și năutul. Fierbe 10 min.","Adaugă spanacul în ultimele 2 min — se reduce rapid.","Ajustează condimentele."],tip:"",local:"Năut de la Lidl · Spanac din piețele locale"},
+luP9:{s:"Prânz",n:"Cartofi cu Rozmarin și Usturoi la Cuptor",k:340,p:7,f:8,c:58,v:1,t:["potasiu","vitamina C"],ro:1,h:"Cartofii copți cu coajă au indice glicemic mai mic și conțin potasiu care reglează tensiunea și producția de cortisol.",i:[["300g","cartofi românești, cuburi mari"],["4 căței","usturoi, în coajă"],["Rozmarin","proaspăt sau uscat"],["2 ling.","ulei de măsline"],["Sare","piper boia afumata"],["100g","fasole verde pentru garnitură"]],st:["Amestecă cartofii cu uleiul, rozmarinul, usturoiul și condimentele.","Coace la 200°C 30-35 min, întoarcând la jumătate.","Fierbe fasolea verde 5-6 min în apă cu sare.","Serveste cartofii cu fasolea verde alături."],tip:"",local:"Cartofi din Harghita sau Bistrița-Năsăud · Rozmarin din grădinile române"},
+luP10:{s:"Prânz",n:"Mâncare de Dovlecei cu Mărar și Sos de Roșii",k:200,p:6,f:6,c:28,v:1,t:["vitamina C","anti-oxidant"],ro:1,h:"",i:[["3 buc","dovlecei mici, rondele"],["200g","roșii coapte, tocate sau 2 ling. bulion"],["1 ceapă","+ 2 căței usturoi"],["1 ling.","ulei de floarea soarelui"],["1 legătură","mărar proaspăt"],["Sare","piper, boia"]],st:["Căleste ceapa în ulei 3 min. Adaugă usturoiul și dovleceii.","Găteste 5 min, amestecând.","Adaugă roșiile și condimentele. Fierbe 15-20 min.","Adaugă mărarul proaspăt la final."],tip:"",local:"Dovlecei din piețele românești de vară · Mărar românesc"},
+luP11:{s:"Prânz",n:"Tocăniță de Legume cu Cartofi și Ardei",k:260,p:7,f:6,c:42,v:1,t:["vitamina C","potasiu"],ro:1,h:"Rețetă tradițională româneasca de post — tocăniță de legume care hrănea comunitățile întregi.",i:[["200g","cartofi, cuburi"],["1 ardei","gras roșu + 1 ardei galben"],["1 buc","ceapă mare"],["2 morcovi","rondele"],["2 roșii","sau bulion"],["2 căței","usturoi"],["1 ling.","ulei de floarea soarelui"],["Cimbru","boia, sare, piper, pătrunjel"]],st:["Căleste ceapa în ulei 4 min.","Adaugă morcovii, cartofii, ardeii și condimentele.","Adaugă 200ml apă + roșiile sau bulionul.","Fierbe acoperit la foc mic 25-30 min. Presară pătrunjel."],tip:"",local:"Rețetă de post 100% româneasca tradițională"},
+luP12:{s:"Prânz",n:"Supă Cremă de Dovleac cu Cimbru",k:200,p:5,f:6,c:30,v:1,t:["beta-caroten","potasiu"],ro:1,h:"Dovleacul românesc conține beta-caroten precursor al vitaminei A — esențial pentru producerea hormonilorsteroizi.",i:[["400g","dovleac plăcintar sau butternut, cuburi"],["1 ceapă","+ 2 căței usturoi"],["1 morcov","(pentru dulceață)"],["200ml","lapte de soia"],["1 ling.","ulei de floarea soarelui"],["Cimbru","sare, piper, nucșoară"],["Seminte de dovleac","+ ulei de floarea soarelui pentru topping"]],st:["Căleste ceapa + usturoiul + morcovul 4 min.","Adaugă dovleacul și 400ml apă. Fierbe 20 min.","Adaugă laptele de soia. Mixează cremos.","Ajustează sarea și nucșoara. Topping: seminte + ulei."],tip:"",local:"Dovleac plăcintar din piețele de toamnă românești"},
+luP13:{s:"Prânz",n:"Varza Calita cu Orez și Cimbru",k:280,p:7,f:6,c:46,v:1,t:["sulforafan","fibre"],ro:1,h:"Varza conține glucosinolate care se transformă în sulforafan la gătire — activează enzimele hepatice de detoxifiere a estrogenului.",i:[["300g","varza albă, feliată subțire"],["60g","orez fiert"],["1 ceapă","+ 2 căței usturoi"],["2 ling.","bulion sau suc de roșii"],["1 ling.","ulei de floarea soarelui"],["Cimbru","boia, sare, piper, foi de dafin"]],st:["Căleste ceapa în ulei 4 min. Adaugă usturoiul și boiaua.","Adaugă varza. Căleste 8-10 min amestecând.","Adaugă bulionul și condimentele. Fierbe 10 min.","Amestecă cu orezul fiert la final."],tip:"",local:"Varza româneasca · Mâncare de post tradițională"},
+luP14:{s:"Prânz",n:"Ciorba de Potroace Vegana cu Orez",k:250,p:9,f:5,c:42,v:1,t:["fibre","vitamina B"],ro:1,h:"",i:[["80g","ciuperci champignon sau de pădure"],["1 morcov","+ ½ ceapă + ½ ardei + ½ telina"],["30g","orez"],["1 ling.","oțet de mere"],["Leuștean","proaspăt, sare, piper, cimbru"],["1 ling.","ulei de floarea soarelui"]],st:["Căleste legumele în ulei 5 min.","Adaugă ciupercile feliate și găteste 3 min.","Adaugă 1,2L apă și orezul. Fierbe 20-25 min.","Acreste cu otet de mere, adaugă leuștean proaspăt."],tip:"Ciupercile de pădure românesti fac această supă delicioasă.",local:"Ciuperci de pădure din Apuseni sau Carpați"},
  
-bfN4:{slot:"Dimineață",name:"French Toast cu Banană Caramelizată",bKcal:360,p:18,f:12,c:46,tags:["serotonină","triptofan"],horm:"Banana + miere furnizează triptofan și glucoză în combinația optimă pentru producerea serotoninei, hormonul stării de bine.",ing:[["2 felii","pâine integrală groasă (80g)"],["2 buc","ouă"],["50ml","lapte 1.5%"],["1 ling.","miere"],["1 ling.","extract de vanilie"],["½ ling.","scorțișoară"],["1 buc","banană coaptă, feliată"],["5g","unt sau ulei de cocos"]],steps:["Bate ouăle cu laptele, mierea, vanilia și scorțișoara.","Înmoaie feliile de pâine 30 secunde pe fiecare parte.","Gătește în tigaie cu unt la foc mediu, 2-3 minute per parte.","Caramelizează banana în aceeași tigaie cu 1 ling. miere, 1-2 minute. Servește deasupra."],tip:""},
+// ── CINA ZILE NORMALE (dnN1-16) ──────────────────────────────────────────────
+dnN1:{s:"Seară",n:"Pulpe de Pui cu Miere și Cartofi Românești",k:390,p:40,f:8,c:38,t:["proteine"],ro:1,h:"",i:[["200g","pulpe pui dezosate fără piele"],["1 ling.","miere de salcâm"],["80g","sos BBQ sau bulion cu ardei iute"],["200g","cartofi, cuburi condimentate"],["Sare","piper, boia afumată, usturoi pudra"]],st:["Marinează puiul cu miere + sos + condimente. Coace 200°C 22-25 min.","Condimentează cartofii și coace sau air fryer 25-30 min."],tip:"",local:"Pui românesc · Miere de salcâm Apicola"},
+dnN2:{s:"Seară",n:"Tocăniță de Vită cu Morcovi și Vin Roșu",k:340,p:30,f:12,c:24,t:["fier hemic","zinc"],ro:1,h:"Carnea de vită conține zinc și fier hemic cu absorbție de 30%. Vinul roșu adaugă resveratrol cu efect anti-inflamator și protector hormonal.",i:[["150g","pulpa de vită, cuburi"],["2 morcovi","rondele"],["1 ceapă","+ 3 căței usturoi"],["100ml","vin rosu românesc (Merlot sau Feteasca Neagra)"],["200g","roșii cuburi"],["1 ling.","ulei de floarea soarelui"],["Cimbru","dafin, sare, piper, boia"]],st:["Rumeneste carnea în ulei la foc mare, pe toate partile.","Adaugă ceapa, usturoiul, morcovii. Găteste 4 min.","Adaugă vinul. Lasă să evapore 2 min.","Adaugă roșiile și condimentele. Fierbe acoperit 60-70 min."],tip:"Vinul românesc Feteasca Neagra sau Merlot de Dealu Mare = vinul pentru gătit.",local:"Vită din fermele românești · Vin roșu Recaș sau Dealu Mare"},
+dnN3:{s:"Seară",n:"Omletă cu Caș Românesc și Ștevie",k:300,p:24,f:18,c:10,t:["calciu","vitamina K"],ro:1,h:"Ștevie conține vitamina K2 și acid oxalic în cantitate redusă după gătire — susțin sănătatea osoasă și reglarea calciului.",i:[["3 buc","ouă românești"],["30g","caș românesc proaspăt"],["60g","ștevie proaspătă sau lobodă"],["1 ling.","ulei de floarea soarelui"],["1 felie","pâine integrală"],["Sare","piper"]],st:["Opăreste ștevie 1 minut în apă cu sare. Scurge bine.","Bate ouăle cu sare și piper.","Sotează ștevie scursă în ulei 1 min. Toarnă ouăle.","Adaugă casul sfărâmat. Găteste la foc mic 2-3 min."],tip:"Ștevie și lobodă = verdețuri românești sezoniere neglijate, extrem de sănătoase.",local:"Ștevie sau lobodă din piețele românești de primăvară-vară"},
+dnN4:{s:"Seară",n:"Fasole Bătută cu Costița Afumată",k:350,p:22,f:18,c:24,t:["fibre","vitamina B12"],ro:1,h:"",i:[["150g","fasole albă fiartă"],["60g","costiță afumată slabă"],["1 ceapă","mare, feliată și călită"],["2 căței","usturoi"],["1 ling.","ulei de floarea soarelui"],["Boia","afumată, cimbru, sare"]],st:["Pasează fasolea cu usturoiul, sarea și uleiul.","Rumeneste costița ușor în tigaie.","Călete ceapa aurie (10-12 min).","Serveste fasolea cu costița și ceapa călită deasupra."],tip:"",local:"Fasole româneasca · Costița afumată de la carmangeria locală"},
+dnN5:{s:"Seară",n:"Pui cu Usturoi Verde și Fasole Verde",k:310,p:34,f:9,c:20,t:["alicina","vitamina C"],ro:1,h:"Usturoiul verde conține alicina în forma cea mai activă — antiinflamator puternic și reglator al metabolismului glucozei.",i:[["180g","piept de pui"],["200g","fasole verde"],["1 legătură","usturoi verde proaspăt"],["Zeamă","de la 1 lămâie"],["1 ling.","ulei de floarea soarelui"],["Sare","piper, cimbru, paprika"]],st:["Condimentează puiul. Găteste în ulei la foc mediu 6-7 min per parte.","Adaugă usturoiul verde în ultimele 2 minute.","Fierbe fasolea verde 5-6 min cu sare. Scurge.","Stropeste totul cu zeamă de lămâie."],tip:"",local:"Usturoi verde din piețele românești de mai-iunie"},
+dnN6:{s:"Seară",n:"Crap Prăjit cu Mujdei și Mămăligă Mică",k:400,p:36,f:16,c:28,t:["omega-3","iod"],ro:1,h:"Mămăliga din mălaî românesc are indice glicemic mai mic decât pâinea albă și furnizează fibre + beta-glucan.",i:[["200g","crap (filetat sau felii)"],["60g","mălai românesc"],["200ml","apă pentru mămăligă"],["4 căței","usturoi + ulei de floarea soarelui + sare"],["1 ling.","ulei pentru prăjit"],["Sare","piper, boia"],["Salată verde","sau murături"]],st:["Fierbe apa cu sare, adaugă malaiul în ploaie, amestecând. Fierbe 15 min.","Condimentează crapul. Prajeste în ulei 4-5 min per parte.","Prepară mujdeiul: usturoi zdrobit + ulei + sare + 2 ling. apă.","Serveste crapul cu mămăligă mică și mujdei."],tip:"Combinație clasică româneasca. Bogată în omega-3.",local:"Crap Delta Dunarii · Mălai românesc (Dacia Plant sau Morarit)"},
+dnN7:{s:"Seară",n:"Snitzel de Porc cu Cartofi Piure și Murături",k:380,p:32,f:16,c:30,t:["zinc","vitamina B1"],ro:1,h:"Carnea de porc slabă conține vitamina B1 (tiamina) care susține funcția nervilor și reglarea insulinei.",i:[["150g","cotlet de porc slab, bătut"],["1 buc","ou pentru panare"],["30g","pesmet integral"],["150g","cartofi piure"],["50ml","lapte cald pentru piure"],["Murături","de casă (castraveți, ardei)"],["Sare","piper, cimbru"]],st:["Bate cotletul subțire. Condimentează cu sare, piper, cimbru.","Trece prin ou bătut, apoi prin pesmet.","Prajeste în puțin ulei, 3-4 min per parte.","Serveste cu piure simplu (cartofi + lapte + sare) și murături."],tip:"Murăturile românești de casă = probiotice naturale.",local:"Murături românesti de casă · Cotlet de porc local"},
+dnN8:{s:"Seară",n:"Curcan cu Muștar și Varza Murată Căiita",k:360,p:38,f:10,c:28,t:["triptofan","probiotice"],ro:1,h:"Curcanul conține cel mai mult triptofan din toate carnurile — precursor direct al serotoninei. Varza murată adaugă probiotice naturale.",i:[["180g","piept de curcan"],["1 ling.","muștar românesc Sinapis"],["1 ling.","miere"],["250g","varza murată, scursă"],["1 ceapă","+ 2 căței usturoi"],["1 ling.","ulei de floarea soarelui"],["Cimbru","boia, piper"]],st:["Glazurează curcanul cu miere + muștar + condimente.","Coace la 200°C 25 min.","Călete varza murată cu ceapa și usturoiul 10-12 min.","Serveste curcanul tăiat deasupra varza calite."],tip:"",local:"Curcan românesc · Varza murată din gospodăriile locale"},
+dnN9:{s:"Seară",n:"Salată Caldă de Pui cu Sfeclă și Hrean",k:320,p:30,f:8,c:28,t:["betaină","omega-3"],ro:1,h:"Sfeclă + hrean = betaină + izotiocianați. Duo detoxifiant pentru ficatul care metabolizează estrogenul.",i:[["150g","piept pui gătit, fâșii"],["150g","sfeclă roșie fiartă, cuburi"],["40g","salată verde sau lobodă"],["20g","hrean ras proaspăt"],["1 ling.","oțet de mere + 1 ling. ulei de floarea soarelui"],["Sare","piper, mărar"],["1 ling.","miere"]],st:["Amestecă sfecla cuburi cu salata verde.","Adaugă puiul gătit fâșii.","Prepară dressingul: oțet + ulei + miere + sare + piper.","Adaugă hreanul ras și mărarul. Toarnă dressingul."],tip:"",local:"Hrean proaspăt din piețele românești · Sfeclă locală"},
+dnN10:{s:"Seară",n:"Pârjoale Moldovnești cu Sos de Roșii",k:360,p:28,f:18,c:20,t:["zinc","fier hemic"],ro:1,h:"Pârjoalele sunt o specialitate moldoveneasca — mai aromate decât chiftelele obișnuite datorita ierburilor și cepei verdî.",i:[["150g","carne tocată amestec vită+porc slab"],["1 buc","ou"],["2 felii","pâine înmuiată în lapte, stoarsă"],["Ceapă verde","pătrunjel, usturoi, sare, piper, boia"],["200g","roșii cuburi + 1 ling. bulion pentru sos"],["1 ling.","ulei pentru prăjit"]],st:["Amestecă carnea cu oul, pâinea înmuiată, ceapa verde tocată, pătrunjelul, usturoiul.","Formează pârjoale plate. Prajeste 3-4 min per parte.","Pregăteste sosul: sotează ceapă + adaugă roșii + bulion + condimente. 15 min.","Serveste pârjoalele în sos."],tip:"Pâinea înmuiată în lapte = secretul pârjoalelor moi!",local:"Rețetă moldoveneasca autentică · Carne de la măcelarul local"},
+dnN11:{s:"Seară",n:"Pui Tandoori cu Ardei și Ceapă",k:330,p:36,f:8,c:20,t:["anti-inflamator","proteine"],ro:1,h:"Condimentele tandoori conțin turmeric + ghimbir + boia + chimion — patru anti-inflamatoare combinate care reduc inflamația hormonală.",i:[["180g","piept de pui"],["50g","iaurt grecesc 2% pentru marinadă"],["Condimente","turmeric, boia afumată, chimion, ghimbir pudra, sare"],["2 ardei","grași + 1 ceapă mare"],["1 ling.","ulei de floarea soarelui"]],st:["Amestecă iaurtul cu condimentele. Marinează puiul minim 30 min.","Adaugă ardeii și ceapa pe tava.","Coace 200°C 25-28 min.","Serveste cu murături sau salată verde."],tip:"Cu cât marinezi mai mult, cu atât mai aromat.",local:"Ardei românești · Pui crescut în curte"},
+dnN12:{s:"Seară",n:"Spaghete Integrale cu Sos Bolognese Ușor",k:420,p:24,f:12,c:54,t:["fier","fibre"],ro:1,h:"",i:[["70g","spaghete integrale"],["100g","carne tocată vită slabă"],["200g","roșii cuburi + 1 ling. bulion"],["1 ceapă","+ 2 căței usturoi"],["Condimente","italiene, boia, sare, piper"],["10g","parmezan ras"]],st:["Fierbe pastele al dente. Rezervă 100ml apă de la paste.","Rumeneste carnea cu ceapa și usturoiul.","Adaugă roșiile și condimentele. Fierbe 15-20 min.","Amestecă cu pastele + apă de paste. Rade parmezanul."],tip:"",local:"Parmezan sau cașcaval românesc · Paste Barilla integral"},
+dnN13:{s:"Seară",n:"Orez Prăjit cu Ouă și Legume de Grădină",k:400,p:20,f:12,c:52,t:["colină","vitamina A"],ro:1,h:"",i:[["80g","orez basmati fiert rece (ideal gătit ziua dinainte)"],["2 buc","ouă bătute"],["100g","morcov + mazăre + ceapă verde"],["1 ling.","sos soia light"],["1 ling.","ulei de floarea soarelui"],["Usturoi","ghimbir ras, sare"]],st:["Prăjeste morcovul și ceapa verde în ulei 3 min.","Adaugă orezul rece. Amestecă la foc mare 3-4 min.","Fă o adântitură, adaugă ouăle bătute și amestecă rapid.","Adaugă sosul de soia și mazărea. 1 min."],tip:"Orezul RECE e esențial — cel cald se lipeste.",local:"Morcov românesc · Mazăre verde locală"},
+dnN14:{s:"Seară",n:"File de Pastrav cu Cartofi Noi și Marar",k:350,p:38,f:12,c:22,t:["omega-3","seleniu"],ro:1,h:"Păstrăvul crescut în apele curate ale Carpaților este una din cele mai pure surse de omega-3 disponibile în România.",i:[["200g","file de pastrav"],["200g","cartofi noi fierți"],["1 legătură","mărar proaspăt"],["2 ling.","ulei de floarea soarelui"],["Zeamă","de la 1 lămâie"],["4 căței","usturoi"],["Sare","piper, boia"]],st:["Condimentează păstrăvul. Prajeste în ulei 3-4 min per parte.","Fierbe cartofii noi 15 min. Stropeste cu ulei și presară mărar.","Prepară mujdeiul: usturoi zdrobit + ulei + sare.","Serveste păstrăvul cu cartofi și mujdei."],tip:"",local:"Păstrăv din Apuseni sau Harghita · Cartofi noi românești"},
+dnN15:{s:"Seară",n:"Pui cu Miere și Cimbru cu Conopidă Coaptă",k:350,p:36,f:10,c:24,t:["sulforafan","proteine"],ro:1,h:"Conopida conține indol-3-carbinol și sulforafan care activează metabolizarea estrogenului în ficat — mai eficient decât broccoli la unele persoane.",i:[["180g","piept de pui"],["1 ling.","miere de salcâm"],["Cimbru","+ ½ ling. boia afumată"],["300g","conopidă, buchete"],["1 ling.","ulei de floarea soarelui"],["Sare","piper, usturoi pudra, paprika"]],st:["Marinează puiul cu miere, cimbru, boia, sare.","Amestecă conopida cu ulei și condimentele.","Coace totul la 200°C 22-25 min.","Serveste împreună."],tip:"",local:"Conopidă româneasca · Cimbru din Dobrogea"},
+dnN16:{s:"Seară",n:"Iepure sau Rață Româneasca Înabușita",k:360,p:34,f:16,c:16,t:["fier hemic","zinc"],ro:1,h:"Carnea de iepure sau rată româneasca este mai slabă decât puiul și conține mai mult zinc și fier — esențiale pentru reglarea hormonilor sexuali.",i:[["180g","carne de iepure sau rată (fără piele)"],["1 ceapă","mare"],["3 morcovi","rondele"],["200ml","vin alb sau apă"],["3 căței","usturoi"],["Cimbru","dafin, sare, piper, boia"],["1 ling.","ulei de floarea soarelui"]],st:["Rumeneste bucatile de carne pe toate partile în ulei.","Adaugă ceapa, morcovii, usturoiul.","Toarnă vinul sau apa. Adaugă condimentele.","Înabușe acoperit la foc mic 60-70 min."],tip:"",local:"Iepure sau rată din gospodăriile locale sau piețele țărănești"},
  
-bfN5:{slot:"Dimineață",name:"Terci de Ovăz Tiramisu Sănătos",bKcal:380,p:16,f:10,c:52,tags:["energie","antioxidanți cafea"],horm:"Cafeaua conține polifenoli care protejează glandele suprarenale producătoare de cortisol și DHEA.",ing:[["45g","fulgi de ovăz"],["150ml","lapte 1.5%"],["1 shot","espresso (40ml), răcit"],["1 praf","sare"],["50g","iaurt grecesc 2%"],["10g","cacao pudră"],["1 ling.","miere"]],steps:["Gătește ovăzul cu laptele la foc mediu 5-7 minute, amestecând.","Toarnă în bol. Amestecă iaurtul cu mierea și pune ca strat de cremă deasupra.","Toarnă espresso-ul răcit deasupra.","Presară cacao generos cu o sită fină."],tip:"Varianta overnight: amestecă totul seara și pune la frigider — gata în 2 minute dimineața."},
+// ── CINA ZILE DE POST — VEGAN (dnP1-14) ─────────────────────────────────────
+dnP1:{s:"Seară",n:"Salată de Vinete cu Ulei de Floarea Soarelui",k:240,p:6,f:14,c:20,v:1,t:["nasunin","fibre"],ro:1,h:"Salata de vinete este o rețetă română autentică. Vinetele coapte pe flacăra directă eliberează nasunin — antioxidant anti-estrogenic.",i:[["2 vinete","mari"],["1 ceapă","medie, tocată mărunt"],["3 ling.","ulei de floarea soarelui nerafinat"],["Zeamă","de la 1 lămâie"],["Sare","după gust"],["Lipie","sau pâine integrală"],["Roșii","proaspete pentru garnitură"]],st:["Coace vinetele direct pe flacăra aragazului sau la 220°C 20-25 min.","Lasă să se răcorească, curăță coaja. Scurge 20 min — crucial!","Toacă fin cu cuțit din lemn sau plastic.","Amestecă cu ceapa, uleiul, lămâia și sarea. Serveste pe pâine."],tip:"Secretul: scurgerea vinetelor și cuțitul din lemn — nu metal!",local:"Rețetă româneasca autentică · Vinete din piețele de vară"},
+dnP2:{s:"Seară",n:"Terci de Porumb cu Nuci și Miere",k:310,p:8,f:10,c:48,v:1,t:["magneziu","energie"],ro:1,h:"Porumbul românesc conține magneziu și seleniu. Nucile adaugă omega-3 ALA și ellagic acid.",i:[["60g","mălai românesc fin"],["300ml","apă"],["50ml","lapte de soia"],["10g","nuci românești"],["1 ling.","miere de salcâm"],["½ ling.","scorțișoară"],["4 buc","prune uscate românești"]],st:["Fierbe apa cu puțina sare.","Adaugă malaiul în ploaie, amestecând continuu.","Fierbe 15 min la foc mic, amestecând des.","Adaugă laptele de soia, nucile, prunele. Stropeste cu miere."],tip:"Mămăligă cu lapte = deseriful sau cina de post a bunicilor.",local:"Mălai românesc · Nuci românești · Miere de salcâm"},
+dnP3:{s:"Seară",n:"Hummus Românesc din Fasole Albă cu Mujdei",k:260,p:12,f:8,c:34,v:1,t:["fibre","zinc"],ro:1,h:"Fasolea albă româneasca face un hummus mai cremos și mai dulce decât cel din năut. Mujdeiul românesc adaugă alicina cu efect anti-inflamator.",i:[["200g","fasole albă fiartă"],["3 căței","usturoi"],["2 ling.","ulei de floarea soarelui"],["Zeamă","de la ½ lămâie"],["2 ling.","pastă de seminte floarea soarelui"],["Sare","boia afumată, chimion"],["Morcovi","și castraveți bastonașe"]],st:["Mixează fasolea cu usturoiul, sarea, lămâia și uleiul în blender 2-3 min.","Adaugă pasta de seminte și puțina apă rece. Continuă să mixezi.","Transferă în bol, stropeste cu ulei, presară boia.","Serveste cu legumele bastonașe."],tip:"",local:"Fasole albă româneasca · Ulei de floarea soarelui nerafinat"},
+dnP4:{s:"Seară",n:"Mâncare de Ciuperci de Pădure cu Cimbru",k:200,p:7,f:7,c:22,v:1,t:["vitamina D","beta-glucan"],ro:1,h:"Ciupercile de pădure românesti conțin vitamina D2 și ergosterol care susțin sistemul imunitar și funcția suprarenalelor producătoare de hormoni.",i:[["300g","ciuperci de pădure (champignon, pleurotus sau gălbiori)"],["1 ceapă","mare"],["3 căței","usturoi"],["2 ling.","bulion sau suc de roșii"],["1 ling.","ulei de floarea soarelui"],["Cimbru","boia, sare, piper"],["Pătrunjel","proaspăt"]],st:["Călete ceapa în ulei 4 min.","Adaugă usturoiul și ciupercile feliate. Găteste 6-7 min.","Adaugă bulionul și condimentele. Fierbe 10 min.","Presară pătrunjel proaspăt."],tip:"",local:"Ciuperci de pădure din Apuseni sau Harghita · Piețele românești"},
+dnP5:{s:"Seară",n:"Năut cu Ardei Copt și Ulei de Măsline",k:310,p:13,f:10,c:42,v:1,t:["zinc","vitamina C"],ro:1,h:"Ardeii copți românești sunt una din cele mai bogate surse de vitamina C — potențează absorbția fierului din năut.",i:[["200g","năut fiert (conservă)"],["2 ardei","kapia sau grași, copți și curățați"],["1 ceapă","roșie, feliată"],["2 ling.","ulei de măsline"],["Zeamă","de la 1 lămâie"],["Sare","piper, boia afumată, cimbru, pătrunjel"]],st:["Coace ardeii la 200°C 20 min. Curăță, taie fâșii.","Amestecă năutul cu ardeii și ceapa.","Prepară dressingul: ulei + lămâie + sare + boia.","Adaugă pătrunjelul tocat."],tip:"",local:"Ardei kapia din Teleorman · Ulei de măsline din comerț"},
+dnP6:{s:"Seară",n:"Ciorbă de Sfeclă Roșie (Borș Românesc)",k:180,p:6,f:4,c:28,v:1,t:["betaină","vitamina C"],ro:1,h:"Borșul de sfeclă conține betaină și nitriți naturali care dilată vasele și îmbunătățesc circulația — esențial pentru transportul hormonilor.",i:[["300g","sfeclă roșie, cuburi"],["1 morcov","+ ½ ceapă + ½ telina"],["100ml","borș sau suc de varza (pentru acrire)"],["1 ling.","ulei de floarea soarelui"],["Leuștean","sare, piper, 1 ling. otet de mere"],["Hrean ras","sau smântână pentru servire (opțional post)"]],st:["Fierbe sfecla cu legumele în 1,2L apă 25-30 min.","Acreste cu borș sau oțet de mere.","Adaugă leușteanul la final.","Serveste cald cu hrean ras alături."],tip:"",local:"Sfeclă roșie din piețele românești · Borș sau zeamă de varza acra"},
+dnP7:{s:"Seară",n:"Rulouri de Varza Umplute cu Hrișcă",k:250,p:9,f:6,c:40,v:1,t:["rutine","sulforafan"],ro:1,h:"Combinația varza + hrișcă = sulforafan + rutine — duo unic pentru detox hormonal și reglarea sensibilității la insulina.",i:[["4 foi","varza albă (opărită 2 min)"],["60g","hrișcă fiartă"],["1 ceapă","+ 2 căței usturoi, sotate"],["50g","morcov ras"],["2 ling.","bulion"],["Cimbru","boia, sare, piper"]],st:["Fierbe hrișca 12-15 min. Amestecă cu ceapa sotată, morcovul, condimentele.","Opăreste foile de varza 2 min. Scurge.","Pune umplutură pe fiecare foaie și rulează.","Fierbe în apă cu bulion și cimbru 30-40 min."],tip:"Versiunea vegana de sarmale — identica cu originalul!",local:"Varza româneasca · Hrișcă din Apuseni"},
+dnP8:{s:"Seară",n:"Tocăniță de Cartofi cu Ciuperci și Boia",k:240,p:7,f:6,c:38,v:1,t:["potasiu","vitamina D"],ro:1,h:"Ciupercile conțin vitamina D2 și ergosterol care susțin funcția suprarenalelor producătoare de cortisol și DHEA.",i:[["200g","cartofi cuburi"],["150g","ciuperci champignon sau pleurotus"],["1 ceapă","+ 2 căței usturoi"],["200ml","suc de roșii sau bulion diluat"],["1 ling.","ulei de floarea soarelui"],["Boia","afumată, cimbru, sare, piper, pătrunjel"]],st:["Călete ceapa în ulei 3 min. Adaugă usturoiul și ciupercile 4 min.","Adaugă cartofii și sucul de roșii.","Fierbe la foc mic 20-25 min.","Presară pătrunjel la final."],tip:"",local:"Ciuperci champignon din piețele locale · Cartofi românești"},
+dnP9:{s:"Seară",n:"Roșii Umplute cu Hrișcă și Legume",k:240,p:9,f:6,c:36,v:1,t:["licopen","rutine"],ro:1,h:"Roșiile coapte eliberează licopen termic activ — antioxidant care protejează receptorii hormonali. Hrișca adaugă rutine.",i:[["4 roșii","mari românești"],["50g","hrișcă fiartă"],["50g","morcov ras + 50g dovlecel ras"],["2 căței","usturoi"],["1 ling.","ulei de floarea soarelui"],["Oregano","busuioc, sare, piper"]],st:["Taie capacele roșiilor, scoate miezul (păstrează).","Amestecă hrișca cu legumele rase, usturoiul, condimentele și miezul tocat.","Umple roșiile și pune capacele.","Coace 180°C 25-30 min."],tip:"",local:"Roșii mari românești din piețele de vară"},
+dnP10:{s:"Seară",n:"Mămăligă cu Sos de Ciuperci",k:280,p:8,f:8,c:44,v:1,t:["fibre","vitamina D"],ro:1,h:"Mâncare tradițională româneasca veche de secole — mămăliga cu ciuperci hrănea comunitățile de munte.",i:[["60g","mălai românesc"],["300ml","apă"],["200g","ciuperci de pădure sau champignon"],["1 ceapă","+ 3 căței usturoi"],["200ml","suc de roșii sau bulion diluat"],["1 ling.","ulei de floarea soarelui"],["Cimbru","boia afumată, sare, pătrunjel"]],st:["Fierbe mămăligă din mălai și apă cu sare, 15 min.","Călete ceapa + usturoiul + ciupercile 6-7 min.","Adaugă sucul de roșii și condimentele. Fierbe 10 min.","Serveste sosul de ciuperci alături de mămăligă."],tip:"Mâncare de post tradițională româneasca — simplă și nutritivă.",local:"Rețetă 100% româneasca · Ciuperci de pădure locale"},
+dnP11:{s:"Seară",n:"Caserola de Fasole cu Ardei Iute și Usturoi",k:300,p:14,f:6,c:46,v:1,t:["fitoestrogeni","capsaicina"],ro:1,h:"Capsaicina din ardeiul iute românesc activează receptorii TRPV1 care accelerează metabolismul și arderea de grăsimi.",i:[["200g","fasole pestrița sau neagra fiartă"],["1 ardei","iute românesc sau ½ linguriță boia iute"],["1 ceapă","+ 4 căței usturoi"],["200g","roșii cuburi"],["1 ling.","ulei de floarea soarelui"],["Cimbru","boia dulce, foi dafin, sare, piper"]],st:["Călete ceapa în ulei 4 min. Adaugă usturoiul și ardeiul iute 1 min.","Adaugă roșiile, fasolea și condimentele.","Fierbe 20 min la foc mic.","Serveste cu pâine de casă sau mămăligă."],tip:"",local:"Ardei iute românesc · Fasole pestrița din piețele locale"},
+dnP12:{s:"Seară",n:"Supa de Ceapă Româneasca",k:160,p:5,f:6,c:22,v:1,t:["quercetina","anti-inflamator"],ro:1,h:"Ceapa româneasca conține quercetina — unul din cei mai puternici flavonoizi anti-inflamatori. Reduce inflamația sistemica ce perturbă hormonii.",i:[["400g","ceapă galbenă, feliată subțire"],["1 ling.","ulei de floarea soarelui"],["1 ling.","miere (caramelizare)"],["800ml","supă de legume sau apă"],["Cimbru","foi de dafin, sare, piper"],["2 felii","pâine integrală prăjită"],["15g","cașcaval ras — doar în zi normală sau omite pentru post"]],st:["Călete ceapa în ulei la foc mic 30 min, amestecând des — devine aurie și dulce.","Adaugă mierea în ultimele 5 min. Caramelizează 2 min.","Adaugă supa de legume și condimentele. Fierbe 20 min.","Serveste cu felii de pâine prăjită."],tip:"Cele 30 min de calit ceapa = magia acestei supe. Nu grăbi!",local:"Ceapă româneasca · Rețetă inspirata din tradiția româneasca"},
+dnP13:{s:"Seară",n:"Mamaliga cu Branza si Smantana — Varianta Post",k:280,p:9,f:7,c:44,v:1,t:["calciu — varianta post cu tofu"],ro:1,h:"",i:[["60g","mălai românesc"],["300ml","apă"],["100g","tofu moale asezonat + 2 ling. drojdie nutritivă"],["1 ling.","ulei de floarea soarelui"],["Sare","ceapă verde, mărar"],["Murături","pentru garnitură"]],st:["Fierbe mămăligă din mălai și apă cu sare, 15 min.","Amestecă toful zdrobit cu drojdia nutritivă, uleiul, sarea — obții o cremă brânzoasă.","Toarnă crema peste mămăligă.","Serveste cu ceapă verde, mărar și murături."],tip:"Drojdia nutritivă = gust brânzos vegetal, bogată în vitamina B12.",local:"Mălai românesc · Murături de casă românești"},
+dnP14:{s:"Seară",n:"Iahnie de Fasole cu Sos de Roșii",k:290,p:14,f:5,c:46,v:1,t:["fibre","fier"],ro:1,h:"Iahnia de fasole este rețeta de post prin excelenta a gospodinelor românești. Fasolea = proteina vegetala + fibre care elimina excesul de estrogen.",i:[["200g","fasole boabe fiartă"],["2 cepe","mari, tocate mărunt"],["3 ling.","bulion românesc"],["4 căței","usturoi"],["1 ling.","ulei de floarea soarelui"],["Cimbru","foi de dafin, boia dulce, sare, piper"]],st:["Călete ceapa în ulei la foc mic 10-12 min — aurie și dulce.","Adaugă usturoiul și boiaua, 1 min.","Adaugă fasolea și bulionul diluat în 300ml apă.","Fierbe 20-25 min. Ajustează condimentele."],tip:"Iahnia de fasole cu ceapă bine călită = mâncare de sărbătoare de post!",local:"Rețetă tradițională română de post · Fasole româneasca"},
  
-bfN6:{slot:"Dimineață",name:"Avocado Toast cu Ou Poșat și Semințe",bKcal:290,p:16,f:18,c:18,tags:["grăsimi esențiale","precursori hormonali"],horm:"Avocado furnizează acizi grași mononesaturați esențiali pentru producerea tuturor hormonilor steroizi.",ing:[["1 felie","pâine integrală groasă, prăjită"],["70g","avocado (½ mic)"],["1 buc","ou proaspăt"],["1 ling.","oțet alb (pentru poșare)"],["Sare","piper, fulgi de chili, zeamă lămâie"],["5g","semințe de dovleac"]],steps:["Fierbe apă cu oțetul. Creează un vârtej și alunecă oul în centru. Fierbe 3 minute.","Prăjește pâinea.","Zdrobește avocado cu sare, piper și zeama de lămâie.","Asamblează: pâine → avocado → ou poșat → semințe → sare de mare."],tip:"Trucul oului poșat perfect: oul trebuie să fie foarte proaspăt — albușul se coagulează strâns."},
+// ── GUSTĂRI (sn1-16) — NUMAI ZILE NORMALE ────────────────────────────────────
+sn1:{s:"Gustare",n:"Iaurt cu Nuci și Miere de Salcâm",k:220,p:18,f:10,c:16,ro:1,t:["omega-3","probiotice"],h:"Nucile românești conțin omega-3 ALA, magneziu și ellagic acid — trio complet pentru echilibrul hormonal.",i:[["200g","iaurt grecesc 2%"],["20g","nuci românești tocate"],["1 ling.","miere de salcâm"],["½ ling.","scorțișoară"],["5g","seminte de in macinate"]],st:["Pune iaurtul în bol.","Adaugă nucile, mierea, scorțișoara și semințele de in."],tip:"",local:"Miere de salcâm din Câmpia Română · Nuci din Oltenia"},
+sn2:{s:"Gustare",n:"Brânza de Vaci cu Afine și Scorțișoară",k:180,p:20,f:3,c:18,ro:1,t:["calciu","antioxidanți"],h:"",i:[["150g","brânza de vaci 0% (Napolact)"],["80g","afine de pădure sau cultivate"],["1 ling.","miere"],["5g","seminte de in macinate"],["½ ling.","scorțișoară"]],st:["Pune brânza de vaci în bol.","Adaugă afinele, semințele de in și scorțișoara.","Stropeste cu miere."],tip:"",local:"Brânza de vaci Napolact · Afine din Carpați"},
+sn3:{s:"Gustare",n:"Mere cu Pastă de Seminte de Floarea Soarelui",k:190,p:6,f:10,c:22,ro:1,t:["vitamina E","fibre"],h:"Semințele de floarea soarelui românești sunt sursa noastră locală de vitamina E — antioxidantul care protejează hormonii de oxidare.",i:[["2 buc","mere românești"],["2 ling.","pastă de seminte de floarea soarelui"],["1 ling.","miere"],["½ ling.","scorțișoară"]],st:["Taie merele felii.","Amestecă pasta cu mierea.","Serveste merele cu pasta și scorțișoară."],tip:"",local:"Mere din Vrancea sau Argeș · Pastă de seminte locale"},
+sn4:{s:"Gustare",n:"Iaurt cu Coacăze și Seminte de In",k:190,p:14,f:4,c:22,ro:1,t:["vitamina C","fitoestrogeni"],h:"Coacazele negre românești conțin de 4x mai multă vitamina C decât lămâia. Semințele de in adaugă fitoestrogeni echilibranti.",i:[["200g","iaurt grecesc 2%"],["80g","coacăze negre sau roșii"],["10g","seminte de in macinate"],["1 ling.","miere"]],st:["Pune iaurtul în bol.","Adaugă coacăzele și semințele de in.","Stropeste cu miere."],tip:"",local:"Coacăze din grădinile românești · Seminte de in din Bărăgan"},
+sn5:{s:"Gustare",n:"Brânza de Vaci cu Roșii și Mărar",k:160,p:18,f:3,c:10,ro:1,t:["calciu","vitamina C"],h:"",i:[["150g","brânza de vaci 0%"],["2 roșii","medii"],["1 legătură","mărar proaspăt"],["Sare","piper"],["1 ling.","ulei de floarea soarelui"]],st:["Pune brânza de vaci în bol cu sare și piper.","Taie roșiile rondele alături.","Presară mărarul tocat.","Stropeste cu ulei de floarea soarelui."],tip:"Micul dejun rapid al bunicii — simplu și nutritiv.",local:"Rețetă româneasca tradițională"},
+sn6:{s:"Gustare",n:"Pâine cu Brânza de Vaci și Castraveți",k:250,p:16,f:6,c:28,ro:1,t:["calciu","hidratare"],h:"",i:[["1 felie","pâine integrală prăjită"],["80g","brânza de vaci"],["1 castravete","mediu, feliat"],["Mărar","proaspăt"],["Sare","piper"]],st:["Prăjeste pâinea.","Întinde brânza de vaci cu sare și mărar.","Adaugă castraveții feliați deasupra."],tip:"",local:"Brânza de vaci Pilos · Castraveți de grădină"},
+sn7:{s:"Gustare",n:"Cașcaval cu Mere și Nuci",k:240,p:14,f:14,c:14,ro:1,t:["calciu","omega-3"],h:"",i:[["40g","cașcaval românesc ușor (Dorna sau Pilos)"],["1 buc","măr mic"],["10g","nuci românești"],["1 ling.","miere (opțional)"]],st:["Taie cașcavalul felii.","Taie mărul felii.","Aranjează pe farfurie cu nucile.","Stropeste cu miere dacă dorești."],tip:"",local:"Cașcaval Dorna sau Prodlacta · Nuci românești"},
+sn8:{s:"Gustare",n:"Ouă Fierte cu Roșii și Sare de Mare",k:180,p:14,f:10,c:6,ro:1,t:["vitamina D","colină"],h:"Ouăle românești de curte conțin vitamina D naturală și lecitină care susțin funcția hepatică și producerea de hormoni.",i:[["2 buc","ouă fierte tari"],["2 roșii","cherry sau 1 roșie medie"],["Sare","de mare, piper, boia"],["Pâine","integrală (opțional)"]],st:["Fierbe ouăle 9-10 min.","Taie roșiile.","Serveste ouăle cu roșiile și sarea de mare."],tip:"",local:"Ouă românești de curte · Sare de mare"},
+sn9:{s:"Gustare",n:"Smoothie cu Căpșuni și Lapte",k:200,p:14,f:4,c:28,ro:1,t:["vitamina C","calciu"],h:"",i:[["100g","căpșuni românești proaspete sau congelate"],["200ml","lapte 1.5%"],["100g","iaurt grecesc 2%"],["1 ling.","miere"],["5g","seminte de in macinate"]],st:["Pune totul în blender.","Mixează 30-40 sec.","Serveste imediat."],tip:"",local:"Căpșuni din Ilfov sau Olt · Lapte românesc Zuzu"},
+sn10:{s:"Gustare",n:"Prune Uscate cu Caș",k:190,p:10,f:8,c:22,ro:1,t:["sorbitol","calciu"],h:"Prunele uscate românești conțin sorbitol + potasiu + magneziu — trio pentru reducerea retenției de apă și reglarea cortisol.",i:[["5 buc","prune uscate românești"],["50g","caș românesc proaspăt"],["5g","nuci tocate"],["½ ling.","scorțișoară"]],st:["Taiata prunele mărunt sau serveste întregi.","Pune casul alături.","Presară nucile și scorțișoara."],tip:"",local:"Prune uscate Curtea de Argeș · Caș din Apuseni"},
+sn11:{s:"Gustare",n:"Mix de Nuci și Fructe Uscate Românești",k:210,p:5,f:14,c:18,ro:1,t:["omega-3","magneziu"],h:"",i:[["15g","nuci românești"],["10g","alune de pădure"],["15g","prune uscate tocate sau smochine"],["5g","seminte de dovleac"],["5g","seminte de floarea soarelui"]],st:["Amestecă toate ingredientele.","Serveste imediat sau păstrează în pungă."],tip:"",local:"Nuci oltenești · Alune de pădure din Carpați · Prune românești"},
+sn12:{s:"Gustare",n:"Iaurt cu Zmeură și Seminte de In",k:190,p:14,f:4,c:22,ro:1,t:["fitoestrogeni","antioxidanți"],h:"Zmeura românească conține acid ellagic care reglează activitatea estrogenului.",i:[["200g","iaurt grecesc 2%"],["80g","zmeură proaspătă sau congelată"],["10g","seminte de in macinate"],["1 ling.","miere"]],st:["Pune iaurtul în bol.","Adaugă zmeura și semințele de in.","Stropeste cu miere."],tip:"",local:"Zmeură din Apuseni · Seminte de in românești"},
+sn13:{s:"Gustare",n:"Sfeclă Roșie cu Iaurt și Hrean",k:170,p:12,f:3,c:22,ro:1,t:["betaină","detox"],h:"Sfeclă + hrean = betaină + izotiocianați. Gustare detoxifiantă pentru ficat.",i:[["100g","sfeclă roșie fiartă, rasă"],["100g","iaurt grecesc 2%"],["1 ling.","hrean ras"],["1 ling.","miere"],["Zeamă","de la ¼ lămâie"]],st:["Amestecă sfecla rasă cu iaurtul.","Adaugă hreanul, mierea și lămâia.","Serveste rece."],tip:"",local:"Sfeclă roșie locală · Hrean din Ialomița"},
+sn14:{s:"Gustare",n:"Brânza de Vaci cu Miere și Scorțișoară",k:170,p:18,f:3,c:16,ro:1,t:["calciu","triptofan"],h:"",i:[["150g","brânza de vaci 0%"],["1 ling.","miere de salcâm"],["½ ling.","scorțișoară"],["Un praf","vanilie"]],st:["Pune brânza în bol.","Stropeste cu miere.","Presară scorțișoară și vanilie."],tip:"",local:"Brânza de vaci Napolact · Miere de salcâm"},
+sn15:{s:"Gustare",n:"Toast cu Brânza Topita și Roșii Cherry",k:220,p:12,f:8,c:22,ro:1,t:["calciu","licopen"],h:"",i:[["1 felie","pâine integrală prăjită"],["40g","brânza topita light"],["6 buc","roșii cherry, înjumătățite"],["Busuioc","sau oregano uscat"],["Ulei","de măsline, sare, piper"]],st:["Prăjeste pâinea.","Pune brânza topita pe pâine caldă — se topeste singură.","Adaugă roșiile cherry tăiate.","Presară busuioc și stropeste cu ulei."],tip:"",local:"Brânza topita Pilos sau Hochland · Roșii cherry românești"},
+sn16:{s:"Gustare",n:"Parfait de Iaurt cu Pere și Nuci",k:250,p:16,f:8,c:28,ro:1,t:["calciu","fibre"],h:"",i:[["200g","iaurt grecesc 2%"],["1 buc","pară româneasca coaptă, feliată"],["15g","nuci românești tocate"],["20g","fulgi de ovăz prăjiți cu miere"],["1 ling.","miere"]],st:["Prăjeste fulgii de ovăz cu mierea în tigaie 3-4 min.","Stratifică în pahar: iaurt → pere → iaurt → pere.","Presară granola și nucile.","Stropeste cu miere."],tip:"",local:"Pere românești · Nuci oltenești"},
  
-bfN7:{slot:"Dimineață",name:"Sandviș Cald Proteic cu Ou și Cașcaval",bKcal:270,p:15,f:18,c:17,tags:["proteine","rapid"],horm:"",ing:[["2 felii","pâine integrală"],["2 buc","ouă întregi"],["20g","cașcaval light"],["20g","avocado felii"],["Sare","piper, boia"],["1 ling.","ulei de măsline"]],steps:["Gătește ouăle bătute ca omletă în puțin ulei.","Rumenește ușor feliile de pâine.","Asamblează: pâine + ouă + cașcaval + avocado.","Reîncălzește 1 minut în tigaie să se topească brânza."],tip:""},
+// ── DESERTURI ZILE NORMALE (dsN1-14) ─────────────────────────────────────────
+dsN1:{s:"Desert",n:"Cozonac Ușor cu Nuci și Cacao",k:220,p:8,f:9,c:28,d:1,ro:1,t:["magneziu","triptofan"],h:"Nucile românești conțin magneziu esențial pentru producerea progesteronului. Cacaoa adaugă triptofan precursor al serotoninei.",i:[["40g","făină integrală de grâu"],["1 buc","ou"],["30ml","lapte"],["1 ling.","miere"],["10g","nuci românești tocate"],["1 ling.","cacao pudra"],["½ ling.","praf de copt"],["½ ling.","scorțișoară"]],st:["Amestecă oul cu mierea și laptele.","Adaugă făina, cacaoa, praful de copt și scorțișoara.","Adaugă nucile tocate.","Coace în formă mică 25 min la 175°C sau 2 min microunde."],tip:"",local:"Nuci românești · Făina integrală Dobrogea sau Baneasa"},
+dsN2:{s:"Desert",n:"Papanași cu Dulceată de Cireșe",k:280,p:14,f:10,c:34,d:1,ro:1,t:["calciu","vitamina C"],h:"Brânza de vaci româneasca fermentată conține calciu și probiotice naturale.",i:[["100g","brânza de vaci 0%"],["1 buc","ou"],["20g","griș de grâu"],["1 ling.","zahăr sau miere"],["½ ling.","praf de copt"],["1 ling.","ulei pentru prăjit"],["40g","dulceata de cireșe din casa sau smântână light"]],st:["Amestecă brânza cu oul, grișul, mierea și praful de copt.","Formează mici discuri plate.","Prajeste în puțin ulei 2-3 min per parte.","Serveste cu dulceata de cireșe sau smântână light."],tip:"Papanași ușori — fără unt, fără zahăr mult.",local:"Brânza de vaci Napolact · Dulceata de cireșe de casă"},
+dsN3:{s:"Desert",n:"Cremă de Brânza cu Dulceată de Prune",k:200,p:14,f:8,c:18,d:1,ro:1,t:["calciu","sorbitol"],h:"",i:[["100g","brânza proaspătă light"],["50g","iaurt grecesc 2%"],["1 ling.","miere"],["1 buc","biscuit digestiv sfărâmat + 5g unt"],["40g","dulceata de prune sau prune uscate tocate"]],st:["Amestecă biscuitul cu untul. Apasă pe fundul unui pahar.","Mixează brânza cu iaurtul și mierea.","Toarnă crema peste baza.","Adaugă dulceata de prune."],tip:"",local:"Dulceata de prune din Argeș sau Maramureș · Brânza româneasca"},
+dsN4:{s:"Desert",n:"Clătite cu Brânza și Vișine",k:320,p:18,f:10,c:38,d:1,ro:1,t:["calciu","antociane"],h:"Vișinele românești conțin antociane care reduc inflamația hormonală și îmbunătățesc sensibilitatea la insulina.",i:[["1 buc","ou"],["30g","făina de grâu"],["100ml","lapte"],["60g","brânza dulce 5%"],["60g","vișine fără sâmburi (proaspete sau la borcan)"],["Scorțișoară","miere"]],st:["Amestecă oul, făina și laptele. Găteste 2 clătite.","Amestecă brânza cu scorțișoară.","Pune vișinele (fără zahăr adăugat sau zeamă puțină).","Umple clătitele cu brânza și vișinele."],tip:"",local:"Vișine din Moldova sau Transilvania · Brânza dulce româneasca"},
+dsN5:{s:"Desert",n:"Budincă de Griș cu Lapte și Dulceată",k:240,p:10,f:6,c:36,d:1,ro:1,t:["calciu","triptofan"],h:"Grișul românesc are indice glicemic mai mic decât zahărul și furnizează triptofan pentru producerea serotoninei seara.",i:[["40g","griș de grâu românesc"],["250ml","lapte 1.5%"],["1 ling.","miere sau zahăr"],["½ ling.","vanilie"],["1 ling.","unt (5g)"],["40g","dulceata de caise sau prune — fără zahăr adăugat"]],st:["Fierbe laptele. Adaugă grișul în ploaie, amestecând continuu.","Găteste 10 min la foc mic. Adaugă mierea, vanilia și untul.","Toarnă în forme sau pahare. Frigider 30 min.","Pune dulceata deasupra."],tip:"Budinca de griș = desertul copilăriei românești!",local:"Griș Dobrogea sau Orizont · Dulceata româneasca fara zahăr"},
+dsN6:{s:"Desert",n:"Tarta de Mere cu Fulgi de Ovăz (Crumble)",k:240,p:6,f:9,c:34,d:1,ro:1,t:["quercetina","fibre"],h:"Merele românești coapte eliberează quercetina și pectina — antioxidanți cu efect echilibrant al estrogenului.",i:[["2 mere","românești, feliate"],["40g","fulgi de ovăz"],["1 ling.","unt (10g)"],["1 ling.","miere"],["½ ling.","scorțișoară"],["Un praf","nucșoară"]],st:["Aranjează merele feliate în formă mică.","Stropeste cu miere și scorțișoară.","Amestecă fulgii de ovăz cu untul topit și o ling. miere.","Pune crumble-ul deasupra. Coace 180°C 25-30 min."],tip:"",local:"Mere Florina sau Golden din podgoriile românești"},
+dsN7:{s:"Desert",n:"Mousse de Ciocolată cu Brânza și Miere",k:200,p:12,f:8,c:20,d:1,ro:1,t:["magneziu","calciu"],h:"",i:[["100g","brânza de vaci sau proaspătă"],["1 ling.","cacao pudra neagra"],["1 ling.","miere"],["50g","iaurt grecesc 2%"],["½ ling.","vanilie"],["Un praf","sare"],["Zmeura","sau cireșe pentru decor"]],st:["Mixează brânza cu iaurtul, cacaoa, mierea, vanilia și sarea.","Mixează 1-2 min cu blenderul de mână până e cremos.","Frigider 20-30 min.","Serveste cu fructe deasupra."],tip:"",local:"Brânza de vaci Napolact · Cacao pudra"},
+dsN8:{s:"Desert",n:"Înghețată de Iaurt cu Mure",k:180,p:14,f:4,c:22,d:1,ro:1,t:["probiotice","antociane"],h:"Murele românesti conțin resveratrol și antociane — antioxidanți care protejează receptorii hormonali.",i:[["200g","iaurt grecesc 0% sau 2%"],["1 ling.","miere"],["80g","mure sau afine"],["½ ling.","vanilie"]],st:["Mixează totul în blender 1-2 min.","Congelator 1 oră.","Scoate și amestecă înainte de servire."],tip:"",local:"Mure din Carpați sau grădinile locale · Iaurt românesc"},
+dsN9:{s:"Desert",n:"Pita Dulce cu Brânza și Stafide",k:230,p:10,f:7,c:32,d:1,ro:1,t:["calciu","fier"],h:"",i:[["1 buc","pita integrală sau lipie"],["60g","brânza dulce 5%"],["20g","stafide sau prune uscate tocate"],["½ ling.","scorțișoară"],["1 ling.","miere"]],st:["Încălzeste pita în tigaie sau cuptor 2 min.","Amestecă brânza cu stafidele, scorțișoară și miere.","Umple pita cu amestecul de brânza.","Serveste cald."],tip:"",local:"Lipie sau pita din piețele românești"},
+dsN10:{s:"Desert",n:"Lapte de Pasare Ușor",k:200,p:10,f:6,c:26,d:1,ro:1,t:["calciu","triptofan"],h:"Desert tradițional românesc. Laptele furnizează calciu și triptofan pentru somnul de calitate.",i:[["400ml","lapte 1.5%"],["2 buc","ouă (separat albusuri si galbenusuri)"],["2 ling.","miere sau zahăr"],["½ ling.","vanilie"],["Un praf","sare"]],st:["Bate albusurile cu sarea spumă tare.","Adaugă 1 ling. miere în albusuri.","Fierbe laptele cu vanilia. Pune linguri din albusuri în laptele fierbinte, 1 min.","Bate gălbenușurile cu mierea, adaugă laptele fierbinte în fir subțire. Pune albusurile deasupra."],tip:"",local:"Desert tradițional românesc"},
+dsN11:{s:"Desert",n:"Muffins cu Cireșe și Iaurt",k:190,p:8,f:6,c:26,d:1,ro:1,t:["antociane","vitamina C"],h:"Cireșele românesti conțin melatonina naturala si antociane cu efect anti-inflamator.",i:[["1 buc","ou"],["50g","iaurt grecesc 2%"],["30g","făina integrală"],["1 ling.","miere"],["½ ling.","praf de copt"],["60g","cireșe fără sâmburi"],["½ ling.","scorțișoară"]],st:["Amestecă oul cu iaurtul și mierea.","Adaugă făina, praful de copt și scorțișoară.","Incorporate cireșele ușor.","Coace în formă de muffin 180°C 18-20 min."],tip:"",local:"Cireșe din Bistrița-Năsăud sau Argeș"},
+dsN12:{s:"Desert",n:"Cremă de Caș cu Miere și Nuci",k:220,p:14,f:12,c:14,d:1,ro:1,t:["calciu","omega-3"],h:"",i:[["100g","caș românesc proaspăt (dulce)"],["50g","iaurt grecesc 2%"],["1 ling.","miere de salcâm"],["15g","nuci românești tocate"],["½ ling.","vanilie"],["Fructe","de sezon pentru decor"]],st:["Mixează casul cu iaurtul, mierea și vanilia.","Pune în pahare.","Adaugă fructele de sezon deasupra.","Presară nucile tocate."],tip:"",local:"Caș proaspăt din Mărginimea Sibiului · Nuci oltenești"},
+dsN13:{s:"Desert",n:"Prăjitură Rapidă de Mere",k:210,p:6,f:6,c:32,d:1,ro:1,t:["fibre","quercetina"],h:"Merele românesti la cuptor eliberează quercetina și pectina în formă ușor biodisponibilă.",i:[["2 mere","românești, cuburi"],["2 buc","ouă"],["30g","făina integrală"],["1 ling.","miere"],["5g","unt"],["½ ling.","praf de copt"],["Scorțișoară","nucșoară"]],st:["Bate ouăle cu mierea.","Adaugă făina, praful de copt, scorțișoară.","Incorporate merele cuburi.","Toarnă în formă unsă cu unt. Coace 180°C 25-30 min."],tip:"",local:"Mere românești · Rețetă tradițională adaptată"},
+dsN14:{s:"Desert",n:"Smoothie Bowl Înghețat cu Fructe de Sezon",k:260,p:16,f:6,c:36,d:1,ro:1,t:["probiotice","vitamina C"],h:"",i:[["200g","iaurt grecesc 2% congelat"],["100g","fructe de sezon (căpșuni, cireșe, piersici)"],["30ml","lapte"],["20g","fulgi de ovăz prăjiți cu miere"],["1 ling.","miere"],["10g","nuci tocate"]],st:["Mixează iaurtul congelat cu o parte din fructe și laptele.","Toarnă în bol.","Adaugă fructele proaspete, granola și nucile.","Stropeste cu miere."],tip:"",local:"Fructe de sezon românești · Iaurt românesc"},
  
-bfN8:{slot:"Dimineață",name:"Clătite Proteice cu Banană și Scorțișoară",bKcal:320,p:20,f:10,c:38,tags:["energie"],horm:"Scorțișoara stabilizează glicemia și reduce poftele de dulce.",ing:[["150g","albușuri (4-5 buc sau cutie)"],["1 buc","banană coaptă (120g), pasată"],["30g","fulgi de ovăz"],["½ ling.","praf de copt"],["1 ling.","scorțișoară"],["1 ling.","miere pentru servire"]],steps:["Amestecă albușurile cu banana pasată, ovăzul, praful de copt și scorțișoara.","Gătește clătite mici în tigaie antiaderentă la foc mic, 2 minute per parte.","Servește cu miere sau fructe proaspete."],tip:"Cu cât banana e mai coaptă (pete maro), cu atât clătitele sunt mai dulci natural."},
- 
-bfP1:{slot:"Dimineață",name:"Budincă de Chia cu Mango și Lapte de Cocos",bKcal:320,p:9,f:16,c:38,veg:true,tags:["fitoestrogeni","energie stabilă"],horm:"Semințele de chia conțin lignani — fitoestrogeni care ajută la echilibrarea estrogenului. Semințele de in adaugă efect sinergic.",ing:[["50g","semințe de chia"],["200ml","lapte de cocos light"],["100g","mango congelat"],["10g","semințe de in măcinate"],["1 ling.","miere"],["½ ling.","scorțișoară"],["1 ling.","extract de vanilie"]],steps:["Amestecă chia cu laptele de cocos, semințele de in și vanilia. Amestecă 1 minut bine.","Lasă 5 minute, amestecă din nou (altfel chia se adună la fund).","Pune la frigider minim 30 minute sau peste noapte.","Adaugă mango tăiat cuburi, miere și scorțișoară la servire."],tip:"Pregătește seara — dimineața ai micul dejun gata în 2 minute."},
- 
-bfP2:{slot:"Dimineață",name:"Ovăz Cald cu Mere Caramelizate și Scorțișoară",bKcal:320,p:8,f:8,c:56,veg:true,tags:["reglare glicemie","anti-inflamator"],horm:"Ovăzul conține beta-glucan care reglează glicemia și reduce cortisolul. Merele conțin quercetină cu efect anti-estrogenic protectiv.",ing:[["60g","fulgi de ovăz"],["250ml","lapte de ovăz"],["1 buc","măr (150g), cuburi"],["1 ling.","ulei de cocos"],["1 ling.","miere"],["1 ling.","scorțișoară"],["10g","nuci tocate"]],steps:["Călește cuburile de măr în uleiul de cocos 2-3 minute cu ½ ling. scorțișoară.","Fierbe ovăzul cu laptele vegetal la foc mediu 5-7 minute.","Transferă în bol, pune merele caramelizate deasupra.","Stropește cu miere și adaugă nucile."],tip:"Ovăzul gătit cu lapte vegetal (nu apă) are textură mult mai cremoasă."},
- 
-bfP3:{slot:"Dimineață",name:"Budincă de Chia cu Căpșuni și Lapte de Ovăz",bKcal:310,p:9,f:13,c:42,veg:true,tags:["fibre","antioxidanți"],horm:"",ing:[["50g","semințe de chia"],["240ml","lapte de ovăz"],["150g","căpșuni proaspete sau congelate"],["1 ling.","miere"],["1 ling.","extract de vanilie"]],steps:["Amestecă chia cu laptele de ovăz și vanilia. Lasă 3 min, amestecă din nou.","Pune la frigider minimum 30 minute sau peste noapte.","Pasează căpșunile sau taie-le felii. Amestecă cu mierea.","Adaugă căpșunile deasupra la servire."],tip:""},
- 
-bfP4:{slot:"Dimineață",name:"Smoothie Verde cu Spanac, Banană și Ghimbir",bKcal:280,p:6,f:8,c:44,veg:true,tags:["detox estrogen","energie"],horm:"Spanacul conține indol-3-carbinol care ajută ficatul să metabolizeze corect estrogenul în exces.",ing:[["60g","spanac proaspăt"],["1 buc","banană coaptă (120g)"],["200ml","lapte de migdale"],["10g","semințe de in măcinate"],["1 ling.","miere"],["½ ling.","ghimbir proaspăt ras"]],steps:["Pune spanacul cu laptele în blender. Mixează 30 secunde.","Adaugă banana, semințele de in, mierea și ghimbirul.","Mixează 45-60 secunde până e complet omogen.","Servește imediat."],tip:"Dacă blenderul nu e puternic, adaugă spanacul ultimul."},
- 
-bfP5:{slot:"Dimineață",name:"Budincă de Ovăz cu Afine și Nuci",bKcal:380,p:10,f:14,c:52,veg:true,tags:["omega-3 ALA","antioxidanți"],horm:"Nucile conțin omega-3 ALA și fitosteroli care susțin echilibrul hormonal.",ing:[["50g","fulgi de ovăz"],["150ml","lapte de ovăz"],["60g","afine"],["10g","nuci tocate"],["1 ling.","miere"],["½ ling.","scorțișoară"]],steps:["Pune ovăzul cu laptele la foc mediu, amestecând, 5-7 minute.","Adaugă jumătate din afine în ultimul minut.","Toarnă în bol, adaugă afinele rămase și nucile.","Stropește cu miere și scorțișoară."],tip:""},
- 
-luN1:{slot:"Prânz",name:"Orez Fajita cu Pui și Mozzarella Light",bKcal:484,p:31,f:17,c:47,tags:["proteine complete"],horm:"",ing:[["250g","piept de pui, fâșii"],["100g","orez basmati (crud)"],["1 buc","ardei roșu + 1 galben, fâșii"],["1 buc","ceapă roșie feliată"],["1 cățel","usturoi zdrobit"],["1 ling.","ulei de măsline"],["1 ling.","boia dulce + ½ chimion + ½ paprika afumată"],["Zeamă","de la ½ lămâie, sare, piper"],["40g","mozzarella light rasă"]],steps:["Fierbe orezul 15-18 minute. Scurge.","Marinează puiul 10 min cu condimentele și lămâia. Rumenește în ulei 5-6 minute.","Sotează ceapa și ardeii 4-5 minute în aceeași tigaie.","Adaugă puiul și orezul, amestecă 2-3 minute. Presară mozzarella, acoperă 1 minut."],tip:"Servește cu 1-2 linguri de iaurt grecesc 2% alături."},
- 
-luN2:{slot:"Prânz",name:"Pui cu Unt și Usturoi cu Piure Cremos",bKcal:480,p:38,f:14,c:46,tags:["satiație","reglare cortisol"],horm:"Cartofii fierți cu coajă au indice glicemic mai mic și conțin potasiu care reglează producția de cortisol.",ing:[["150g","piept de pui, cuburi"],["15g","unt"],["2 căței","usturoi fin tocați"],["1 ling.","ulei de măsline"],["Sare","piper, boia, pătrunjel"],["150g","cartofi fierți cu coajă"],["100ml","lapte cald 1.5%"],["50g","cremă brânza light"]],steps:["Gătește puiul în ulei de măsline 6-8 minute la foc mediu-mare.","Reduce la minim, adaugă untul, usturoiul și pătrunjelul. Amestecă 1 minut.","Zdrobește cartofii fierți cu laptele cald și crema de brânza.","Servește puiul cu sosul deasupra piureului."],tip:"Secretul piureului cremos: laptele trebuie să fie fierbinte când îl adaugi."},
- 
-luN3:{slot:"Prânz",name:"McChicken Homemade cu Sos de Iaurt",bKcal:399,p:31,f:15,c:33,tags:["proteine"],horm:"",ing:[["260g","piept de pui tocat"],["Condimente","sare, piper, boia, usturoi pudră"],["30g","fulgi de porumb mărunțiți"],["40g","iaurt grecesc 2% (sos)"],["5g","muștar"],["Asamblare","2 chifle, salată, castraveți murați"]],steps:["Condimentează carnea, formează 2 chiftele. Lasă 15 min la congelator.","Tăvălește prin fulgii de porumb condimentați.","Coace 15 min la 190°C sau 12 min air fryer 200°C.","Amestecă sosul (iaurt + muștar). Asamblează burgerul."],tip:""},
- 
-luN4:{slot:"Prânz",name:"Somon la Tigaie cu Salată de Avocado",bKcal:390,p:34,f:24,c:8,tags:["omega-3 DHA+EPA","anti-inflamator"],horm:"Somonul — cea mai bogată sursă de omega-3 DHA și EPA, esențiali pentru reglarea ciclului hormonal și reducerea inflamației.",ing:[["150g","file de somon"],["1 ling.","ulei de măsline"],["1 cățel","usturoi zdrobit"],["Sare","piper, boia afumată"],["80g","avocado, cuburi"],["½ buc","castravete, cuburi"],["Zeamă","de la 1 lămâie"],["Frunze","rucola"]],steps:["Pat uscat somonul cu prosop de hârtie.","Condimentează cu sare, piper și boia.","Încinge uleiul la foc mare. Pune somonul cu pielea în jos, 4 minute fără să miști.","Întoarce și gătește 2-3 minute. Servește cu salata de avocado."],tip:"Somonul gata: se desprinde ușor cu spatula. Dacă rezistă, mai are nevoie de 1 minut."},
- 
-luN5:{slot:"Prânz",name:"Lasagna Sănătoasă cu Carne și Cottage",bKcal:480,p:61,f:15,c:38,tags:["calciu","proteine"],horm:"",ing:[["120g","carne tocată vită slabă"],["Ceapă","morcov, țelină, tocate"],["6 căței","usturoi"],["100g","roșii cuburi (conservă) + 10g pastă roșii"],["Condimente","italiene, sare, piper"],["100g","cottage cheese light + 10g parmezan"],["4 foi","lasagna + 20g cașcaval light"]],steps:["Călește ceapa, morcovul, țelina 5 min. Adaugă usturoi + carne.","Adaugă roșiile, condimentele. Fierbe 15-20 min.","Amestecă cottage cu parmezanul.","Montează: sos → foi → cremă brânza. Repetă. Final: cașcaval.","Coace acoperit 25 min 180°C, apoi 10-15 min fără folie."],tip:"Lasagna e mai bună a doua zi — fă o tavă întreagă!"},
- 
-luN6:{slot:"Prânz",name:"Sarmale Proteice în Foi de Varză Acră",bKcal:300,p:32,f:10,c:24,tags:["probiotice","detox estrogen"],horm:"Varza acră fermentată conține probiotice naturale și indoli cu efect de detoxifiere a estrogenului în exces.",ing:[["130g","carne tocată curcan sau vită slabă"],["40g","orez fiert"],["50g","ceapă călită"],["Condimente","cimbru, piper, boia, foi de dafin"],["3-4 foi","varză murată"],["100ml","suc de roșii"]],steps:["Amestecă carnea cu orezul, ceapa și condimentele.","Taie nervurile groase, pune umplutură și rulează.","Așază în cratiță cu apă + suc roșii + foi de dafin.","Fierbe la foc mic 90-120 minute."],tip:"Varza murată = probiotice naturale. Nu o clăti prea mult."},
- 
-luN7:{slot:"Prânz",name:"Mac & Cheese cu Pui Crocant Honey Buffalo",bKcal:492,p:36,f:16,c:47,tags:["proteine","satiație"],horm:"",ing:[["100g","piept pui, cuburi"],["20g","fulgi porumb + 1 ou"],["50g","paste integrale"],["80g","cottage cheese degresat"],["30ml","lapte"],["1 ling.","miere + 1 ling. sos iute (glazură)"],["Ceapă verde","decor"]],steps:["Trece puiul prin ou bătut, apoi prin fulgii de porumb condimentați. Air fryer 200°C 12 min.","Fierbe pastele.","Amestecă cottage + lapte la foc mic 3-4 min până se leagă sosul.","Glazurează puiul cu miere + sos iute. Servește pe mac&cheese."],tip:""},
- 
-luP1:{slot:"Prânz",name:"Bol cu Năut, Ardei Copt și Tahini cu Turmeric",bKcal:390,p:16,f:14,c:48,veg:true,tags:["anti-inflamator","detox hormonal"],horm:"Turmericul reduce inflamația sistemică care perturbă echilibrul hormonal. Adaugă piper negru — crește absorbția curcuminei de 2000x.",ing:[["200g","năut fiert (conservă, clătit)"],["1 buc","ardei roșu copt și curățat"],["2 ling.","tahini"],["1 ling.","ulei de măsline"],["½ ling.","turmeric pudră"],["Zeamă","de la 1 lămâie"],["1 cățel","usturoi zdrobit"],["Sare","piper negru, pătrunjel"]],steps:["Coace ardeiul la 200°C 20 min. Curăță coaja, taie fâșii.","Pregătește dressingul: tahini + ulei + turmeric + lămâie + usturoi. Diluează cu apă.","Pune năutul în bol, adaugă ardeiul copt, toarnă dressingul.","Finalizează cu pătrunjel proaspăt."],tip:"Adaugă mereu un praf de piper negru lângă turmeric pentru absorbție maximă."},
- 
-luP2:{slot:"Prânz",name:"Wrap cu Tofu Afumat, Avocado și Legume",bKcal:440,p:19,f:19,c:36,veg:true,tags:["proteine vegetale","grăsimi sănătoase"],horm:"",ing:[["100g","tofu afumat, fâșii"],["60g","lipie integrală"],["40g","avocado"],["50g","mix salată verde"],["50g","castraveți"],["1 ling.","tahini"],["Zeamă","de la ½ lămâie, sare, piper"]],steps:["Rumenește tofu 3-4 minute per parte în tigaie antiaderentă.","Amestecă tahini cu lămâia și 2 ling. apă până e cremos.","Încălzește lipia. Întinde tahini pe ea.","Adaugă avocado zdrobit, salata, castravetele, tofu. Rulează."],tip:""},
- 
-luP3:{slot:"Prânz",name:"Fasole Bătută cu Usturoi și Ulei de Măsline",bKcal:320,p:14,f:9,c:44,veg:true,tags:["fitoestrogeni blânzi","fibre"],horm:"Fasolea albă conține fitoestrogeni blânzi și fibre solubile care reglează metabolismul hormonal și susțin microbiomul.",ing:[["200g","fasole albă fiartă"],["3 căței","usturoi"],["2 ling.","ulei de măsline extra virgin"],["Zeamă","de la ½ lămâie"],["Sare","piper, cimbru"],["2 felii","pâine integrală prăjită"],["Boia afumată","pentru decor"]],steps:["Pasează fasolea cu usturoi, sare, lămâie și 1 ling. ulei.","Adaugă apă caldă dacă vrei textură mai fluidă.","Prăjește pâinea. Întinde generos pasta.","Stropește cu a doua lingură de ulei, presară boia."],tip:"Fasole din conservă e la fel de bună. Clătește bine sub jet de apă."},
- 
-luP4:{slot:"Prânz",name:"Supă Cremă de Linte Roșie cu Ghimbir",bKcal:310,p:14,f:9,c:44,veg:true,tags:["fier","echilibru hormonal"],horm:"Lintea roșie conține fier + folat esențiale pentru sinteza dopaminei și serotoninei. Ghimbirul reduce inflamația hormonală.",ing:[["100g","linte roșie uscată"],["200ml","lapte de cocos light"],["1 buc","ceapă tocată"],["2 căței","usturoi"],["1 ling.","ghimbir proaspăt ras"],["½ ling.","turmeric + ½ chimion"],["1 ling.","ulei de cocos"],["Sare","piper"]],steps:["Călește ceapa în ulei 3-4 min. Adaugă usturoi, ghimbir, turmeric, chimion. 1 minut.","Adaugă lintea clătită și 400ml apă. Fierbe 20-25 min.","Adaugă laptele de cocos. Mixează cu blenderul de mână.","Ajustează condimentele. Servește cu fir de ulei de măsline."],tip:"Supa se păstrează 3 zile la frigider și îngheață excelent."},
- 
-luP5:{slot:"Prânz",name:"Salată Caldă de Linte cu Spanac și Lămâie",bKcal:320,p:16,f:9,c:42,veg:true,tags:["fier non-hem","serotonină"],horm:"Spanacul conține folat esențial pentru sinteza serotoninei și dopaminei.",ing:[["150g","linte verde fiartă"],["80g","spanac proaspăt"],["100g","roșii cherry"],["30g","ceapă roșie feliată subțire"],["1 ling.","ulei de măsline"],["Zeamă","de la 1 lămâie"],["1 ling.","miere"],["Sare","piper, coriandru măcinat"]],steps:["Pregătește dressingul: ulei + lămâie + miere + sare + piper.","Încălzește lintea în tigaie 2-3 min. Adaugă spanacul, amestecă 30 secunde.","Ia de pe foc. Adaugă roșiile și ceapa roșie.","Toarnă dressingul, amestecă ușor."],tip:""},
- 
-luP6:{slot:"Prânz",name:"Supă de Roșii cu Busuioc și Năut Crocant",bKcal:250,p:12,f:7,c:34,veg:true,tags:["licopen","protecție hormonală"],horm:"Roșiile conțin licopen — antioxidant care protejează receptorii hormonali.",ing:[["400g","roșii sau conservă roșii"],["100g","năut fiert"],["1 buc","ceapă tocată"],["3 căței","usturoi"],["200ml","apă"],["1 ling.","ulei de măsline"],["Busuioc","proaspăt, sare, piper"]],steps:["Coace năutul cu ulei + sare + boia la 200°C 25-30 min până devine crocant.","Călește ceapa 4-5 min, adaugă usturoiul 1 min.","Adaugă roșiile și apa. Fierbe 20 min. Mixează cu blenderul.","Servește cu năut crocant deasupra."],tip:"Năutul crocant face supa din simplă în spectaculoasă."},
- 
-luP7:{slot:"Prânz",name:"Bol cu Halloumi și Năut cu Dressing Balsamic",bKcal:351,p:17,f:15,c:36,veg:true,tags:["calciu","proteine vegetale"],horm:"",ing:[["60g","halloumi light"],["80g","năut fiert"],["50g","morcov"],["50g","ardei gras"],["50g","salată verde"],["5ml","ulei de măsline"],["10ml","oțet balsamic"],["5g","miere"]],steps:["Prăjește halloumi fără ulei, 2-3 min pe fiecare parte.","Taie legumele și amestecă cu năutul.","Pregătește dressingul: oțet + ulei + miere.","Adaugă halloumi și toarnă dressingul."],tip:""},
- 
-dnN1:{slot:"Seară",name:"Pulpe de Pui Miere BBQ cu Cartofi Crocanți",bKcal:390,p:40,f:8,c:38,tags:["proteine","potasiu"],horm:"",ing:[["200g","pulpe pui dezosate, fără piele"],["80g","sos BBQ fără zahăr"],["1 ling.","miere"],["Condimente","sare, piper, boia, usturoi"],["200g","cartofi cuburi, condimentați"]],steps:["Amestecă sosul BBQ cu mierea și condimentele. Marinează puiul 10 min.","Coace la 200°C 22-25 min.","Condimentează cartofii și gătește în air fryer 180°C 25-30 min."],tip:"Cartofi extra crocanți: lasă-i 2-3 minute la aer înainte de servire."},
- 
-dnN2:{slot:"Seară",name:"Tocăniță de Pui cu Mazăre și Morcov",bKcal:310,p:33,f:8,c:24,tags:["satiație"],horm:"",ing:[["150g","piept pui, cuburi"],["100g","mazăre fiartă"],["70g","morcov rondele"],["1 buc","ceapă + 2 căței usturoi"],["150ml","suc de roșii"],["1 ling.","ulei de măsline"],["Sare","piper, cimbru, boia afumată, pătrunjel"]],steps:["Călești ceapa și morcovul în ulei + 2 ling. apă, 5 minute.","Adaugă usturoiul și puiul. Rumenești 3-4 minute.","Toarnă sucul de roșii, adaugă mazărea și condimentele.","Fierbi la foc mic 15-20 minute. Presari pătrunjel."],tip:""},
- 
-dnN3:{slot:"Seară",name:"Omletă Proteică cu Cașcaval și Legume",bKcal:300,p:26,f:17,c:13,tags:["proteine","vitamina D"],horm:"",ing:[["2 buc","ouă"],["18g","cașcaval light ras"],["1 felie","șuncă curcan (40g)"],["36g","ciuperci feliate"],["36g","roșii cherry sau ardei"],["1 felie","pâine integrală"],["1 ling.","ulei de măsline, sare, piper, oregano"]],steps:["Călește legumele în ulei 2-3 minute.","Toarnă ouăle bătute cu condimentele. Adaugă șunca.","Gătește la foc mic 2-3 minute fără să amesteci.","Adaugă cașcavalul în ultimele 30 secunde."],tip:""},
- 
-dnN4:{slot:"Seară",name:"Ruladă de Dovlecei cu 3 Ingrediente",bKcal:330,p:28,f:18,c:12,tags:["proteine","legume"],horm:"",ing:[["3-4 buc","dovlecei mari (~500g)"],["3 buc","ouă"],["120g","cașcaval light ras"],["Sare","piper"],["100g","mozzarella light (umplutură)"],["150g","șuncă slabă (umplutură)"]],steps:["Rade dovleceii, stoarce apa în exces.","Amestecă cu ouăle, cașcavalul, condimentele. Coace pe tavă 180°C 25 min.","Adaugă umplutura pe blat cald. Rulează. Coace 10 minute."],tip:"Se păstrează 2 zile la frigider."},
- 
-dnN5:{slot:"Seară",name:"Fasole Bătută cu Mușchi Afumat",bKcal:340,p:24,f:18,c:22,tags:["fibre","fier"],horm:"",ing:[["110g","fasole fiartă"],["1 cățel","usturoi"],["1 ling.","ulei de măsline"],["90g","mușchi afumat slab"],["30g","ceapă călită"]],steps:["Pasează fasolea cu usturoi, sare și 1 ling. ulei.","Rumenește mușchiul ușor în tigaie.","Pune ceapa călită deasupra.","Servește cald cu pátrunjel și boia dulce."],tip:""},
- 
-dnP1:{slot:"Seară",name:"Salată de Vinete cu Tahini pe Lipie",bKcal:290,p:8,f:16,c:28,veg:true,tags:["grăsimi sănătoase"],horm:"",ing:[["2 buc","vinete medii (~400g)"],["2 ling.","tahini"],["1 cățel","usturoi zdrobit"],["Zeamă","de la 1 lămâie"],["Sare","după gust"],["1 buc","lipie integrală"]],steps:["Coace vinetele pe flacăra aragazului sau la 220°C 20-25 min.","Lasă să se răcească, curăță coaja. Lasă la scurs 20 minute.","Toacă mărunt cu cuțit din lemn sau plastic.","Amestecă cu tahini, usturoi, lămâie, sare. Servește pe lipie încălzită."],tip:"Scurgerea vinetelor e esențială — cu cât mai mult, cu atât mai cremoasă."},
- 
-dnP2:{slot:"Seară",name:"Budincă de Chia cu Cacao și Banană",bKcal:320,p:10,f:14,c:44,veg:true,tags:["magneziu","energie"],horm:"Cacaoa conține magneziu esențial pentru producerea progesteronului și reducerea sindromului premenstrual.",ing:[["45g","semințe de chia"],["200ml","lapte de ovăz"],["1 buc","banană coaptă (100g)"],["10g","cacao pudră"],["1 ling.","miere"]],steps:["Amestecă chia cu laptele. Lasă 3 min, amestecă din nou.","Pune la frigider minim 30 min sau peste noapte.","Pasează banana cu cacaoa și mierea.","Amestecă cu budinca sau pune deasupra."],tip:""},
- 
-dnP3:{slot:"Seară",name:"Hummus Clasic cu Morcovi Crocanți",bKcal:240,p:10,f:10,c:28,veg:true,tags:["fibre","proteine vegetale"],horm:"",ing:[["200g","năut fiert"],["2 ling.","tahini"],["2 căței","usturoi"],["Zeamă","de la 1 lămâie"],["3 ling.","ulei de măsline"],["Sare","boia, chimion"],["2-3 buc","morcovi, bastonașe"]],steps:["Mixează năutul cu tahinul, usturoiul, lămâia și sarea în blender 2-3 minute.","Adaugă treptat apă rece (4-6 ling.) și 2 ling. ulei. Continuă să mixezi.","Transferă în bol, stropește cu ulei, presară boia.","Servește cu morcovii crocanți."],tip:"Secretul hummus-ului cremos: apă rece și mixare lungă."},
- 
-dnP4:{slot:"Seară",name:"Guacamole cu Legume Crocante",bKcal:180,p:3,f:14,c:12,veg:true,tags:["grăsimi esențiale"],horm:"Avocado furnizează acizi grași mononesaturați esențiali pentru producerea hormonilor steroizi.",ing:[["1 buc","avocado copt"],["1 buc","roșie mică, tocată"],["¼ buc","ceapă roșie, tocată fin"],["Zeamă","de la 1 lime"],["Sare","piper, chili"],["Legume","ardei, castraveți, morcovi pentru dipuit"]],steps:["Zdrobește avocado cu o furculiță (textură rustică e mai bună).","Adaugă roșia, ceapa, zeama de lime, sare, piper și chili.","Servește imediat cu legumele tăiate bastonașe."],tip:"Consumă în 30 minute sau acoperă direct cu peliculă să nu se oxideze."},
- 
-sn1:{slot:"Gustare",name:"Iaurt Grecesc cu Scorțișoară și Mere",bKcal:300,p:36,f:7,c:38,tags:["probiotice"],horm:"",ing:[["350g","iaurt grecesc 2%"],["2 buc","mere mici, cuburi"],["Scorțișoară","pudră"],["½ ling.","miere"]],steps:["Pune iaurtul în bol.","Adaugă merele și scorțișoara.","Stropește cu miere."],tip:""},
- 
-sn2:{slot:"Gustare",name:"Cremă de Iaurt cu Cacao și Unt de Arahide",bKcal:220,p:14,f:9,c:22,tags:["magneziu","serotonină"],horm:"Cacaoa neagră conține magneziu, mineral esențial pentru producerea progesteronului.",ing:[["200g","iaurt grecesc 2%"],["1 ling.","cacao pudră neagră"],["1 ling.","unt de arahide natural"],["1 ling.","miere"],["Un praf","scorțișoară"]],steps:["Amestecă toate ingredientele cu un tel mic.","Ajustează dulceața cu miere."],tip:""},
- 
-sn3:{slot:"Gustare",name:"Mere cu Tahini și Miere",bKcal:180,p:5,f:8,c:22,tags:["microbiom"],horm:"Merele conțin pectină care hrănește bacteriile benefice care reglează metabolismul estrogenului.",ing:[["2 buc","mere"],["2 ling.","tahini"],["1 ling.","miere"],["Un praf","scorțișoară"]],steps:["Taie merele felii.","Amestecă tahini cu mierea.","Servește cu scorțișoară."],tip:""},
- 
-sn4:{slot:"Gustare",name:"Iaurt cu Nuci și Miere",bKcal:220,p:18,f:10,c:16,tags:["omega-3","fitosteroli"],horm:"Nucile conțin omega-3 ALA și fitosteroli care susțin echilibrul hormonal.",ing:[["200g","iaurt grecesc 2%"],["20g","nuci tocate"],["1 ling.","miere"],["½ ling.","scorțișoară"]],steps:["Pune iaurtul în bol.","Adaugă nucile, mierea și scorțișoara."],tip:""},
- 
-ds1:{slot:"Desert",name:"Mousse de Avocado cu Cacao și Miere",bKcal:180,p:3,f:14,c:14,dessert:true,tags:["grăsimi hormonale"],horm:"Avocado furnizează grăsimi mononesaturate esențiale pentru producerea hormonilor steroizi.",ing:[["1 buc","avocado copt (120g)"],["2 ling.","cacao pudră neagră"],["1-2 ling.","miere"],["3 ling.","lapte de cocos"],["1 ling.","extract de vanilie"],["Un praf","sare"]],steps:["Scoate miezul avocado și pune-l în blender.","Adaugă cacaoa, mierea, laptele de cocos, vanilia și sarea.","Mixează 1-2 minute până e cremă mătăsoasă.","Răcește 15-20 minute la frigider."],tip:"Cu cât avocado-ul e mai copt, cu atât mousse-ul iese mai cremos."},
- 
-ds2:{slot:"Desert",name:"Biluțe de Curmale cu Nuci și Cacao",bKcal:160,p:3,f:8,c:20,dessert:true,tags:["energie naturală","magneziu"],horm:"Curmalele furnizează potasiu și magneziu natural.",ing:[["80g","curmale Medjool (4-5 buc), fără sâmburi"],["40g","nuci"],["1 ling.","cacao pudră"],["Un praf","sare"],["Fulgi de cocos","opțional"]],steps:["Mixează în robot curmale, nuci, cacao și sarea.","Formează 6-8 biluțe cu palmele ușor umezite.","Tăvălește prin fulgi de cocos sau cacao. Frigider 20 minute."],tip:"Se păstrează 2 săptămâni la frigider sau 3 luni la congelator."},
- 
-ds3:{slot:"Desert",name:"Cheesecake la Pahar cu Fructe de Pădure",bKcal:200,p:14,f:8,c:18,dessert:true,tags:["calciu","serotonină"],horm:"Brânza proaspătă furnizează calciu necesar pentru metabolizarea estrogenului.",ing:[["1 buc","biscuit digestiv (15g), sfărâmat"],["5g","unt topit"],["100g","brânza proaspătă slabă (quark)"],["50g","iaurt grecesc 2%"],["1 ling.","miere"],["Esență","vanilie, zeamă ¼ lămâie"],["40g","mix fructe de pădure"]],steps:["Amestecă biscuitul cu untul topit. Apasă pe fundul unui pahar.","Mixează brânza cu iaurtul, mierea, vanilia și lămâia.","Toarnă crema peste baza. Adaugă fructele deasupra.","Lasă minim 20 min la frigider."],tip:"Nu omite zeama de lămâie — transformă gustul lactat în fresh."},
- 
-ds4:{slot:"Desert",name:"Banane Înghețate cu Unt de Arahide",bKcal:229,p:5,f:11,c:30,dessert:true,tags:["serotonină","triptofan"],horm:"Banana coaptă conține triptofan — precursor direct al serotoninei.",ing:[["1 buc","banană mare coaptă (150g), rondele"],["15g","unt de arahide natural"],["10g","ciocolată neagră >70%, topită"],["Un praf","sare de mare"]],steps:["Taie banana în rondele. Congelator 2 ore.","Scoate, unge cu unt de arahide.","Stropește cu ciocolată topită și sare de mare. Servește imediat."],tip:"Dacă nu ai timp, servește la temperatura camerei — la fel de gustos."},
- 
-ds5:{slot:"Desert",name:"Mini Cheesecake cu Iaurt Grecesc",bKcal:280,p:18,f:10,c:30,dessert:true,tags:["proteine","calciu"],horm:"",ing:[["1 buc","ou"],["130g","iaurt grecesc 2%"],["1 ling.","miere"],["30g","ovăz măcinat"],["½ ling.","praf de copt"],["Fructe de pădure","sau fulgi ciocolată pentru topping"]],steps:["Amestecă oul, iaurtul, mierea, ovăzul, praful de copt.","Toarnă în formă mică.","Gătește: 2-3 min microunde sau 25 min cuptor 180°C.","Lasă 10-15 min la răcit."],tip:"Adaugă extract de vanilie pentru gust mai bogat."},
- 
-ds6:{slot:"Desert",name:"Tarte de Ciocolată Neagră cu Fructe",bKcal:210,p:4,f:11,c:24,dessert:true,tags:["serotonină","anti-cortisol"],horm:"Ciocolata neagră >70% crește serotonina și reduce cortisolul — hormonul stresului.",ing:[["3 ling.","cacao pudră neagră"],["2 ling.","ulei de cocos topit"],["2 ling.","miere"],["Un praf","sare de mare"],["50g","mix fructe de pădure"]],steps:["Amestecă cacaoa cu uleiul de cocos topit, mierea și sarea.","Toarnă în pahare mici.","Adaugă fructele deasupra.","Frigider minim 30 minute."],tip:"Cu cât cacaoa e mai neagră, cu atât mai mulți antioxidanți."},
- 
-ds7:{slot:"Desert",name:"Clătite Dulci cu Brânza și Mere Coapte",bKcal:349,p:23,f:9,c:42,dessert:true,tags:["calciu","fibre"],horm:"",ing:[["1 buc","ou"],["30g","făină de ovăz"],["100ml","lapte"],["60g","brânza dulce 5%"],["100g","măr"],["Scorțișoară","și miere"]],steps:["Amestecă oul, făina și laptele. Gătește 2 clătite.","Călește mărul cuburi cu scorțișoară și miere 2-3 min.","Amestecă mărul cu brânza dulce.","Umple clătitele."],tip:"Adaugă ghimbir pudră pentru gust de toamnă."},
- 
-ds8:{slot:"Desert",name:"Tiramisu Light cu Espresso și Iaurt",bKcal:230,p:10,f:10,c:26,dessert:true,tags:["antioxidanți","calciu"],horm:"",ing:[["1 shot","espresso tare (40ml), răcit"],["6 buc","biscuiți savoiardi"],["100g","mascarpone light"],["50g","iaurt grecesc 2%"],["1 ling.","miere"],["1 ling.","cacao pudră"]],steps:["Amestecă mascarpone cu iaurtul și mierea.","Înmoaie rapid fiecare biscuit în espresso (1-2 secunde).","Aranjează biscuiți → cremă → biscuiți → cremă.","Presară cacao. Frigider minim 2 ore."],tip:"1-2 secunde în espresso, nu mai mult."},
- 
-ds9:{slot:"Desert",name:"Snickers Light cu Unt de Arahide",bKcal:191,p:5,f:9,c:21,dessert:true,tags:["energie naturală"],horm:"",ing:[["2 buc","rondele orez expandat, sfărâmate"],["80g","unt de arahide natural"],["60g","miere"],["20g","arahide prăjite, tocate"],["20g","ciocolată neagră >75%, topită"],["25g","cacao pudră"],["80ml","lapte"]],steps:["Amestecă rondelele cu untul de arahide, mierea și arahidele. Tasează în formă.","Topește ciocolata + lapte + cacao + sare. Amestecă.","Toarnă deasupra. Frigider 30 min. Taie în 6 bucăți."],tip:"Se păstrează la congelator 3 luni."},
- 
-ds10:{slot:"Desert",name:"Îngheţată Proteică cu Iaurt și Scorțișoară",bKcal:220,p:18,f:4,c:28,dessert:true,tags:["proteine","răcoritoare"],horm:"",ing:[["200g","iaurt grecesc 0%"],["1 ling.","miere"],["30ml","lapte de migdale"],["1 ling.","scorțișoară"]],steps:["Pune toate ingredientele în blender.","Mixează 1-2 minute până e cremă fină.","Congelator 1 oră. Amestecă înainte de servire."],tip:""}
+// ── DESERTURI ZILE DE POST — VEGAN (dsP1-14) ─────────────────────────────────
+dsP1:{s:"Desert",n:"Mălai Dulce cu Nuci și Miere",k:220,p:6,f:10,c:28,d:1,v:1,ro:1,t:["magneziu","fibre"],h:"Malaiul românesc conține magneziu și fibre. Nucile adaugă omega-3 ALA.",i:[["60g","mălai fin"],["250ml","lapte de soia"],["10g","nuci românești tocate"],["1 ling.","miere"],["½ ling.","scorțișoară"],["4 buc","prune uscate tocate"]],st:["Fierbe laptele de soia. Adaugă malaiul în ploaie amestecând.","Găteste 10 min la foc mic.","Adaugă mierea, prunele și scorțișoară.","Toarnă în forme. Presară nucile deasupra."],tip:"",local:"Mălai românesc · Prune uscate românești"},
+dsP2:{s:"Desert",n:"Compot de Pere cu Scorțișoară",k:130,p:1,f:0,c:32,d:1,v:1,ro:1,t:["fibre","pectina"],h:"Perele conțin pectina și sorbitol cu efect prebiotic — hrănesc bacteriile care elimina excesul de estrogen.",i:[["2 buc","pere românești, cuburi"],["150ml","apă"],["1 ling.","miere"],["1 buc","scorțișoară stick"],["Zeamă","de la ½ lămâie"]],st:["Pune perele cu apa, mierea și scorțișoară în crăticioară.","Fierbe la foc mic 15-20 min.","Adaugă lămâia. Lasă să se răcorească.","Serveste cald sau rece."],tip:"Compotul de pere = desertul de post al bunicilor.",local:"Pere Bergamotte sau Triumph românești"},
+dsP3:{s:"Desert",n:"Budincă de Ovăz cu Prune și Cacao",k:200,p:6,f:6,c:30,d:1,v:1,ro:1,t:["magneziu","triptofan"],h:"Cacao + prune + ovăz = magneziu + triptofan + fibre. Trio pentru producerea serotoninei și progesteronului.",i:[["40g","fulgi de ovăz"],["200ml","lapte de soia"],["10g","cacao pudra neagra"],["4 buc","prune uscate românești tocate"],["1 ling.","miere"],["½ ling.","vanilie"]],st:["Găteste ovăzul cu laptele de soia 5-7 min.","Adaugă cacaoa, prunele, mierea și vanilia.","Amestecă bine.","Frigider 30 min pentru textură de budincă."],tip:"",local:"Prune uscate românești · Ovăz local"},
+dsP4:{s:"Desert",n:"Jeleu de Vișine cu Miere",k:120,p:2,f:0,c:28,d:1,v:1,ro:1,t:["antociane","vitamina C"],h:"Vișinele românești conțin antociane cu efect anti-estrogenic și vitamina C pentru protecția suprarenalelor.",i:[["200g","vișine fără sâmburi (proaspete sau congelate)"],["200ml","apă"],["1 ling.","agar-agar pudra"],["2 ling.","miere"],["Zeamă","de la ¼ lămâie"]],st:["Amestecă apa cu agar-agar la rece. Adaugă mierea.","Pune la foc mediu amestecând până dă în clocot 2-3 min.","Adaugă vișinele și lămâia.","Toarnă în forme. Frigider 2-4 ore."],tip:"",local:"Vișine din Moldova sau Transilvania"},
+dsP5:{s:"Desert",n:"Mousse de Cacao cu Semininte de In",k:180,p:5,f:12,c:16,d:1,v:1,ro:1,t:["fitoestrogeni","magneziu"],h:"Semintele de in + cacao = fitoestrogeni + magneziu. Combinatia dubla pentru echilibrul progesteronului si echilibrul hormonal.",i:[["20g","seminte de in macinate"],["150ml","lapte de soia"],["2 ling.","cacao pudra neagra"],["1-2 ling.","miere"],["½ ling.","vanilie"],["Un praf","sare"],["Fructe de padure","pentru decor"]],st:["Amestecă semintele de in cu laptele de soia, cacaoa, mierea și vanilia.","Lasă 10 min sa se gelifieze.","Mixează cu blenderul de mână 1-2 min.","Frigider 30 min. Serveste cu fructe de pădure."],tip:"Semintele de in macinate = gelificant natural care inlocuieste gelatina.",local:"Seminte de in din Bărăgan · Cacao pudra Nestlé"},
+dsP6:{s:"Desert",n:"Biluțe din Prune Uscate, Nuci și Cacao",k:160,p:3,f:8,c:20,d:1,v:1,ro:1,t:["magneziu","omega-3"],h:"Prunele uscate + nuci + cacao = sursă triplă de magneziu pentru producerea progesteronului.",i:[["80g","prune uscate românești fără sâmburi"],["40g","nuci românești"],["1 ling.","cacao pudra"],["Un praf","scorțișoară"],["Nuci macinate","pentru acoperire"]],st:["Mixează în robot prunele, nucile, cacaoa și scorțișoară.","Dacă e prea uscat, adaugă 1 ling. apă.","Formează 8-10 biluțe.","Tăvălește prin nuci măcinate."],tip:"Se păstrează 2 săptămâni la frigider.",local:"Prune uscate Argeș · Nuci oltenești"},
+dsP7:{s:"Desert",n:"Griș cu Lapte de Soia și Dulceata de Caise",k:200,p:8,f:4,c:34,d:1,v:1,ro:1,t:["calciu din fortifiat","vitamina E"],h:"",i:[["40g","griș de grâu"],["250ml","lapte de soia (preferabil îmbogățit cu calciu)"],["1 ling.","miere"],["½ ling.","vanilie"],["40g","dulceata de caise fara zahar adaugat sau caise proaspete"]],st:["Fierbe laptele de soia. Adaugă grișul în ploaie amestecând.","Găteste 8-10 min.","Adaugă mierea și vanilia.","Serveste cu dulceata de caise deasupra."],tip:"",local:"Griș românesc · Dulceata de caise de casă"},
+dsP8:{s:"Desert",n:"Compot de Gutui cu Vanilie",k:140,p:1,f:0,c:34,d:1,v:1,ro:1,t:["pectina","vitamina C"],h:"Gutuile românești conțin cea mai multă pectina din toate fructele — leagă și elimina eficient excesul de estrogen din intestin.",i:[["2 buc","gutui românești, curatate si feliate"],["200ml","apă"],["2 ling.","miere"],["½ buc","scorțișoară stick"],["½ ling.","vanilie"],["3 buc","cuișoare"]],st:["Pune gutuile cu apa, mierea, scorțișoară, vanilia și cuișoarele.","Fierbe la foc mic 20-25 min.","Îndepărtează scorțișoară și cuișoarele.","Serveste cald sau rece."],tip:"Gutuile se fac în România de toamnă — cel mai aromat compot.",local:"Gutui românești de toamnă"},
+dsP9:{s:"Desert",n:"Clatite de Post cu Mere și Miere",k:200,p:5,f:5,c:34,d:1,v:1,ro:1,t:["fibre","quercetina"],h:"",i:[["40g","făina integrală"],["120ml","apă minerala efervescenta"],["1 ling.","ulei de floarea soarelui"],["1 ling.","miere"],["1 buc","măr românesc, ras sau felii"],["Scorțișoară","nucșoară"]],st:["Amestecă făina cu apa minerala, uleiul și o ling. miere.","Găteste clătite subțiri în tigaie antiaderenta uscată.","Câleste mărul ras cu scorțișoară 2 min.","Serveste clătitele umplute cu mere și stropite cu miere."],tip:"Apa minerala efervescenta = clătite pufoase fără ouă!",local:"Mere românești · Rețetă de post tradițională"},
+dsP10:{s:"Desert",n:"Budincă de Hrișcă cu Lapte de Soia",k:210,p:8,f:6,c:30,d:1,v:1,ro:1,t:["rutine","aminoacizi complet"],h:"Hrișca + lapte de soia = proteina completa vegetala + rutine + izoflavone.",i:[["40g","hrișcă"],["250ml","lapte de soia"],["1 ling.","miere"],["½ ling.","scorțișoară"],["½ ling.","vanilie"],["Fructe","de padure pentru topping"]],st:["Fierbe hrișca în laptele de soia la foc mic 15-18 min amestecând.","Adaugă mierea, scorțișoară și vanilia.","Transferă în forme sau pahare.","Frigider 1 oră. Serveste cu fructe de padure."],tip:"",local:"Hrișcă româneasca din Apuseni · Lapte de soia"},
+dsP11:{s:"Desert",n:"Mere Coapte cu Nuci și Scorțișoară",k:190,p:3,f:8,c:28,d:1,v:1,ro:1,t:["quercetina","pectina"],h:"Merele coapte eliberează quercetina și pectina în formă activă — eficiența hormonală creșe cu gătirea.",i:[["2 mere","mari românești"],["20g","nuci românești tocate"],["1 ling.","miere"],["1 ling.","scorțișoară"],["Un praf","nucșoară"],["1 ling.","ulei de cocos sau floarea soarelui"]],st:["Taie capacele merelor și scoate miezul cu lingurita.","Amestecă nucile cu mierea, scorțișoară și nucșoară.","Umple merele cu amestecul.","Coace 180°C 25-30 min."],tip:"Desert de toamnă tradițional românesc.",local:"Mere românești · Nuci oltenești"},
+dsP12:{s:"Desert",n:"Sorbet de Cireșe sau Vișine",k:120,p:1,f:0,c:28,d:1,v:1,ro:1,t:["antociane","melatonina"],h:"Cireșele conțin melatonina naturala — hormonul somnului care reglează indirect cortisol și sprijina pierderea în greutate.",i:[["300g","cireșe sau vișine congelate, fără sâmburi"],["Zeamă","de la ½ lămâie"],["1 ling.","miere"],["Frunze","de mentă pentru decor"]],st:["Mixează fructele congelate cu lămâia și mierea în blender.","Serveste imediat ca sorbet moale.","Sau congelator 1 oră pentru textură mai fermă.","Garniseste cu mentă."],tip:"",local:"Cireșe sau vișine din România congelate"},
+dsP13:{s:"Desert",n:"Colivă Modernă Ușoară",k:220,p:8,f:8,c:30,d:1,v:1,ro:1,t:["fibre","magneziu"],h:"Grâul fiert conține fibre insolubile care elimina eficient excesul de estrogen din intestin.",i:[["50g","grâu fiert (sau mei)"],["10g","nuci românești tocate"],["10g","seminte de floarea soarelui"],["1 ling.","miere"],["½ ling.","scorțișoară"],["10g","stafide sau prune uscate tocate"]],st:["Fierbe grâul 25-30 min. Scurge și răceste.","Amestecă cu nucile, semintele, stafidele și scorțișoară.","Stropeste generos cu miere.","Modelează sau serveste în bol."],tip:"Colivă adaptată — mâncată și ca desert de post sănătos.",local:"Grâu românesc · Rețetă tradițională adaptată"},
+dsP14:{s:"Desert",n:"Terci Dulce de Orez cu Lapte de Soia",k:230,p:8,f:4,c:40,d:1,v:1,ro:1,t:["calciu fortifiat","triptofan"],h:"Orezul cu lapte de soia fortifiat = triptofan + calciu + izoflavone. Desert liniștitor care susține producția de melatonina și serotonina.",i:[["50g","orez românesc"],["300ml","lapte de soia (îmbogățit cu calciu)"],["2 ling.","miere"],["½ ling.","vanilie"],["Scorțișoară","nucșoară"],["Dulceata","de vișine sau prune pentru topping"]],st:["Fierbe orezul cu laptele de soia și mierea la foc mic 20-25 min amestecând des.","Adaugă vanilia, scorțișoară și nucșoară.","Toarnă în pahare sau bol.","Frigider 30 min. Adaugă dulceata deasupra."],tip:"Orezul cu lapte = desertul de suflet al bunicilor.",local:"Orez românesc · Dulceata de casă"}
 };
  
-// ═══════════════════════════════════════════════════
-// PLAN STRUCTURE (4 weeks)
-// ═══════════════════════════════════════════════════
+// PLAN 28 ZILE — ZERO REPETIȚII — 100% INGREDIENTE LOCALE ROMÂNEȘTI
 const PLAN=[
-[[{t:'post',bf:'bfP1',lu:'luP1',dn:'dnP1',sn:'',ds:'ds1'},{t:'norm',bf:'bfN1',lu:'luN1',dn:'dnN1',sn:'sn2',ds:'ds2'},{t:'post',bf:'bfP2',lu:'luP2',dn:'dnP2',sn:'',ds:'ds3'},{t:'norm',bf:'bfN2',lu:'luN2',dn:'dnN2',sn:'sn1',ds:'ds4'},{t:'post',bf:'bfP3',lu:'luP3',dn:'dnP3',sn:'',ds:'ds5'},{t:'norm',bf:'bfN3',lu:'luN3',dn:'dnN3',sn:'sn4',ds:'ds6'},{t:'norm',bf:'bfN4',lu:'luN4',dn:'dnN4',sn:'sn3',ds:'ds7'}]],
-[[{t:'post',bf:'bfP4',lu:'luP4',dn:'dnP4',sn:'',ds:'ds8'},{t:'norm',bf:'bfN5',lu:'luN5',dn:'dnN5',sn:'sn2',ds:'ds9'},{t:'post',bf:'bfP5',lu:'luP5',dn:'dnP1',sn:'',ds:'ds10'},{t:'norm',bf:'bfN6',lu:'luN6',dn:'dnN1',sn:'sn1',ds:'ds1'},{t:'post',bf:'bfP1',lu:'luP6',dn:'dnP2',sn:'',ds:'ds2'},{t:'norm',bf:'bfN7',lu:'luN7',dn:'dnN2',sn:'sn4',ds:'ds3'},{t:'norm',bf:'bfN8',lu:'luN1',dn:'dnN3',sn:'sn3',ds:'ds4'}]],
-[[{t:'post',bf:'bfP2',lu:'luP7',dn:'dnP3',sn:'',ds:'ds5'},{t:'norm',bf:'bfN1',lu:'luN4',dn:'dnN4',sn:'sn2',ds:'ds6'},{t:'post',bf:'bfP3',lu:'luP1',dn:'dnP4',sn:'',ds:'ds7'},{t:'norm',bf:'bfN3',lu:'luN2',dn:'dnN5',sn:'sn1',ds:'ds8'},{t:'post',bf:'bfP4',lu:'luP2',dn:'dnP1',sn:'',ds:'ds9'},{t:'norm',bf:'bfN5',lu:'luN5',dn:'dnN1',sn:'sn4',ds:'ds10'},{t:'norm',bf:'bfN2',lu:'luN6',dn:'dnN2',sn:'sn3',ds:'ds1'}]],
-[[{t:'post',bf:'bfP5',lu:'luP3',dn:'dnP2',sn:'',ds:'ds2'},{t:'norm',bf:'bfN6',lu:'luN3',dn:'dnN3',sn:'sn2',ds:'ds3'},{t:'post',bf:'bfP1',lu:'luP4',dn:'dnP3',sn:'',ds:'ds4'},{t:'norm',bf:'bfN7',lu:'luN7',dn:'dnN4',sn:'sn1',ds:'ds5'},{t:'post',bf:'bfP2',lu:'luP5',dn:'dnP4',sn:'',ds:'ds6'},{t:'norm',bf:'bfN4',lu:'luN1',dn:'dnN5',sn:'sn4',ds:'ds7'},{t:'norm',bf:'bfN8',lu:'luN2',dn:'dnN1',sn:'sn3',ds:'ds8'}]]
-];
+[// Săptămâna 1
+{t:'post',bf:'bfP1',lu:'luP1',dn:'dnP1',sn:'',ds:'dsP1'},
+{t:'norm',bf:'bfN1',lu:'luN1',dn:'dnN1',sn:'sn1',ds:'dsN1'},
+{t:'post',bf:'bfP2',lu:'luP2',dn:'dnP2',sn:'',ds:'dsP2'},
+{t:'norm',bf:'bfN2',lu:'luN2',dn:'dnN2',sn:'sn2',ds:'dsN2'},
+{t:'post',bf:'bfP3',lu:'luP3',dn:'dnP3',sn:'',ds:'dsP3'},
+{t:'norm',bf:'bfN3',lu:'luN3',dn:'dnN3',sn:'sn3',ds:'dsN3'},
+{t:'norm',bf:'bfN4',lu:'luN4',dn:'dnN4',sn:'sn4',ds:'dsN4'}
+],[// Săptămâna 2
+{t:'post',bf:'bfP4',lu:'luP4',dn:'dnP4',sn:'',ds:'dsP4'},
+{t:'norm',bf:'bfN5',lu:'luN5',dn:'dnN5',sn:'sn5',ds:'dsN5'},
+{t:'post',bf:'bfP5',lu:'luP5',dn:'dnP5',sn:'',ds:'dsP6'},
+{t:'norm',bf:'bfN6',lu:'luN6',dn:'dnN6',sn:'sn6',ds:'dsN6'},
+{t:'post',bf:'bfP6',lu:'luP6',dn:'dnP6',sn:'',ds:'dsP5'},
+{t:'norm',bf:'bfN7',lu:'luN7',dn:'dnN7',sn:'sn7',ds:'dsN7'},
+{t:'norm',bf:'bfN8',lu:'luN8',dn:'dnN8',sn:'sn8',ds:'dsN8'}
+],[// Săptămâna 3
+{t:'post',bf:'bfP7',lu:'luP7',dn:'dnP7',sn:'',ds:'dsP7'},
+{t:'norm',bf:'bfN9',lu:'luN9',dn:'dnN9',sn:'sn9',ds:'dsN9'},
+{t:'post',bf:'bfP8',lu:'luP8',dn:'dnP8',sn:'',ds:'dsP8'},
+{t:'norm',bf:'bfN10',lu:'luN10',dn:'dnN10',sn:'sn10',ds:'dsN10'},
+{t:'post',bf:'bfP9',lu:'luP9',dn:'dnP9',sn:'',ds:'dsP9'},
+{t:'norm',bf:'bfN11',lu:'luN11',dn:'dnN11',sn:'sn11',ds:'dsN11'},
+{t:'norm',bf:'bfN12',lu:'luN12',dn:'dnN12',sn:'sn12',ds:'dsN12'}
+],[// Săptămâna 4
+{t:'post',bf:'bfP10',lu:'luP10',dn:'dnP10',sn:'',ds:'dsP10'},
+{t:'norm',bf:'bfN13',lu:'luN13',dn:'dnN13',sn:'sn13',ds:'dsN13'},
+{t:'post',bf:'bfP11',lu:'luP11',dn:'dnP11',sn:'',ds:'dsP11'},
+{t:'norm',bf:'bfN14',lu:'luN14',dn:'dnN14',sn:'sn14',ds:'dsN14'},
+{t:'post',bf:'bfP12',lu:'luP12',dn:'dnP12',sn:'',ds:'dsP12'},
+{t:'norm',bf:'bfN15',lu:'luN15',dn:'dnN15',sn:'sn15',ds:'dsN15'},
+{t:'norm',bf:'bfN16',lu:'luN16',dn:'dnN16',sn:'sn16',ds:'dsP13'}
+]];
  
 const WN=['Săptămâna 1','Săptămâna 2','Săptămâna 3','Săptămâna 4'];
 const DL=['Lun','Mar','Mie','Joi','Vin','Sâm','Dum'];
-const ING_IC=`<svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="2"/></svg>`;
+const IC=`<svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="2"/></svg>`;
 const CHV=`<svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 4l3.5 3.5L9 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`;
  
-function scaledKcal(r,factor){return Math.round(r.bKcal*factor);}
-function adjIng(r,factor){
-  if(Math.abs(factor-1)<0.05) return r.ing;
-  return r.ing.map(([q,n])=>{
+function buildRecipe(key,factor,isPost){
+  const r=R[key];if(!r)return '';
+  const isDessert=!!r.d;
+  const adjK=Math.round(r.k*factor);
+  const ings=r.i.map(([q,nm])=>{
     const num=parseFloat(q);
-    if(isNaN(num)) return [q,n];
-    const scaled=Math.round(num*factor*10)/10;
-    return [q.replace(/[\d.]+/,scaled),n];
+    if(isNaN(num))return [q,nm];
+    const sc=Math.round(num*factor*10)/10;
+    return [q.replace(/[\d.]+/,sc),nm];
   });
-}
- 
-function buildRecipe(key,factor,dayKcal,postDay){
-  const r=RECIPES[key]; if(!r) return '';
-  const isDessert=!!r.dessert;
-  const adjK=scaledKcal(r,factor);
-  const ing=adjIng(r,factor);
   return `<div class="mc${isDessert?' dessert':''}" onclick="toggleMC(this)">
 <div class="mc-hdr">
 <div class="mc-left">
-<div class="mc-type${isDessert?' d':''}">${r.slot}</div>
-<div class="mc-name">${r.name}</div>
-<div class="mc-info"><span>~${adjK} kcal</span><span>${Math.round(r.p*factor)}g proteină</span><span>${Math.round(r.f*factor)}g grăsimi</span></div>
-${r.tags&&r.tags.length?`<div class="mc-tags">${r.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`:''}
-</div><div class="chev">${CHV}</div>
-</div>
+<div class="mc-type${isDessert?' d':''}">${r.s}</div>
+<div class="mc-name">${r.n}</div>
+<div class="mc-info"><span>~${adjK} kcal</span><span>${Math.round((r.p||0)*factor)}g prot</span><span>${Math.round((r.f||0)*factor)}g grăs</span><span>${Math.round((r.c||0)*factor)}g carbo</span></div>
+<div class="mc-tags">${r.v?'<span class="vbadge">✓ VEGAN</span>':''}<span class="tag ro">🌿 Local RO</span>${(r.t||[]).map(t=>`<span class="tag h">${t}</span>`).join('')}</div>
+</div><div class="chev">${CHV}</div></div>
 <div class="mc-body">
 <div class="tabs">
 <div class="tab on" onclick="swTab(event,this,'i')">Ingrediente</div>
 <div class="tab" onclick="swTab(event,this,'p')">Preparare</div>
 <div class="tab" onclick="swTab(event,this,'n')">Nutriție</div>
 </div>
-<div class="panel on" data-t="i"><ul class="ings">${ing.map(([q,nm])=>`<li class="ing"><div class="ing-ic">${ING_IC}</div><span class="ing-q">${q}</span><span>${nm}</span></li>`).join('')}</ul></div>
-<div class="panel" data-t="p"><ol class="steps-ol">${r.steps.map((s,i)=>`<li class="step"><div class="sn">${i+1}</div><span>${s}</span></li>`).join('')}</ol>${r.tip?`<div class="tip-box"><strong>Sfat:</strong> ${r.tip}</div>`:''}</div>
-<div class="panel" data-t="n">
-<div class="macros">
-<div class="mac"><div class="mv">${adjK}</div><div class="ml">Kcal</div></div>
-<div class="mac"><div class="mv">${Math.round(r.p*factor)}g</div><div class="ml">Proteine</div></div>
-<div class="mac"><div class="mv">${Math.round(r.f*factor)}g</div><div class="ml">Grăsimi</div></div>
-<div class="mac"><div class="mv">${Math.round(r.c*factor)}g</div><div class="ml">Carbo</div></div>
-</div>
-${r.horm?`<div class="horm-box"><strong>Efect hormonal:</strong> ${r.horm}</div>`:''}
-${Math.abs(factor-1)>0.05?`<div class="adj-note">Porție ajustată la ${U.target} kcal/zi (factor ${factor.toFixed(2)}×)</div>`:''}
-</div>
+<div class="panel on" data-t="i"><ul class="ings">${ings.map(([q,nm])=>`<li class="ing"><div class="ing-ic">${IC}</div><span class="ing-q">${q}</span><span>${nm}</span></li>`).join('')}</ul></div>
+<div class="panel" data-t="p"><ol class="steps-ol">${(r.st||[]).map((s,i)=>`<li class="step"><div class="sn">${i+1}</div><span>${s}</span></li>`).join('')}</ol>${r.tip?`<div class="tip-box"><strong>Sfat:</strong> ${r.tip}</div>`:''}${r.local?`<div class="local-box"><strong>🌿 De unde:</strong> ${r.local}</div>`:''}</div>
+<div class="panel" data-t="n"><div class="macros"><div class="mac"><div class="mv">${adjK}</div><div class="ml">Kcal</div></div><div class="mac"><div class="mv">${Math.round((r.p||0)*factor)}g</div><div class="ml">Proteine</div></div><div class="mac"><div class="mv">${Math.round((r.f||0)*factor)}g</div><div class="ml">Grăsimi</div></div><div class="mac"><div class="mv">${Math.round((r.c||0)*factor)}g</div><div class="ml">Carbo</div></div></div>${r.h?`<div class="horm-box"><strong>Efect hormonal:</strong> ${r.h}</div>`:''}</div>
 </div></div>`;
 }
  
 function buildDayView(wi,di,show){
-  const d=PLAN[wi][0][di];
+  const d=PLAN[wi][di];
   const isPost=d.t==='post';
-  const targetKcal=isPost?U.postTarget:U.target;
-  // Calculate base kcal for this day's meals
+  const tKcal=isPost?U.postTarget:U.target;
   const keys=[d.bf,d.lu,d.dn,d.sn,d.ds].filter(Boolean);
-  const baseTotal=keys.reduce((s,k)=>{
-    const r=RECIPES[k]; return s+(r?r.bKcal:0);
-  },0);
-  const factor=baseTotal>0?targetKcal/baseTotal:1;
-  const clampedFactor=Math.min(Math.max(factor,0.6),1.6);
-  const filledKcal=Math.round(baseTotal*clampedFactor);
-  const fillPct=Math.min(100,Math.round(filledKcal/targetKcal*100));
- 
-  let html=`<div class="dview2${show?' on':''}" id="dv${wi}_${di}">
+  const baseTotal=keys.reduce((s,k)=>s+(R[k]?R[k].k:0),0);
+  const factor=baseTotal>0?Math.min(Math.max(tKcal/baseTotal,0.6),1.6):1;
+  const filledKcal=Math.round(baseTotal*factor);
+  const fillPct=Math.min(100,Math.round(filledKcal/tKcal*100));
+  return `<div class="dview2${show?' on':''}" id="dv${wi}_${di}">
 <div class="day-top">
-<div class="dtype ${isPost?'post':'norm'}">${isPost?'Zi de post · Vegan':'Zi normală'}</div>
+<div class="dtype ${isPost?'post':'norm'}">${isPost?'Zi de post · Vegan 100%':'Zi normală'}</div>
 <div class="kcal-day">~${filledKcal}</div>
-<div class="kcal-budget">
-  <span>din ${targetKcal} kcal</span>
-  <div class="budget-bar"><div class="budget-fill" style="width:${fillPct}%"></div></div>
-  <span>${fillPct}%</span>
-</div>
-${isPost?`<div class="post-note"><strong>Miere permisă!</strong> Evită: carne, pește, ouă, lactate. Porțiile sunt ajustate la ${U.postTarget} kcal.</div>`:''}
+<div class="kcal-budget"><span>din ${tKcal} kcal</span><div class="budget-bar"><div class="budget-fill" style="width:${fillPct}%"></div></div><span>${fillPct}%</span></div>
+${isPost?`<div class="post-note"><strong>Miere permisă!</strong> Toate rețetele de azi sunt 100% vegane și cu ingrediente românești. Porțiile ajustate la ${U.postTarget} kcal.</div>`:''}
 </div>
 <div class="sec-hdr">Mese principale</div>
-${buildRecipe(d.bf,clampedFactor,targetKcal,isPost)}
-${buildRecipe(d.lu,clampedFactor,targetKcal,isPost)}
-${d.sn?buildRecipe(d.sn,clampedFactor,targetKcal,isPost):''}
-${buildRecipe(d.dn,clampedFactor,targetKcal,isPost)}
+${buildRecipe(d.bf,factor,isPost)}
+${buildRecipe(d.lu,factor,isPost)}
+${d.sn?buildRecipe(d.sn,factor,isPost):''}
+${buildRecipe(d.dn,factor,isPost)}
 <div class="sec-hdr">Desert zilnic</div>
-${buildRecipe(d.ds,clampedFactor,targetKcal,isPost)}
+${buildRecipe(d.ds,factor,isPost)}
 </div>`;
-  return html;
 }
  
 function buildApp(){
-  // Header
   document.getElementById('appName').textContent=`${U.gender==='F'?'Plan Feminin':'Plan Masculin'} · ${U.weight}kg → ${U.targetWeight}kg`;
   document.getElementById('appStats').innerHTML=`
 <div class="hdr-stat"><div class="sv">${U.target}</div><div class="sl">kcal normal</div></div>
 <div class="hdr-stat"><div class="sv">${U.postTarget}</div><div class="sl">kcal post</div></div>
-<div class="hdr-stat"><div class="sv">${U.weeks||'—'}</div><div class="sl">săptămâni</div></div>
+<div class="hdr-stat"><div class="sv">${U.weeks||'∞'}</div><div class="sl">săptămâni</div></div>
 <div class="hdr-stat"><div class="sv">${Math.abs(U.weight-U.targetWeight)}kg</div><div class="sl">de slăbit</div></div>`;
- 
   const wt=document.getElementById('wTabs');
   const wv=document.getElementById('wViews');
-  wt.innerHTML=''; wv.innerHTML='';
- 
+  wt.innerHTML='';wv.innerHTML='';
   PLAN.forEach((week,wi)=>{
-    // Week tab
     const btn=document.createElement('button');
-    btn.className='wtab'+(wi===0?' on':'');
-    btn.textContent=WN[wi];
-    btn.onclick=()=>showWeek(wi);
+    btn.type='button';btn.className='wtab'+(wi===0?' on':'');
+    btn.textContent=WN[wi];btn.onclick=()=>showWeek(wi);
     wt.appendChild(btn);
- 
-    // Week view
-    let whtml=`<div class="wview${wi===0?' on':''}" id="wv${wi}">`;
-    // Day nav
-    whtml+=`<div class="day-nav" id="dn${wi}">`;
-    week[0].forEach((d,di)=>{
-      whtml+=`<button class="dpill${di===0?' on':''}" onclick="showDay(${wi},${di})">
-<span class="da">${DL[di]}</span><span class="dn">${di+1}</span>
-<span class="dt ${d.t==='post'?'p':'n'}"></span></button>`;
-    });
+    let whtml=`<div class="wview${wi===0?' on':''}" id="wv${wi}"><div class="day-nav" id="dn${wi}">`;
+    week.forEach((d,di)=>{whtml+=`<button type="button" class="dpill${di===0?' on':''}" onclick="showDay(${wi},${di})"><span class="da">${DL[di]}</span><span class="dn">${di+1}</span><span class="dt ${d.t==='post'?'p':'n'}"></span></button>`;});
     whtml+=`</div><div class="content">`;
-    week[0].forEach((_,di)=>{ whtml+=buildDayView(wi,di,di===0); });
+    week.forEach((_,di)=>{whtml+=buildDayView(wi,di,di===0);});
     whtml+=`</div></div>`;
     wv.innerHTML+=whtml;
   });
 }
  
-function showWeek(wi){
-  document.querySelectorAll('.wtab').forEach((b,i)=>b.classList.toggle('on',i===wi));
-  document.querySelectorAll('.wview').forEach((v,i)=>v.classList.toggle('on',i===wi));
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function showDay(wi,di){
-  document.querySelectorAll(`#dn${wi} .dpill`).forEach((p,i)=>p.classList.toggle('on',i===di));
-  document.querySelectorAll(`#wv${wi} .dview2`).forEach((v,i)=>v.classList.toggle('on',i===di));
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+function showWeek(wi){document.querySelectorAll('.wtab').forEach((b,i)=>b.classList.toggle('on',i===wi));document.querySelectorAll('.wview').forEach((v,i)=>v.classList.toggle('on',i===wi));window.scrollTo({top:0,behavior:'smooth'});}
+function showDay(wi,di){document.querySelectorAll(`#dn${wi} .dpill`).forEach((p,i)=>p.classList.toggle('on',i===di));document.querySelectorAll(`#wv${wi} .dview2`).forEach((v,i)=>v.classList.toggle('on',i===di));window.scrollTo({top:0,behavior:'smooth'});}
 function toggleMC(c){c.classList.toggle('open');}
-function swTab(e,tab,name){
-  e.stopPropagation();
-  const body=tab.closest('.mc-body');
-  body.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
-  body.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
-  tab.classList.add('on');
-  body.querySelector(`[data-t="${name}"]`).classList.add('on');
-}
+function swTab(e,tab,name){e.stopPropagation();const body=tab.closest('.mc-body');body.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));body.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));tab.classList.add('on');body.querySelector(`[data-t="${name}"]`).classList.add('on');}
 </script>
 </body>
 </html>
